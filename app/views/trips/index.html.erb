@@ -1,15 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Trips</h1>
-
+<!-- <p id="notice"><%= notice %></p> -->
 <div class="row">
-  <div class="col-sm-12 text-xs-center bootstrap-welcome">
-    <h1>Welcome <%= current_user.email%> <%=current_user.type %> <%=user_session %></h1>
-    <p><%= link_to 'edit profile', edit_user_registration_path(current_user) %></p>
-    <p><%= link_to 'logout', eval("destroy_#{current_user.type.downcase}_session_path"), method: :delete %></p>
-
+  <div class="col-sm-3 col-md-2 sidebar">
+    <ul class="nav nav-sidebar">
+      <li class="active"><%= link_to 'History', trips_path %></li>
+      <li><%= link_to 'Explore', new_trip_path %></li>
+    </ul>
+  </div>
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <%= render partial: 'shared/flash' unless flash.empty? %>
+    <h1 class="page-header">My Journeys</h1>
+    <div class="blog-masthead">
+    </div>
   </div>
 </div>
+<!-- <h1>Trips</h1>
 
 <table>
   <thead>
@@ -37,6 +41,4 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Trip', new_trip_path %>
+<br> -->

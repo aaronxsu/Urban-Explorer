@@ -1,39 +1,52 @@
 <div class="row">
-  <div class="col-sm-12 text-xs-center bootstrap-welcome">
-    <h1>Welcome <%= current_user.email%> <%=current_user.type %> <%=user_session %></h1>
-    <p><%= link_to 'edit profile', edit_user_registration_path(current_user) %></p>
-    <p><%= link_to 'logout', eval("destroy_#{current_user.type.downcase}_session_path"), method: :delete %></p>
+  <div class="col-sm-3 col-md-2 sidebar">
+    <ul class="nav nav-sidebar">
+      <li><%= link_to 'History', trips_path %></li>
+      <li class="active"><%= link_to 'Explore', new_trip_path %></li>
+    </ul>
+  </div>
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">Start a New Trip</h1>
+    <div class="blog-masthead">
+      <div class="container-fluid">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="#">Select an Area</a>
+          <a class="blog-nav-item" href="#">Must-go Places</a>
+          <a class="blog-nav-item" href="#">Explore</a>
+          <a class="blog-nav-item" href="#">Confirm</a>
+        </nav>
+      </div>
+    </div>
+    <div id='map' class='map'></div>
+    <div id='place-types'>
+      <% @types.each do |cat| %>
+        <div>
+          <%= cat[:cat_first] %><input type="checkbox" name="my-checkbox" data-size='mini' unchecked id='<%= cat[:cat_first] %>' class='cat_first'>
+          <div id='<%= cat[:cat_first] %>-second'></div>
+        </div>
+      <% end %>
+    </div>
+    <%= render 'form', trip: @trip %>
+
+    <!-- <%= link_to 'Back', trips_path %> -->
+    <%= form_tag(trips_new_place_search_path, method: "get", remote: true) do %>
+      <%= label_tag(:latitude, "Latitude:") %>
+      <%= text_field_tag(:latitude) %>
+      <%= label_tag(:longitude, "Longitude:") %>
+      <%= text_field_tag(:longitude) %>
+      <%= label_tag(:distance, "Distance:") %>
+      <%= text_field_tag(:distance) %>
+      <%= label_tag(:distance, "Selected Types:") %>
+      <%= text_field_tag(:selected_types) %>
+      <%= submit_tag("Search", :id => "btn-place_search_submit") %>
+    <% end %>
+
+
+
+    <div id="target-for-change" style="display:none">
+    </div>
+
+
 
   </div>
-</div>
-<h1>New Trip</h1>
-
-<%= render 'form', trip: @trip %>
-
-<%= link_to 'Back', trips_path %>
-
-<div id='map' class='map'></div>
-
-<%= form_tag(trips_new_place_search_path, method: "get", remote: true) do %>
-  <%= label_tag(:latitude, "Latitude:") %>
-  <%= text_field_tag(:latitude) %>
-  <%= label_tag(:longitude, "Longitude:") %>
-  <%= text_field_tag(:longitude) %>
-  <%= label_tag(:distance, "Distance:") %>
-  <%= text_field_tag(:distance) %>
-  <%= label_tag(:distance, "Selected Types:") %>
-  <%= text_field_tag(:selected_types) %>
-  <%= submit_tag("Search", :id => "btn-place_search_submit") %>
-<% end %>
-
-<div id='place-types'>
-  <% @types.each do |cat| %>
-    <div>
-      <%= cat[:cat_first] %><input type="checkbox" name="my-checkbox" data-size='mini' unchecked id='<%= cat[:cat_first] %>' class='cat_first'>
-      <div id='<%= cat[:cat_first] %>-second'></div>
-    </div>
-  <% end %>
-</div>
-
-<div id="target-for-change" style="display:none">
 </div>
