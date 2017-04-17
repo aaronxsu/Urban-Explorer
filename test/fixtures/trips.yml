@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_email: MyString
+  place_ids: 
+  mode: MyString
+  feedback: MyText
+
+two:
+  user_email: MyString
+  place_ids: 
+  mode: MyString
+  feedback: MyText

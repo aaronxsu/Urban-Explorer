@@ -14,4 +14,6 @@
  *= require_self
  *= require 'bootstrap'
  *= require 'bootstrap-glyphicons'
+ *= require leaflet
+ *= require bootstrap-switch.min
  */

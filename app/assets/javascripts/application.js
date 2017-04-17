@@ -13,9 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require paloma
+//= require leaflet
+// require leaflet_draw
+//= require underscore
+//= require ./paloma/trips/new
 //= require_tree .
 
 // tether.js must be included before bootstrap.js
 // for more refenrence http://v4-alpha.getbootstrap.com/components/tooltips/
 //= require tether.min.js
 //= require bootstrap
+//= require bootstrap-switch.min

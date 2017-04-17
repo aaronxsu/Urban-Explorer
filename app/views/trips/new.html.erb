@@ -1,0 +1,32 @@
+<h1>New Trip</h1>
+
+<%= render 'form', trip: @trip %>
+
+<%= link_to 'Back', trips_path %>
+
+<div id='map' class='map'></div>
+
+<%= form_tag(trips_new_place_search_path, method: "get", remote: true) do %>
+  <%= label_tag(:latitude, "Latitude:") %>
+  <%= text_field_tag(:latitude) %>
+  <%= label_tag(:longitude, "Longitude:") %>
+  <%= text_field_tag(:longitude) %>
+  <%= label_tag(:distance, "Distance:") %>
+  <%= text_field_tag(:distance) %>
+  <%= label_tag(:distance, "Selected Types:") %>
+  <%= text_field_tag(:selected_types) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<div id='place-types'>
+  <% @types.each do |cat| %>
+    <div>
+      <%= cat[:cat_first] %><input type="checkbox" name="my-checkbox" data-size='mini' unchecked id='<%= cat[:cat_first] %>' class='cat_first'>
+      <div id='<%= cat[:cat_first] %>-second'></div>
+    </div>
+  <% end %>
+</div>
+
+<div id="target-for-change">
+  <p>There should be something here</p>
+</div>
