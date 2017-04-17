@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 // require turbolinks
 //= require paloma
 //= require leaflet
@@ -23,8 +24,7 @@
 // tether.js must be included before bootstrap.js
 // for more refenrence http://v4-alpha.getbootstrap.com/components/tooltips/
 //= require tether.min.js
-//= require bootstrap
-//= require bootstrap-switch.min
+
 $(document).ready(function(){
   // $("[name='my-checkbox']").bootstrapSwitch();
 
