@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 //= require paloma
 //= require leaflet
 // require leaflet_draw
@@ -25,3 +25,12 @@
 //= require tether.min.js
 //= require bootstrap
 //= require bootstrap-switch.min
+$(document).ready(function(){
+  // $("[name='my-checkbox']").bootstrapSwitch();
+
+  Paloma.start();
+});
+
+$(document).on('page:restore', function(){
+  Paloma.start();
+});

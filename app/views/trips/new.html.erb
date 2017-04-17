@@ -1,3 +1,11 @@
+<div class="row">
+  <div class="col-sm-12 text-xs-center bootstrap-welcome">
+    <h1>Welcome <%= current_user.email%> <%=current_user.type %> <%=user_session %></h1>
+    <p><%= link_to 'edit profile', edit_user_registration_path(current_user) %></p>
+    <p><%= link_to 'logout', eval("destroy_#{current_user.type.downcase}_session_path"), method: :delete %></p>
+
+  </div>
+</div>
 <h1>New Trip</h1>
 
 <%= render 'form', trip: @trip %>
@@ -15,7 +23,7 @@
   <%= text_field_tag(:distance) %>
   <%= label_tag(:distance, "Selected Types:") %>
   <%= text_field_tag(:selected_types) %>
-  <%= submit_tag("Search") %>
+  <%= submit_tag("Search", :id => "btn-place_search_submit") %>
 <% end %>
 
 <div id='place-types'>
@@ -27,6 +35,5 @@
   <% end %>
 </div>
 
-<div id="target-for-change">
-  <p>There should be something here</p>
+<div id="target-for-change" style="display:none">
 </div>

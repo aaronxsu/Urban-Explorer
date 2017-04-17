@@ -1,13 +1,14 @@
-$(document).ready(function(){
-  // $("[name='my-checkbox']").bootstrapSwitch();
-  Paloma.start();
-});
 
 Paloma.controller('Trips', {
   new: function(){
 
+    // var initialize = _.once(function(){location.reload()});
+    // initialize()
+    // if (window.location.href.indexOf('reload')==-1) {
+    //          window.location.replace(window.location.href+'?reload');
+    //     }
+
     var types = this.params.types;
-    console.log(types)
 
     var map = L.map('map', {
       center: [39.952, -75.1652],
@@ -112,7 +113,7 @@ Paloma.controller('Trips', {
 
             _.each(idTwo.split('-'), function(word,index){
               if(index != idTwo.split('-').length-1){
-                currentId += word + ' '
+                currentId += word + '_'
               }else {
                 currentId += word
               }
@@ -127,7 +128,7 @@ Paloma.controller('Trips', {
 
             _.each(idTwo.split('-'), function(word,index){
               if(index != idTwo.split('-').length-1){
-                currentId += word + ' '
+                currentId += word + '_'
               }else {
                 currentId += word
               }
@@ -143,7 +144,6 @@ Paloma.controller('Trips', {
 
       }else{
         var idToDelete = [];
-        // console.log($('#'+id+'-second'))
         $('#'+id+'-second').children().each(function(){
 
 
@@ -154,7 +154,7 @@ Paloma.controller('Trips', {
             var childIdNew = '';
             _.each(childId.split('-'), function(word,index){
               if(word && index != childId.split('-').length-1){
-                childIdNew += word + ' '
+                childIdNew += word + '_'
               }else {
                 childIdNew += word
               }
@@ -168,7 +168,6 @@ Paloma.controller('Trips', {
 
         selectedTypes = _.difference(selectedTypes, idToDelete)
 
-        // selectedTypes = _.reject(selectedTypes, function(type){return type == overlapped})
         console.log(selectedTypes)
         $('#selected_types').val(_.uniq(selectedTypes));
         $('#'+id+'-second').empty();
@@ -176,6 +175,20 @@ Paloma.controller('Trips', {
 
       }
     });
+
+
+    $('#btn-place_search_submit').click(function(e){
+
+      var checkExist = setInterval(function() {
+         if ($('#place-search-result').text().length) {
+            console.log("Exists!");
+            clearInterval(checkExist);
+            var searchPlaces =  _.map(JSON.parse($('#place-search-result').text()), function(obj){return JSON.parse(obj)});
+            console.log(searchPlaces)
+         }
+      }, 1000);
+
+    })
 
 
   }
