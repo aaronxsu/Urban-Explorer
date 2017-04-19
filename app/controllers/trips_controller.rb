@@ -21,25 +21,25 @@ class TripsController < InheritedResources::Base
     @trip = Trip.new
 
     @types = [{
-      :cat_first => 'Store',
+      :cat_first => 'Stores',
       :cat_second => ['Clothing Store', 'Department Store', 'Jewelry Store', 'Shopping Mall', 'Store']
     },{
-      :cat_first => 'Food',
+      :cat_first => 'Foods',
       :cat_second => ['Bakery', 'Cafe', 'Restaurant']
     },{
-      :cat_first => 'Religion',
+      :cat_first => 'Religions',
       :cat_second => ['Church', 'Hindu', 'Temple', 'Mosque', 'Synagogue']
     },{
-      :cat_first => 'Bar',
+      :cat_first => 'Bars',
       :cat_second => ['Bar', 'Night Club',]
     },{
-      :cat_first => 'Art',
+      :cat_first => 'Arts',
       :cat_second => ['Art Gallery', 'Museum', 'Movie Theater']
     },{
-      :cat_first => 'Park',
+      :cat_first => 'Parks',
       :cat_second => ['Amusement Park', 'Park']
     },{
-      :cat_first => 'Other',
+      :cat_first => 'Others',
       :cat_second => ['Casino', 'Library', 'Spa', 'Bowling Alley', 'Stadium']
     }]
 

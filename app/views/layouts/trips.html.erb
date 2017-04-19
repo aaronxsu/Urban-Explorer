@@ -8,8 +8,11 @@
 
       <title>Urban Explorer</title>
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= stylesheet_link_tag 'https://unpkg.com/leaflet@1.0.3/dist/leaflet.css' %>
       <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/leaflet.draw.css' %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js' %>
+      <%= javascript_include_tag 'https://unpkg.com/leaflet@1.0.3/dist/leaflet.js' %>
       <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/leaflet.draw.js' %>
       <%= javascript_include_tag 'https://npmcdn.com/@turf/turf/turf.min.js' %>
       <%= csrf_meta_tags %>
@@ -31,11 +34,10 @@
             <div id="navbar" class="navbar-collapse collapse">
 
                 <ul class="nav navbar-nav navbar-right">
-                  <li class="dropdown">
+                  <li class="nav-item btn-group">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email%> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></li>
-                      <li role="separator" class="divider"></li>
                       <li><%= link_to 'Logout', eval("destroy_#{current_user.type.downcase}_session_path"), method: :delete %></li>
                     </ul>
                   </li>

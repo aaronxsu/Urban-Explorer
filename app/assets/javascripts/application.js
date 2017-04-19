@@ -15,9 +15,7 @@
 //= require twitter/bootstrap
 // require turbolinks
 //= require paloma
-//= require leaflet
-// require leaflet_draw
-//= require underscore
+//= require mdb_min
 //= require ./paloma/trips/new
 //= require_tree .
 

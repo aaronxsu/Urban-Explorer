@@ -22,12 +22,9 @@ a:hover {
 }
 
 /* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #333;
-  background-color: #fff;
-  border: 1px solid #fff;
+.btn.btn-outline-primary.waves-effect{
+  background-color: white;
+  border-radius: 0px;
 }
 
 
