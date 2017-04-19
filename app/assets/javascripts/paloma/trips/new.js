@@ -104,6 +104,8 @@ Paloma.controller('Trips', {
   new: function(){
 
     $('#place-types').hide();
+    $('#btn-explore-fake').hide();
+    $('#sidebar-tab-explore').parent().prop('class', 'active');
 
     var types = this.params.types;
 
@@ -186,8 +188,8 @@ Paloma.controller('Trips', {
           var layerMarker = layer.on('click', function(e){
                                     if(mustGoMarkers.length){
                                       mustGoMarkers = _.reject(mustGoMarkers, function(marker){ return marker === e.target; });
-                                      locMustGo = _.reject(locMustGo, function(location){ return location === e.target.getLatLng; });
-                                      $('#must-go-place').val(JSON.stringify(locMustGo));
+                                      locMustGo = _.reject(locMustGo, function(location){ return location === {lat: e.target.getLatLng.lat, lon: e.target.getLatLng.lng}; });
+                                      $('#start_end').val(JSON.stringify(locMustGo));
                                     }
                                     map.removeLayer(e.target);
                                   })
@@ -196,9 +198,9 @@ Paloma.controller('Trips', {
         }
 
         var locMustGo = _.map(mustGoMarkers, function(place){
-          return place.getLatLng();
+          return {lat: place.getLatLng().lat, lon: place.getLatLng().lng};
         })
-        $('#must-go-place').val(JSON.stringify(locMustGo));
+        $('#start_end').val(JSON.stringify(locMustGo));
       }
 
 
@@ -385,10 +387,16 @@ Paloma.controller('Trips', {
 
 
     $('#explore').click(function(e){
-      if(selectedArea.length && mustGoMarkers.length){
+      if(selectedArea.length && mustGoMarkers.length == 2){
         $(this).toggleClass( "active" );
         $('#place-types').show();
       }
+
+      $("#btn-search-fake").click(function(e){
+        if($('#selected_types').val().length){
+          $("#btn-place_search_submit").click();
+        }
+      })
     });
 
 
@@ -498,7 +506,7 @@ Paloma.controller('Trips', {
         // remove from the array that stores marker IDs and place IDs
         idExplorePois = _.reject(idExplorePois, function(savedIds){return savedIds.marker == L.stamp(e.target)})
         // update the text fied that contains all places to explore
-        $('#explore-place').val(JSON.stringify(idExplorePois));
+        $('#place_explore').val(JSON.stringify(idExplorePois));
       })
       .bindPopup(selectedPlace[0].name)
       .on('mouseover', function(e){
@@ -509,11 +517,27 @@ Paloma.controller('Trips', {
       // All markers of places to explore
       markersExplorePois.push(marker)
       // All marker IDs, place IDs, and place locations of places to explore
-      idExplorePois.push({place: placeId, marker: L.stamp(marker), location: [selectedPlace[0].loc_lat, selectedPlace[0].loc_lng]});
+      idExplorePois.push({place: placeId,
+                          marker: L.stamp(marker),
+                          location: {lat: selectedPlace[0].loc_lat, lon: selectedPlace[0].loc_lng},
+                          name: selectedPlace[0].name,
+                          address: selectedPlace[0].address
+                        });
       // Update the text box for all marker IDs, place IDs, and place locations of places to explore
-      $('#explore-place').val(JSON.stringify(idExplorePois))
+      $('#place_explore').val(JSON.stringify(idExplorePois))
 
 
+    })
+
+    $('#confirm').click(function(e){
+      if(selectedArea.length && mustGoMarkers.length == 2 && idExplorePois.length){
+        $(this).toggleClass( "active" );
+        $('#place-types').hide();
+
+        $('#btn-explore-fake').show().click(function(e){
+          $('#btn-place_explore_submit').click();
+        });
+      }
     })
 
   }

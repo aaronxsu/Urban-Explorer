@@ -64,6 +64,12 @@ body {
     left: 0;
     top: 10px;
   }
+  .sidebar.explore-map{
+    left: 0;
+    top: 10px;
+    background-color: white;
+    border-right-width: 0px;
+  }
   #map-sidebar{
     right: 0;
   }
@@ -103,9 +109,16 @@ body {
     padding-left: 40px;
     position: fixed;
     overflow-y: scroll;
-    // display: block;
-    // height: 800px;
-    // overflow-y: scroll;
+  }
+  .map-explore-main{
+    top: 50px;
+    bottom: 0px;
+    // padding-right: 40px;
+    // padding-left: 40px;
+    position: fixed;
+    overflow-y: scroll;
+    // background-color: #0e0e0e;
+    // margin-left: 15.2%;
   }
   .new-map{
     margin-left: 0px;
@@ -299,4 +312,34 @@ button.btn.btn-outline-default.waves-effect{
   margin-bottom: 10px;
   background-color: white;
   border-radius: 0px;
+}
+
+button#btn-search-fake,
+button#btn-explore-fake{
+  border-radius: 0px;
+  float: right;
+  margin-top: 30px;
+}
+
+button#btn-search-fake{
+  margin-bottom: 30px;
+}
+
+#new_trip{
+  display: none;
+}
+
+#all-points{
+  display: none;
+}
+
+#form-place-search
+{
+  display: none;
+}
+
+#map-explore{
+  // position: relative;
+  height: 50%;
+  width: 100%;
 }

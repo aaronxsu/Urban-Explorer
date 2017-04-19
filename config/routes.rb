@@ -18,4 +18,6 @@ Rails.application.routes.draw do
 
   get 'trips/new/place_search', to: 'trips#place_search'
 
+  get 'trips/new/explore', to: 'trips#explore'
+
 end

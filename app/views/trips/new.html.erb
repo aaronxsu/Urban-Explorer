@@ -1,14 +1,14 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav nav-sidebar">
       <li><%= link_to 'History', trips_path %></li>
       <li class="active"><%= link_to 'Explore', new_trip_path %></li>
     </ul>
-  </div>
+  </div> -->
 
   <div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 main">
-    <h2 class="page-header">Start a New Journey</h2>
-    <div class="blog-masthead">
+    <h2 class="page-header" id='new-header'>Start a New Journey</h2>
+    <div class="blog-masthead" id='blog-masthead-bar'>
       <div class="container-fluid">
         <nav class="blog-nav">
           <a class="blog-nav-item active" href="#" id='select-area'>Select an Area</a>
@@ -21,8 +21,14 @@
 
     <div id='map' class='map'></div>
     <div id='spinner'></div>
+    <div>
+      <button id='btn-explore-fake' class='btn btn-success'>Explore!</button>
+    </div>
 
     <div id='place-types'>
+      <div>
+        <button id='btn-search-fake' class='btn btn-info'>Search</button>
+      </div>
       <table id='tbl-place-types'>
       <tr>
         <td><span>Stores</span>
@@ -80,12 +86,13 @@
       </tr>
       </table>
 
-
     </div>
-    <%= render 'form', trip: @trip %>
+    <div>
+      <%= render 'form', trip: @trip %>
+    </div>
 
     <!-- <%= link_to 'Back', trips_path %> -->
-    <%= form_tag(trips_new_place_search_path, method: "get", remote: true) do %>
+    <%= form_tag(trips_new_place_search_path, method: "get", remote: true, id: 'form-place-search') do %>
       <%= label_tag(:latitude, "Latitude:") %>
       <%= text_field_tag(:latitude) %>
       <%= label_tag(:longitude, "Longitude:") %>
@@ -97,32 +104,28 @@
       <%= submit_tag("Search", :id => "btn-place_search_submit") %>
     <% end %>
 
-    <div id="all-points">
+    <%= form_tag(trips_new_explore_path, method: "get", id: 'all-points') do %>
+      <%= label_tag(:start_end, "Must go Places:") %>
+      <%= text_field_tag(:start_end) %>
+      <%= label_tag(:place_explore, "Places to explore:") %>
+      <%= text_field_tag(:place_explore) %>
+      <%= submit_tag("Explore!", :id => "btn-place_explore_submit") %>
+    <% end %>
+
+    <!-- <div id="all-points">
       <label for="must-go-place">Must go Places:</label>
       <input type="text" id='must-go-place'><br>
       <label for="explore-place">Places to explore:</label>
       <input type="text" id='explore-place'><br>
-    </div>
+    </div> -->
 
     <div id="target-for-change" style='display:none;'>
     </div>
+    <!-- <%= link_to 'Explore!', trips_new_explore_path %> -->
 
   </div>
 
-  <div class="col-sm-3 col-md-2" id='map-sidebar'>
-    <!-- <div class="card" data-type=''>
-      <div class="view overlay hm-white-slight">
-          <img src="https://hips.hearstapps.com/cos.h-cdn.co/assets/15/12/1426952398-ariana.jpg" class="img-fluid" alt="" id='place-img'>
-          <a href="#"><div class="mask waves-effect waves-light"></div></a>
-      </div>
-      <div class="card-block">
-        <h4 class="card-title" id='place-name' data-placeid=''>NAME</h4>
-        <p class="card-text" id='place-rating'>Rating</p>
-        <p class="card-text" id='place-price-types'>Price . Types</p>
-        <p class="card-text" id='place-address'>Address</p>
-        <a href="#" class="btn btn-outline-default waves-effect" id='place-next'>Next</a>
-        <a href="#" class="btn btn-outline-primary waves-effect" id='place-add'>add to map</a>
-      </div>
-    </div> -->
-  </div>
-</div>
+  <!-- <div class="col-sm-3 col-md-2" id='map-sidebar'>
+
+  </div> -->
+<!-- </div> -->

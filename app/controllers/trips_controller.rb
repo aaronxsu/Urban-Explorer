@@ -135,6 +135,42 @@ class TripsController < InheritedResources::Base
 
   end #end of place_search action
 
+  def explore
+
+    mapzen_key = 'mapzen-qJmfq5U'
+
+    # an array of two hashes: the first being the start and the second being the end -> {lat: ..., lng: ... }
+    @start_end = JSON.parse(params[:start_end])
+    @start_location = [@start_end.first]
+    @end_location = [@start_end.last]
+
+    # an array of hashes: all the places to go through
+    # each place has: place ID from Google, marker ID from leaflet, location in the form of [lat, lng], place name, place address
+    @place_explore = JSON.parse(params[:place_explore])
+    @place_locations = @place_explore.map {|this_place| this_place['location'] }
+
+    @start_place_end_locations = @start_location + @place_locations + @end_location
+
+
+
+    tdm_base_uri = 'https://matrix.mapzen.com/many_to_many?'
+    json = JSON.generate({ locations: @start_place_end_locations, costing: "pedestrian" })
+    id = "ManyToMany_StartPlacesEnd"
+    units = "miles"
+
+    tdm_uri = tdm_base_uri + "json=" + json + "&id=" + id + "&units" + units + "&api_key" + mapzen_key
+
+    open(tdm_uri) do |f|
+      @result_json = JSON.parse(f.read)
+    end
+
+    @a = [1, 2, 3]
+    @b = @a.permutation.to_a
+
+
+
+  end # end of explore action
+
 
   private
 

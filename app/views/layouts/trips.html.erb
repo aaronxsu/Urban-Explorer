@@ -47,8 +47,22 @@
           </div>
         </nav>
         <div class="real-body container-fluid">
-          <%= yield %>
-          <%= insert_paloma_hook %>
+
+          <div class="row">
+            <!-- The left sidebar -->
+            <div class="col-sm-3 col-md-2 sidebar">
+              <ul class="nav nav-sidebar">
+                <li><%= link_to 'History', trips_path, id: 'sidebar-tab-history' %></li>
+                <li><%= link_to 'Explore', new_trip_path, id: 'sidebar-tab-explore' %></li>
+              </ul>
+            </div>
+            <!-- The main view -->
+              <%= yield %>
+              <%= insert_paloma_hook %>
+            <!-- The right sidebar -->
+            <div class="col-sm-3 col-md-2" id='map-sidebar'>
+            </div>
+          </div>
         </div>
       <% end %>
     </body>
