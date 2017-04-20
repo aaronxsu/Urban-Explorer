@@ -137,8 +137,6 @@ class TripsController < InheritedResources::Base
 
   def explore
 
-    mapzen_key = 'mapzen-qJmfq5U'
-
     # an array of two hashes: the first being the start and the second being the end -> {lat: ..., lng: ... }
     @start_end = JSON.parse(params[:start_end])
     @start_location = [@start_end.first]
@@ -149,23 +147,61 @@ class TripsController < InheritedResources::Base
     @place_explore = JSON.parse(params[:place_explore])
     @place_locations = @place_explore.map {|this_place| this_place['location'] }
 
+    # start point ... a lot other places ... end point
     @start_place_end_locations = @start_location + @place_locations + @end_location
 
-
-
+    # calculate the time-distance matrix with Mapzen API
     tdm_base_uri = 'https://matrix.mapzen.com/many_to_many?'
     json = JSON.generate({ locations: @start_place_end_locations, costing: "pedestrian" })
     id = "ManyToMany_StartPlacesEnd"
     units = "miles"
-
+    mapzen_key = 'mapzen-qJmfq5U'
     tdm_uri = tdm_base_uri + "json=" + json + "&id=" + id + "&units" + units + "&api_key" + mapzen_key
-
     open(tdm_uri) do |f|
-      @result_json = JSON.parse(f.read)
+      @tdm_result_json = JSON.parse(f.read)
     end
 
-    @a = [1, 2, 3]
-    @b = @a.permutation.to_a
+    # generates a list of possible route indexes
+    @range = [*1..@place_locations.length]
+    @range_opermutations = @range.permutation.to_a.map {|thisIndex| [0] + thisIndex + [@place_locations.length+1]}
+
+
+    @tdm_result_json_flat = @tdm_result_json["many_to_many"].flatten(1)
+    @cost_result = Array.new
+    @range_opermutations.each do |route_order|
+      #for each order of routes
+      time_acc = 0
+      distance_acc = 0.0
+
+      [*0..route_order.length-2].each do |index|
+        index_from = route_order[index] #from this point
+        index_to = route_order[index + 1] #to the next point
+        # @cost_result.push([index_from, index_to])
+
+        # pick out such from-to route
+        route_tdm_result = @tdm_result_json_flat.select do |tdm|
+          tdm["from_index"] == index_from && tdm["to_index"] == index_to
+        end #end of select
+
+        # @cost_result.push(route_tdm_result)
+
+        time_acc += route_tdm_result[0]['time']
+        distance_acc += route_tdm_result[0]["distance"]
+      end # end of this ordered route
+
+      @cost_result.push({
+        :ordered_route_index => route_order,
+        :cost_time => time_acc,
+        :cost_dist => distance_acc
+      })
+
+      @cost_result.sort_by! {|result| result[:cost_time]}
+
+      @place_explore.each_index {|i| @place_explore[i]['index'] = i + 1}
+
+      js :costResult => @cost_result, :places => @place_explore, :startEnd => @start_end, :routeOrders => @range_opermutations
+
+    end # end of range permutation loop
 
 
 

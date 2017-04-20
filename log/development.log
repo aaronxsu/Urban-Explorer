@@ -34902,3 +34902,595 @@ Processing by TripsController#explore as HTML
 Completed 200 OK in 604ms (Views: 193.4ms | ActiveRecord: 0.4ms)
 
 
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 19:34:15 -0400
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (2.5ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.1ms)
+Completed 200 OK in 1647ms (Views: 1166.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 19:39:02 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.1ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.6ms)
+Completed 200 OK in 624ms (Views: 177.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 19:55:38 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (9.9ms)
+Completed 500 Internal Server Error in 527ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (uninitialized class variable @@tdm_result_json in ActionView::CompiledTemplates):
+     7:   <%= @place_locations %><br>
+     8:   <%= @start_place_end_locations %><br> -->
+     9:   <!-- <%= @json %><br> -->
+    10:   <%= @@tdm_result_json %><br>
+    11:   <%= @range %><br>
+    12:   <%= @range_opermutations %><br>
+    13:   <%= @tdm_result_json_flat %><br>
+  
+app/views/trips/explore.html.erb:10:in `_app_views_trips_explore_html_erb__1593347444647036410_70330763571120'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.7ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (63.8ms)
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 19:55:45 -0400
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.5ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.6ms)
+Completed 200 OK in 536ms (Views: 199.4ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 19:56:15 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (0.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.6ms)
+Completed 200 OK in 653ms (Views: 176.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 19:56:58 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (2.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.7ms)
+Completed 200 OK in 497ms (Views: 218.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 19:57:18 -0400
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.4ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.7ms)
+Completed 200 OK in 557ms (Views: 176.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 19:58:51 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.4ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.6ms)
+Completed 200 OK in 634ms (Views: 198.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:16:42 -0400
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 270ms (ActiveRecord: 0.6ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/controllers/trips_controller.rb:186:in `[]'
+app/controllers/trips_controller.rb:186:in `block (2 levels) in explore'
+app/controllers/trips_controller.rb:176:in `each'
+app/controllers/trips_controller.rb:176:in `block in explore'
+app/controllers/trips_controller.rb:171:in `each'
+app/controllers/trips_controller.rb:171:in `explore'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.8ms)
+Started POST "/__web_console/repl_sessions/ac6ef2e36d02398604271a7a0952758d/trace" for ::1 at 2017-04-19 20:17:19 -0400
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:17:19 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 425ms (ActiveRecord: 0.4ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/controllers/trips_controller.rb:186:in `[]'
+app/controllers/trips_controller.rb:186:in `block (2 levels) in explore'
+app/controllers/trips_controller.rb:176:in `each'
+app/controllers/trips_controller.rb:176:in `block in explore'
+app/controllers/trips_controller.rb:171:in `each'
+app/controllers/trips_controller.rb:171:in `explore'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.8ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.3ms)
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:18:07 -0400
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 297ms (ActiveRecord: 0.4ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/controllers/trips_controller.rb:186:in `[]'
+app/controllers/trips_controller.rb:186:in `block (2 levels) in explore'
+app/controllers/trips_controller.rb:176:in `each'
+app/controllers/trips_controller.rb:176:in `block in explore'
+app/controllers/trips_controller.rb:171:in `each'
+app/controllers/trips_controller.rb:171:in `explore'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.7ms)
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:18:30 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.5ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.6ms)
+Completed 200 OK in 572ms (Views: 226.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:19:44 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.7ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.6ms)
+Completed 200 OK in 428ms (Views: 150.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:21:30 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.4ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.6ms)
+Completed 200 OK in 561ms (Views: 169.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:23:26 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.8ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.9ms)
+Completed 200 OK in 744ms (Views: 275.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:24:27 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.6ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.5ms)
+Completed 200 OK in 507ms (Views: 220.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:25:13 -0400
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (2.0ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.7ms)
+Completed 200 OK in 615ms (Views: 220.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:25:30 -0400
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 406ms (ActiveRecord: 0.5ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/controllers/trips_controller.rb:188:in `[]'
+app/controllers/trips_controller.rb:188:in `block (2 levels) in explore'
+app/controllers/trips_controller.rb:176:in `each'
+app/controllers/trips_controller.rb:176:in `block in explore'
+app/controllers/trips_controller.rb:171:in `each'
+app/controllers/trips_controller.rb:171:in `explore'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.9ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.6ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.2ms)
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:25:56 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 292ms (ActiveRecord: 0.5ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/controllers/trips_controller.rb:188:in `[]'
+app/controllers/trips_controller.rb:188:in `block (2 levels) in explore'
+app/controllers/trips_controller.rb:176:in `each'
+app/controllers/trips_controller.rb:176:in `block in explore'
+app/controllers/trips_controller.rb:171:in `each'
+app/controllers/trips_controller.rb:171:in `explore'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.9ms)
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:26:44 -0400
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.6ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.8ms)
+Completed 200 OK in 1067ms (Views: 182.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:27:34 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 592ms (ActiveRecord: 0.4ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/controllers/trips_controller.rb:188:in `[]'
+app/controllers/trips_controller.rb:188:in `block (2 levels) in explore'
+app/controllers/trips_controller.rb:176:in `each'
+app/controllers/trips_controller.rb:176:in `block in explore'
+app/controllers/trips_controller.rb:171:in `each'
+app/controllers/trips_controller.rb:171:in `explore'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.9ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (68.5ms)
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:27:59 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 900ms (ActiveRecord: 0.4ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/controllers/trips_controller.rb:188:in `[]'
+app/controllers/trips_controller.rb:188:in `block (2 levels) in explore'
+app/controllers/trips_controller.rb:176:in `each'
+app/controllers/trips_controller.rb:176:in `block in explore'
+app/controllers/trips_controller.rb:171:in `each'
+app/controllers/trips_controller.rb:171:in `explore'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.9ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.4ms)
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:28:30 -0400
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 537ms (ActiveRecord: 0.7ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/trips_controller.rb:188:in `[]'
+app/controllers/trips_controller.rb:188:in `block (2 levels) in explore'
+app/controllers/trips_controller.rb:176:in `each'
+app/controllers/trips_controller.rb:176:in `block in explore'
+app/controllers/trips_controller.rb:171:in `each'
+app/controllers/trips_controller.rb:171:in `explore'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.7ms)
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:28:58 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 585ms (ActiveRecord: 0.4ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/controllers/trips_controller.rb:188:in `[]'
+app/controllers/trips_controller.rb:188:in `block (2 levels) in explore'
+app/controllers/trips_controller.rb:176:in `each'
+app/controllers/trips_controller.rb:176:in `block in explore'
+app/controllers/trips_controller.rb:171:in `each'
+app/controllers/trips_controller.rb:171:in `explore'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.6ms)
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:29:39 -0400
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 369ms (ActiveRecord: 0.4ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/controllers/trips_controller.rb:189:in `[]'
+app/controllers/trips_controller.rb:189:in `block (2 levels) in explore'
+app/controllers/trips_controller.rb:176:in `each'
+app/controllers/trips_controller.rb:176:in `block in explore'
+app/controllers/trips_controller.rb:171:in `each'
+app/controllers/trips_controller.rb:171:in `explore'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.5ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.3ms)
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:30:57 -0400
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 267ms (ActiveRecord: 0.4ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/controllers/trips_controller.rb:189:in `[]'
+app/controllers/trips_controller.rb:189:in `block (2 levels) in explore'
+app/controllers/trips_controller.rb:176:in `each'
+app/controllers/trips_controller.rb:176:in `block in explore'
+app/controllers/trips_controller.rb:171:in `each'
+app/controllers/trips_controller.rb:171:in `explore'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.2ms)
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:31:12 -0400
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 263ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `distance' for #<Array:0x007fee46b04bb8>):
+  
+app/controllers/trips_controller.rb:189:in `block (2 levels) in explore'
+app/controllers/trips_controller.rb:176:in `each'
+app/controllers/trips_controller.rb:176:in `block in explore'
+app/controllers/trips_controller.rb:171:in `each'
+app/controllers/trips_controller.rb:171:in `explore'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.3ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (66.0ms)
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:31:50 -0400
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.4ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.7ms)
+Completed 200 OK in 530ms (Views: 189.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:32:17 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.1ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.7ms)
+Completed 200 OK in 604ms (Views: 187.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:32:26 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.2ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.7ms)
+Completed 200 OK in 429ms (Views: 203.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:34:09 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.6ms)
+Completed 200 OK in 467ms (Views: 188.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:39:58 -0400
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.7ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.1ms)
+Completed 200 OK in 952ms (Views: 380.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:45:29 -0400
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.4ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.9ms)
+Completed 200 OK in 526ms (Views: 218.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:46:06 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.4ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.9ms)
+Completed 200 OK in 504ms (Views: 249.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:48:04 -0400
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.5ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.1ms)
+Completed 200 OK in 759ms (Views: 313.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:50:08 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (0.5ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.1ms)
+Completed 200 OK in 977ms (Views: 666.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.955707910912594%2C%22lon%22%3A-75.16176156699659%7D%2C%7B%22lat%22%3A39.94412740632048%2C%22lon%22%3A-75.15652589499952%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJK-tvHi_GxokRNZn0yGGW6l8%22%2C%22marker%22%3A165%2C%22location%22%3A%7B%22lat%22%3A39.951903%2C%22lon%22%3A-75.16179500000001%7D%2C%22name%22%3A%22Macy%27s%22%2C%22address%22%3A%221300+Market+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJo8Mj5DrGxokRzOysJp3HPrw%22%2C%22marker%22%3A209%2C%22location%22%3A%7B%22lat%22%3A39.947701%2C%22lon%22%3A-75.16812399999999%7D%2C%22name%22%3A%22Monk%27s+Cafe%22%2C%22address%22%3A%22264+South+16th+Street%2C+Philadelphia%22%7D%2C%7B%22place%22%3A%22ChIJe_Ry3STGxokRwF8sl3jg_po%22%2C%22marker%22%3A216%2C%22location%22%3A%7B%22lat%22%3A39.9461281%2C%22lon%22%3A-75.1646908%7D%2C%22name%22%3A%22Broad+Street+Ministry%22%2C%22address%22%3A%22315+South+Broad+Street%2C+Philadelphia%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-19 20:58:08 -0400
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.955707910912594,\"lon\":-75.16176156699659},{\"lat\":39.94412740632048,\"lon\":-75.15652589499952}]", "place_explore"=>"[{\"place\":\"ChIJK-tvHi_GxokRNZn0yGGW6l8\",\"marker\":165,\"location\":{\"lat\":39.951903,\"lon\":-75.16179500000001},\"name\":\"Macy's\",\"address\":\"1300 Market Street, Philadelphia\"},{\"place\":\"ChIJo8Mj5DrGxokRzOysJp3HPrw\",\"marker\":209,\"location\":{\"lat\":39.947701,\"lon\":-75.16812399999999},\"name\":\"Monk's Cafe\",\"address\":\"264 South 16th Street, Philadelphia\"},{\"place\":\"ChIJe_Ry3STGxokRwF8sl3jg_po\",\"marker\":216,\"location\":{\"lat\":39.9461281,\"lon\":-75.1646908},\"name\":\"Broad Street Ministry\",\"address\":\"315 South Broad Street, Philadelphia\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (10.3ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (2.3ms)
+Completed 200 OK in 737ms (Views: 402.4ms | ActiveRecord: 10.3ms)
+
+
