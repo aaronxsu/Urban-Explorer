@@ -23,14 +23,13 @@ Paloma.controller('Trips', {
     var places = this.params.places;
     var startEnd = this.params.startEnd;
     var routeOrders = this.params.routeOrders;
-    _.each(costResult, function(result, index){
-      result.cost_score = costResult.length - index;
-    });
-    
+    var tbtResult = this.params.tbtResult;
+
     console.log(places)
     console.log(startEnd)
     console.log(routeOrders)
     console.log(costResult)
+    console.log(tbtResult)
 
 
 

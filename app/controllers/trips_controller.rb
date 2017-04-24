@@ -139,20 +139,18 @@ class TripsController < InheritedResources::Base
 
     # an array of two hashes: the first being the start and the second being the end -> {lat: ..., lng: ... }
     @start_end = JSON.parse(params[:start_end])
-    @start_location = [@start_end.first]
-    @end_location = [@start_end.last]
 
     # an array of hashes: all the places to go through
     # each place has: place ID from Google, marker ID from leaflet, location in the form of [lat, lng], place name, place address
     @place_explore = JSON.parse(params[:place_explore])
-    @place_locations = @place_explore.map {|this_place| this_place['location'] }
+    place_locations = @place_explore.map {|this_place| this_place['location'] }
 
     # start point ... a lot other places ... end point
-    @start_place_end_locations = @start_location + @place_locations + @end_location
+    start_place_end_locations = [@start_end.first] + place_locations + [@start_end.last]
 
     # calculate the time-distance matrix with Mapzen API
     tdm_base_uri = 'https://matrix.mapzen.com/many_to_many?'
-    json = JSON.generate({ locations: @start_place_end_locations, costing: "pedestrian" })
+    json = JSON.generate({ locations: start_place_end_locations, costing: "pedestrian" })
     id = "ManyToMany_StartPlacesEnd"
     units = "miles"
     mapzen_key = 'mapzen-qJmfq5U'
@@ -162,8 +160,8 @@ class TripsController < InheritedResources::Base
     end
 
     # generates a list of possible route indexes
-    @range = [*1..@place_locations.length]
-    @range_opermutations = @range.permutation.to_a.map {|thisIndex| [0] + thisIndex + [@place_locations.length+1]}
+    @range = [*1..place_locations.length]
+    @range_opermutations = @range.permutation.to_a.map {|thisIndex| [0] + thisIndex + [place_locations.length+1]}
 
 
     @tdm_result_json_flat = @tdm_result_json["many_to_many"].flatten(1)
@@ -197,14 +195,45 @@ class TripsController < InheritedResources::Base
 
       @cost_result.sort_by! {|result| result[:cost_time]}
 
+      @cost_result.each_index {|i| @cost_result[i]["cost_score"] = @cost_result.length - i}
+
       @place_explore.each_index {|i| @place_explore[i]['index'] = i + 1}
 
-      js :costResult => @cost_result, :places => @place_explore, :startEnd => @start_end, :routeOrders => @range_opermutations
+
 
     end # end of range permutation loop
+    @range_opermutations_with_index = Array.new
+    @range_opermutations.each_index {|i| @range_opermutations_with_index.push({:index => i+1, :order => @range_opermutations[i]})}
+
+    tbt_base_uri = "https://valhalla.mapzen.com/route?"
+    @stop_locations = Array.new
+    @tbt_result = Array.new
+
+    @range_opermutations_with_index.each do |permutation|
+      locations = Array.new
+      permutation[:order].each do |i|
+        if(i != 0 && i != 4) then
+          locations.push(@place_explore.select {|place| place["index"] == i}[0]["location"])
+        end # end of if
+      end # end of order loop
+      locations = [@start_end[0]] + locations + [@start_end[1]]
+      @stop_locations.push({
+        :order => permutation[:order],
+        :permutation_index => permutation[:index],
+        :locations => locations
+      })
 
 
+      tbt_uri = tbt_base_uri + 'json={"locations":' + JSON.generate(locations) + ',"costing":"pedestrian", "directions_options":{"units": "miles"}, "id": ' + permutation[:index].to_s + '}&api_key=' + mapzen_key
+      open(tbt_uri) do |f|
+        @tbt_result.push(JSON.parse(f.read))
+      end
 
+      sleep(0.5)
+
+    end
+
+    js :costResult => @cost_result, :places => @place_explore, :startEnd => @start_end, :routeOrders => @range_opermutations_with_index, :tbtResult => @tbt_result
   end # end of explore action
 
 

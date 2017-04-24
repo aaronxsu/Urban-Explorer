@@ -15,3 +15,8 @@
  *= require_self
 
  */
+
+/* style for the log in page sign in button*/
+input.btn.btn-primary{
+  border-radius: 0px;
+}
