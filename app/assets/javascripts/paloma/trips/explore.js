@@ -61,6 +61,34 @@ var getPlacePhoto = function(originalPhotoCode){
   }
 }
 
+var getMarkerFillColor = function(category){
+  switch(category) {
+    case 'Stores':
+      return '#008000';
+      break;
+    case 'Foods':
+      return '#000080';
+      break;
+    case 'Religions':
+      return '#400080';
+      break;
+    case 'Bars':
+      return '#800040';
+      break;
+    case 'Arts':
+      return '#808000';
+      break;
+    case 'Parks':
+      return '#804000';
+      break;
+    case 'Others':
+      return '#800080';
+      break
+    default:
+      return '#ffffff';
+    }
+}
+
 
 Paloma.controller('Trips', {
   explore: function(){
@@ -191,6 +219,51 @@ Paloma.controller('Trips', {
       ext: 'png'
     }).addTo(mapExplore);
 
+    var layerStartEndMarkers = [];
+    _.each(startEnd, function(point, i){
+      if(i == 0){
+        var markerStart = L.circleMarker([point.lat, point.lon], {
+          stroke: false,
+          fillColor: '#00cd00',
+          fillOpacity: 0.8
+        }).addTo(mapExplore);
+        layerStartEndMarkers.push({
+          marker: markerStart,
+          marker_id: L.stamp(markerStart),
+          id: 'start'
+        });
+      }else{
+        var markerEnd = L.circleMarker([point.lat, point.lon], {
+          stroke: false,
+          fillColor: '#cd0000',
+          fillOpacity: 0.8
+        }).addTo(mapExplore);
+        layerStartEndMarkers.push({
+          marker: markerEnd,
+          marker_id: L.stamp(markerEnd),
+          id: 'end'
+        });
+      }
+    })
+
+    var layerPlaceMarkers = [];
+    _.each(places, function(eachPlace){
+      var placeMarker = L.circleMarker([eachPlace.location.lat, eachPlace.location.lon], {
+        fillColor: getMarkerFillColor(eachPlace.type_high),
+        fillOpacity: 0.8,
+        color: '#ffffff',
+        weight: 2,
+        opacity: 0.6,
+        radius: 8
+      }).bindPopup(eachPlace.name)
+        .addTo(mapExplore);
+      layerPlaceMarkers.push({
+        marker: placeMarker,
+        marker_id: L.stamp(placeMarker),
+        id: eachPlace.place
+      })
+    })
+
     var shapes = [];
     _.each(tbtResult, function(tbt){
       var thisShape = [];
@@ -282,7 +355,7 @@ Paloma.controller('Trips', {
                       +     "<div class='div-route-table'>"
                       +       "<table class='tbl-routes'>"
                       +         "<tr>"
-                      +           "<td colspan='2'>" + startName + "</td>"
+                      +           "<td colspan='2'id='start-name'>" + startName + "</td>"
                       +         "</tr>"
 
         // match the turb by turn result by the route id, find that turn by turn result
@@ -305,10 +378,12 @@ Paloma.controller('Trips', {
             //find the next place's name
             var placeName = '';
             var placePhotoHtml = "";
+            var placeId = '';
             //if this is the last place, then this place should be the end point
             if(arrayIndex == route.point_index_order.length - 1){
               placeName = endName;
               placePhotoHtml = "";
+              placeId = "end";
             }else{
               // if this is not the last place, find this place's name based on place index from the places array
               var thePlace = _.chain(places)
@@ -324,16 +399,15 @@ Paloma.controller('Trips', {
               placePhotoHtml =   "<tr>"
                              +      "<td colspan='2' style='padding-top: 10px;'><div class='view overlay hm-white-slight'>"
                              +        "<img src='" + getPlacePhoto(thePlace.photo_base64) + "' class='img-fluid' id='" + placeId + "-place-img'>"
-                             +        "<a href='#'><div class='mask waves-effect waves-light'></div></a>"
                              +      "</div></td>"
                              +   "</tr>"
             }
             //generate the html for time and distance from current place to the next, and the next place's name
-            routeHtml +=        "<tr>"
+            routeHtml +=        "<tr id='" + route.point_index_order_index.toString()  + "-" + (arrayIndex - 1).toString() + "-leg'>"
                        +          "<td class='leg-time'>" + time + "</td>"
                        +          "<td class='leg-distance'>" + dist + "</td>"
                        +        "</tr>"
-                       +        "<tr>"
+                       +        "<tr id='" + route.point_index_order_index.toString()  + "-" + (arrayIndex - 1).toString() + "-leg'>"
                        +          "<td class='leg-time-unit'>Minutes</td>"
                        +          "<td class='leg-distance-unit'>Miles</td>"
                        +        "</tr>"
@@ -347,8 +421,8 @@ Paloma.controller('Trips', {
         //complte the html table, add +, -, and select buttons to this route
         routeHtml +=          "</table>"
                    +        "</div>"
-                   +      "<button type='button' class='btn btn-outline-primary waves-effect' id='route-add' data-index='" + route.point_index_order_index + "'>+</button>"
-                   +      "<button type='button' class='btn btn-outline-danger waves-effect' id='route-delete' data-index='" + route.point_index_order_index + "'>-</button>"
+                  //  +      "<button type='button' class='btn btn-outline-primary waves-effect' id='route-add' data-index='" + route.point_index_order_index + "'>+</button>"
+                  //  +      "<button type='button' class='btn btn-outline-danger waves-effect' id='route-delete' data-index='" + route.point_index_order_index + "'>-</button>"
                    +      "<button type='button' class='btn btn-outline-default waves-effect' id='route-select' data-index='" + route.point_index_order_index + "'>Select</button>"
                    +    "</div>"
                    +  "</div>"
@@ -358,17 +432,145 @@ Paloma.controller('Trips', {
 
     }); // end of ajax call
 
-    //when a route collapse button is clicked
-    //update the route length and time cost on the summary card
-    //plot the route onto the map ---- this is not implemented yet
-    $("#map-sidebar").on("click", ".btn-up-arrow", function(e){
+
+
+    var layerRouteLegs = [];
+
+    $("#map-sidebar")
+//--------------------------------------------------------
+//
+//   When a route collapse button is clicked
+//   update the route length and time cost
+//   plot the route onto the map
+//
+//--------------------------------------------------------
+    .on("click", ".btn-up-arrow", function(e){
+      //the id of this route in string format
       var routeIdString = this.id;
+      //the entire route
       var clickedRoute = _.filter(tbtResult, function(tbt){return tbt.id === routeIdString})[0];
+      //set the time and distance in the summary card
       $("#trip-time").text(math.round(clickedRoute.trip.summary.time/60, 2));
       $("#trip-distance").text(math.round(clickedRoute.trip.summary.length, 2));
-      console.log(clickedRoute)
-      console.log(this.id);
+
+      if(layerRouteLegs.length){
+        _.each(layerRouteLegs, function(eachLeg){
+          mapExplore.removeLayer(eachLeg.polyline);
+        });
+        layerRouteLegs = [];
+      }
+      _.each(clickedRoute.trip.legs, function(thisLeg, legIndex){
+        var turnPoints = decode(thisLeg.shape);
+        var polylineLeg = L.polyline(turnPoints, {
+          color: "#ffffff",
+          weight: 2
+        }).addTo(mapExplore);
+        layerRouteLegs.push({
+          polyline: polylineLeg,
+          leg_id: routeIdString + "-" + legIndex.toString(),
+          polyline_id: L.stamp(polylineLeg)
+        })
+      })
     })
+//--------------------------------------------------------
+//
+//      When the mouse is over the place names
+//      make its marker bigger
+
+//--------------------------------------------------------
+    .on("mouseover", "td[id*='-name']", function(e){
+      $(this).css('font-weight', 'bold')
+      var elementId = this.id;
+      var hoveredMarker;
+      if(elementId.split("-")[0] == 'start' || elementId.split("-")[0] == 'end'){
+        hoveredMarker = _.filter(layerStartEndMarkers, function(eachMarker){
+          return (eachMarker.id + "-name") === elementId;
+        })[0]
+        hoveredMarker.marker.setRadius(15);
+      }else{
+        hoveredMarker = _.filter(layerPlaceMarkers, function(eachMarker){
+          return (eachMarker.id + "-name") === elementId;
+        })[0]
+        hoveredMarker.marker.setRadius(10).openPopup();
+      }
+    })
+//--------------------------------------------------------
+//
+//      When the mouse is out of the place names
+//      make its marker the original size
+//
+//--------------------------------------------------------
+    .on("mouseout", "td[id*='-name']", function(e){
+      $(this).css('font-weight', 'normal')
+      var elementId = this.id;
+      var hoveredMarker;
+      if(elementId.split("-")[0] == 'start' || elementId.split("-")[0] == 'end'){
+        hoveredMarker = _.filter(layerStartEndMarkers, function(eachMarker){
+          return (eachMarker.id + "-name") === elementId;
+        })[0]
+        hoveredMarker.marker.setRadius(10);
+      }else{
+        hoveredMarker = _.filter(layerPlaceMarkers, function(eachMarker){
+          return (eachMarker.id + "-name") === elementId;
+        })[0]
+        hoveredMarker.marker.setRadius(8).closePopup();
+      }
+    })
+//--------------------------------------------------------
+//
+//      When the mouse is over the place photos
+//      make its marker bigger
+//
+//--------------------------------------------------------
+    .on("mouseover", "img[id*='-place-img']", function(e){
+      var elementId = this.id;
+      var hoveredMarker = _.filter(layerPlaceMarkers, function(eachMarker){
+        return (eachMarker.id.toString() + "-place-img") === elementId;
+      })[0]
+      hoveredMarker.marker.setRadius(10).openPopup();
+    })
+//--------------------------------------------------------
+//
+//      When the mouse is out of the place photos
+//      make its marker the original size
+//
+//--------------------------------------------------------
+    .on("mouseout", "img[id*='-place-img']", function(e){
+      var elementId = this.id;
+      var hoveredMarker = _.filter(layerPlaceMarkers, function(eachMarker){
+        return (eachMarker.id.toString() + "-place-img") === elementId;
+      })[0]
+      hoveredMarker.marker.setRadius(8).closePopup();
+    })
+//--------------------------------------------------------
+//
+//      When the mouse is over the route legs
+//      make this leg bolder and change color to blue
+//
+//--------------------------------------------------------
+    .on("mouseover", "tr[id*='-leg']", function(e){
+      $(this).children().css('font-size', 'bold');
+      var elementId = this.id;
+      var hoveredPolyline = _.filter(layerRouteLegs, function(eachLeg){
+        return (eachLeg.leg_id + '-leg') === elementId;
+      })[0]
+      hoveredPolyline.polyline.setStyle({weight: 4, color: '#428bca'}).bringToFront();
+    })
+//--------------------------------------------------------
+//
+//      When the mouse is out of the route legs
+//      make this leg the original stroke and color
+//
+//--------------------------------------------------------
+    .on("mouseout", "tr[id*='-leg']", function(e){
+      $(this).children().css('font-size', 'normal');
+      var elementId = this.id;
+      var hoveredPolyline = _.filter(layerRouteLegs, function(eachLeg){
+        return (eachLeg.leg_id + '-leg') === elementId;
+      })[0]
+      hoveredPolyline.polyline.setStyle({weight: 2, color: '#ffffff'}).bringToBack();
+    })
+
 
   }// end of paloma explore action functions
 })//end of paloma controller trips

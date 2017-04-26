@@ -82,7 +82,7 @@ var getMarkerFillColor = function(category){
       break
     default:
       return '#ffffff';
-}
+    }
 }
 
 var findNextPlace = function(catPlacesAll, thisPlaceId){
@@ -524,7 +524,8 @@ Paloma.controller('Trips', {
                           address: selectedPlace[0].address,
                           photo_reference: selectedPlace[0].photo_reference,
                           photo_height: selectedPlace[0].photo_height,
-                          photo_width: selectedPlace[0].photo_width
+                          photo_width: selectedPlace[0].photo_width,
+                          type_high: higerCat
                         });
       // Update the text box for all marker IDs, place IDs, and place locations of places to explore
       $('#place_explore').val(JSON.stringify(idExplorePois))
