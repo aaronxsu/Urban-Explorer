@@ -440,14 +440,14 @@ button#btn-search-fake{
 }
 
 .btn-up-arrow{
-  background-color: white ;
+  background-color: #428bca ;
   border-width: 0px;
   float: right;
   margin-top: 8px;
 }
 
 .glyphicon.glyphicon-chevron-up.up-arrow{
-  color: #a9a9a9;
+  color: white;
   font-size: 14px;
 }
 
@@ -462,9 +462,21 @@ button#btn-search-fake{
 }
 
 .tbl-route-rank tr td{
-  text-align: left;
+  text-align: center;
   padding: 5px 0px 5px 10px;
   // border: 1px solid black;
+}
+
+.tbl-route-rank tr:nth-child(1) td{
+  font-size: 24px;
+}
+
+.tbl-route-rank tr td:nth-child(1){
+  color: #03a9f4;
+}
+
+.tbl-route-rank tr td:nth-child(2){
+  color: #4caf50;
 }
 
 .div-route-table{
@@ -486,11 +498,21 @@ button#btn-search-fake{
   height: 20px;
 }
 
-.leg-distance,
-.leg-time{
-  border-left: 1px dashed #a9a9a9;
+.tbl-routes tr .leg-time,
+.tbl-routes tr .leg-time-unit{
+  border-right: 1px dashed #a9a9a9;
   height: 20px;
+  text-align: right;
+  padding-right: 10px;
 }
+
+.leg-time,
+.leg-time-unit,
+.leg-distance,
+.leg-distance-unit{
+  color: #c3c3c3;
+}
+
 
 #route-add,
 #route-delete{

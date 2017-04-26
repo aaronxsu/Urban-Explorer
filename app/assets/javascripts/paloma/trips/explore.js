@@ -49,8 +49,17 @@ var decode = function(str, precision) {
     return coordinates;
 };
 
-// _.range(48).concat([3200])
+// these are the weather icon fonts, the index of each element is the code mapped to yahoo weather code
 var weatherIcons = ['&#xf056;', '&#xf01d;', '&#xf073;', '&#xf01e;', '&#xf01e;', '&#xf017;', '&#xf0b5;', '&#xf0b5;', '&#xf04e;', '&#xf04e;', '&#xf019;', '&#xf01a', '&#xf01a;', '&#xf01b;', '&#xf01b;', '&#xf064;', '&#xf01b;', '&#xf015;', '&#xf0b5;', '&#xf063;', '&#xf014;', '&#xf0b6', '&#xf062;', '&#xf050;', '&#xf021;', '&#xf076;', '&#xf013;', '&#xf086;', '&#xf002;', '&#xf083;', '&#xf00c;', '&#xf02e;', '&#xf00d;', '&#xf02e;', '&#xf00d;', '&#xf015;', '&#xf072;', '&#xf01e;', '&#xf01e;', '&#xf01e;', '&#xf01a;', '&#xf01b;', '&#xf01b;', '&#xf01b;', '&#xf013;', '&#xf01e;', '&#xf01b;', '&#xf01d;', '&#xf075'];
+
+
+var getPlacePhoto = function(originalPhotoCode){
+  if(originalPhotoCode != "0"){
+    return "data:image/jpeg;base64," + originalPhotoCode;
+  }else if(originalPhotoCode == '0'){
+    return "http://www.nurnberg.com/images/image_unavailable_lrg.png"
+  }
+}
 
 
 Paloma.controller('Trips', {
@@ -156,11 +165,16 @@ Paloma.controller('Trips', {
 
     var reverseGeoCodeUriStart = "https://search.mapzen.com/v1/reverse?api_key=mapzen-qJmfq5U&point.lat=" + startEnd[0].lat + "&point.lon=" + startEnd[0].lon + "&size=1"
     var reverseGeoCodeUriEnd = "https://search.mapzen.com/v1/reverse?api_key=mapzen-qJmfq5U&point.lat=" + startEnd[1].lat + "&point.lon=" + startEnd[1].lon + "&size=1"
+    var startName = '';
+    var endName = '';
     $.ajax(reverseGeoCodeUriStart).done(function(data){
-      $('#td-start-address').text(data.features[0].properties.name);
+      console.log(data)
+      startName = data.features[0].properties.name + ", " + data.features[0].properties.localadmin + ", " + data.features[0].properties.region_a + " " + data.features[0].properties.postalcode;
+      $('#td-start-address').text(startName);
     })
     $.ajax(reverseGeoCodeUriEnd).done(function(data){
-      $('#td-end-address').text(data.features[0].properties.name);
+      endName = data.features[0].properties.name + ", " + data.features[0].properties.localadmin + ", " + data.features[0].properties.region_a + " " + data.features[0].properties.postalcode;
+      $('#td-end-address').text(endName);
     })
 
 
@@ -244,11 +258,117 @@ Paloma.controller('Trips', {
 
       console.log(routeScore)
 
+      _.each(routeScore, function(route, routeIndex){
+        //first generate the html for the route collapse, the time and tree rank, and the first place name
+        var routeHtml = "<div>"
+                      +   "<div class='card card-block' style='background-color: #428bca; color: white;'>"
+                      +     "<h4 class='card-title' style='display:inline-block;'>Route&ensp;" + (routeIndex + 1).toString() + "</h4>"
+                      +     "<button class='btn-up-arrow' id='" + route.point_index_order_index + "' type='button' data-toggle='collapse' data-target='#collapse-" + route.point_index_order_index + "' aria-expanded='false' aria-controls='collapse-" + route.point_index_order_index + "'><span class='glyphicon glyphicon-chevron-up up-arrow' aria-hidden='true'></span></button>"
+                      +   "</div>"
+                      +   "<div class='collapse' id='collapse-" + route.point_index_order_index + "'>"
+                      +     "<div class='card card-block route'>"
+                      +       "<div class='div-route-rank'>"
+                      +         "<table class='tbl-route-rank'>"
+                      +           "<tr>"
+                      +             "<td>" + (routeScore.length - route.cost_score + 1).toString() + "</td>"
+                      +             "<td>" + (routeScore.length - route.tree_score + 1).toString() + "</td>"
+                      +           "</tr>"
+                      +           "<tr>"
+                      +             "<td>Efficiency</td>"
+                      +             "<td>Green</td>"
+                      +           "</tr>"
+                      +         "</table>"
+                      +       "</div>"
+                      +     "<div class='div-route-table'>"
+                      +       "<table class='tbl-routes'>"
+                      +         "<tr>"
+                      +           "<td colspan='2'>" + startName + "</td>"
+                      +         "</tr>"
 
+        // match the turb by turn result by the route id, find that turn by turn result
+        // this result contains time and distance which are info needed for the trip leg display
+        var routeTbt = _.chain(tbtResult)
+                        .filter(function(tbt){
+                          return parseInt(tbt.id) === route.point_index_order_index;
+                        })
+                        .first()
+                        .value();
 
+        //for this route's places, loop on these places
+        _.each(route.point_index_order, function(pointIndex, arrayIndex){
+
+          //if it is not the first place, because the first places should be the starting point
+          if(arrayIndex != 0){
+            //ge the time and distance from the current place to the next place
+            var time = math.round(routeTbt.trip.legs[arrayIndex - 1].summary.time / 60.0, 1);
+            var dist = math.round(routeTbt.trip.legs[arrayIndex - 1].summary.length, 2);
+            //find the next place's name
+            var placeName = '';
+            var placePhotoHtml = "";
+            //if this is the last place, then this place should be the end point
+            if(arrayIndex == route.point_index_order.length - 1){
+              placeName = endName;
+              placePhotoHtml = "";
+            }else{
+              // if this is not the last place, find this place's name based on place index from the places array
+              var thePlace = _.chain(places)
+                              .filter(function(thisPlace){
+                                return thisPlace.index === pointIndex;
+                              })
+                              .first()
+                              .value()
+              placeName = thePlace.name;
+              // the place ID from google maps
+              placeId = thePlace.place;
+              // the html for the place photo from google
+              placePhotoHtml =   "<tr>"
+                             +      "<td colspan='2' style='padding-top: 10px;'><div class='view overlay hm-white-slight'>"
+                             +        "<img src='" + getPlacePhoto(thePlace.photo_base64) + "' class='img-fluid' id='" + placeId + "-place-img'>"
+                             +        "<a href='#'><div class='mask waves-effect waves-light'></div></a>"
+                             +      "</div></td>"
+                             +   "</tr>"
+            }
+            //generate the html for time and distance from current place to the next, and the next place's name
+            routeHtml +=        "<tr>"
+                       +          "<td class='leg-time'>" + time + "</td>"
+                       +          "<td class='leg-distance'>" + dist + "</td>"
+                       +        "</tr>"
+                       +        "<tr>"
+                       +          "<td class='leg-time-unit'>Minutes</td>"
+                       +          "<td class='leg-distance-unit'>Miles</td>"
+                       +        "</tr>"
+                       +        placePhotoHtml
+                       +        "<tr>"
+                       +          "<td colspan='2' id='" + placeId + "-name'>" + placeName + "</td>"
+                       +        "</tr>"
+
+          }
+        })
+        //complte the html table, add +, -, and select buttons to this route
+        routeHtml +=          "</table>"
+                   +        "</div>"
+                   +      "<button type='button' class='btn btn-outline-primary waves-effect' id='route-add' data-index='" + route.point_index_order_index + "'>+</button>"
+                   +      "<button type='button' class='btn btn-outline-danger waves-effect' id='route-delete' data-index='" + route.point_index_order_index + "'>-</button>"
+                   +      "<button type='button' class='btn btn-outline-default waves-effect' id='route-select' data-index='" + route.point_index_order_index + "'>Select</button>"
+                   +    "</div>"
+                   +  "</div>"
+                   + "</div>"
+        $('#map-sidebar').append(routeHtml);
+      })
 
     }); // end of ajax call
 
+    //when a route collapse button is clicked
+    //update the route length and time cost on the summary card
+    //plot the route onto the map ---- this is not implemented yet
+    $("#map-sidebar").on("click", ".btn-up-arrow", function(e){
+      var routeIdString = this.id;
+      var clickedRoute = _.filter(tbtResult, function(tbt){return tbt.id === routeIdString})[0];
+      $("#trip-time").text(math.round(clickedRoute.trip.summary.time/60, 2));
+      $("#trip-distance").text(math.round(clickedRoute.trip.summary.length, 2));
+      console.log(clickedRoute)
+      console.log(this.id);
+    })
 
-  }
-})
+  }// end of paloma explore action functions
+})//end of paloma controller trips

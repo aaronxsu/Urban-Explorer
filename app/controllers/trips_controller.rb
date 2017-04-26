@@ -212,8 +212,8 @@ class TripsController < InheritedResources::Base
     @range_opermutations_with_index.each do |permutation|
       locations = Array.new
       permutation[:order].each do |i|
-        if(i != 0 && i != @range_opermutations_with_index.length + 1) then
-          locations.push(@place_explore.select {|place| place["index"] == i}[0]["location"])
+        if(i != 0 && i != 4) then
+          locations.push(@place_explore.select {|place| place["index"] == i}[0]["location"]) # THIS LINE SEEMS A LITTLE BIT PROBLEMATIC
         end # end of if
       end # end of order loop
       locations = [@start_end[0]] + locations + [@start_end[1]]
@@ -232,6 +232,26 @@ class TripsController < InheritedResources::Base
       sleep(0.5)
 
     end
+
+    api_key = 'AIzaSyCxenfqNTnUG8_wI3G7lH2wSmDWsLmdWqA'
+    @place_explore.each do |each_place|
+
+      if each_place["photo_reference"] then
+        photo_ref = each_place["photo_reference"]
+        photo_height = each_place["photo_height"]
+        google_photo_search_uri = "https://maps.googleapis.com/maps/api/place/photo?key=" + api_key + "&photoreference=" + photo_ref + "&maxheight=" + photo_height.to_s
+
+        open(google_photo_search_uri) do |f|
+          each_place["photo_base64"] = Base64.encode64(f.read)
+        end # end of photo search open uri
+
+      else
+
+        each_place["photo_base64"] = '0'
+
+      end # end of if there is photo reference
+
+    end # end of places loop
 
     js :costResult => @cost_result, :places => @place_explore, :startEnd => @start_end, :routeOrders => @range_opermutations_with_index, :tbtResult => @tbt_result
   end # end of explore action

@@ -15,6 +15,7 @@
       <%= javascript_include_tag 'https://unpkg.com/leaflet@1.0.3/dist/leaflet.js' %>
       <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/leaflet.draw.js' %>
       <%= javascript_include_tag 'https://npmcdn.com/@turf/turf/turf.min.js' %>
+      <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.12.1/math.min.js' %>
       <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js' %>
       <%= csrf_meta_tags %>
 
@@ -62,61 +63,6 @@
               <%= insert_paloma_hook %>
             <!-- The right sidebar -->
             <div class="col-sm-3 col-md-2" id='map-sidebar'>
-
-
-
-
-
-              <!-- <div class="card card-block">
-                <h4 class="card-title" style='display:inline-block;'>Route 1</h4>
-                <button class='btn-up-arrow' type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class='glyphicon glyphicon-chevron-up up-arrow' aria-hidden="true"></span></button>
-              </div> -->
-
-              <!-- <div class="collapse" id="collapseExample">
-                <div class="card card-block route">
-                  <div class='div-route-rank'>
-                    <table class='tbl-route-rank'>
-                      <tr>
-                        <td>Cost Rank: <span>1</span></td>
-                        <td>Green Rank: <span>1</span></td>
-                      </tr>
-                    </table>
-                  </div>
-                  <div class='div-route-table'>
-                    <table class='tbl-routes'>
-                      <tr>
-                        <td colspan="2">Place 1</td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td class='leg-time'>time</td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td class='leg-distance'>distance</td>
-                      </tr>
-                      <tr>
-                        <td colspan="2">Place 2</td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td class='leg-time'>time</td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td class='leg-distance'>distance</td>
-                      </tr>
-                    </table>
-                  </div>
-
-                  <button type="button" class="btn btn-outline-primary waves-effect" id='route-add'>+</button>
-                  <button type="button" class="btn btn-outline-danger waves-effect" id='route-delete'>-</button>
-                  <button type="button" class="btn btn-outline-default waves-effect" id='route-select'>Select</button>
-                </div>
-              </div> -->
-
-
-
             </div>
           </div>
         </div>

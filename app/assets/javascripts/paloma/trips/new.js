@@ -521,7 +521,10 @@ Paloma.controller('Trips', {
                           marker: L.stamp(marker),
                           location: {lat: selectedPlace[0].loc_lat, lon: selectedPlace[0].loc_lng},
                           name: selectedPlace[0].name,
-                          address: selectedPlace[0].address
+                          address: selectedPlace[0].address,
+                          photo_reference: selectedPlace[0].photo_reference,
+                          photo_height: selectedPlace[0].photo_height,
+                          photo_width: selectedPlace[0].photo_width
                         });
       // Update the text box for all marker IDs, place IDs, and place locations of places to explore
       $('#place_explore').val(JSON.stringify(idExplorePois))
