@@ -9,4 +9,4 @@ This App will let you:
 * Choose an interesting area to explore  -- DONE
 * Select your desirable start and end point for a trip  -- DONE
 * Pick places of your interests from the up-to-date places DB  -- DONE
-* Decide which route to follow to complete a trip of all recommended stops considering the time and distance cost + the street tree coverage  -- Under development
+* Decide which route to follow to complete a trip of all recommended stops considering the time and distance cost + the street tree coverage  -- Under development, almost done
