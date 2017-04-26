@@ -40973,3 +40973,4 @@ Processing by TripsController#explore as HTML
 Completed 200 OK in 2044ms (Views: 431.9ms | ActiveRecord: 2.9ms)
 
 
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
