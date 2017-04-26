@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 // require turbolinks
+// jquery_simpleWeather_min
 //= require paloma
 //= require mdb_min
 //= require ./paloma/trips/new

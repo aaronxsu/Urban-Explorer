@@ -49,27 +49,16 @@ var decode = function(str, precision) {
     return coordinates;
 };
 
+// _.range(48).concat([3200])
+var weatherIcons = ['&#xf056;', '&#xf01d;', '&#xf073;', '&#xf01e;', '&#xf01e;', '&#xf017;', '&#xf0b5;', '&#xf0b5;', '&#xf04e;', '&#xf04e;', '&#xf019;', '&#xf01a', '&#xf01a;', '&#xf01b;', '&#xf01b;', '&#xf064;', '&#xf01b;', '&#xf015;', '&#xf0b5;', '&#xf063;', '&#xf014;', '&#xf0b6', '&#xf062;', '&#xf050;', '&#xf021;', '&#xf076;', '&#xf013;', '&#xf086;', '&#xf002;', '&#xf083;', '&#xf00c;', '&#xf02e;', '&#xf00d;', '&#xf02e;', '&#xf00d;', '&#xf015;', '&#xf072;', '&#xf01e;', '&#xf01e;', '&#xf01e;', '&#xf01a;', '&#xf01b;', '&#xf01b;', '&#xf01b;', '&#xf013;', '&#xf01e;', '&#xf01b;', '&#xf01d;', '&#xf075'];
+
 
 Paloma.controller('Trips', {
   explore: function(){
 
     $('#sidebar-tab-explore').parent().prop('class', 'active');
 
-    $('.sidebar').toggleClass('explore-map')
-
-
-    var mapExplore = L.map('map-explore', {
-      center: [39.952, -75.1652],
-      zoom: 14
-    });
-
-    var cartoToner = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png', {
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: 'abcd',
-      minZoom: 0,
-      maxZoom: 20,
-      ext: 'png'
-    }).addTo(mapExplore);
+    $('.sidebar').toggleClass('explore-map');
 
     var costResult = this.params.costResult;
     var places = this.params.places;
@@ -97,6 +86,96 @@ Paloma.controller('Trips', {
     console.log("Cost result: ", costResult)
     console.log("Turn by Turn Result: ", tbtResult)
 
+    // the HTML for the sidebar top summary card
+    var summaryCardHtml = "<div class='card' id='card-summary'>"
+                        +   "<div class='view overlay hm-white-slight'>"
+                        +     "<img src='http://bitcoinist.com/wp-content/uploads/2016/02/Philadelphia.jpg' class='img-fluid' alt=''>"
+                        +     "<a href='#'><div class='mask waves-effect waves-light'></div></a>"
+                        +   "</div>"
+                        +   "<div class='card-block'>"
+                        +     "<table class='tbl-temperature'>"
+                        +       "<tr>"
+                        +         "<td id='temperature'></td>"
+                        +         "<td id='weather-icon'></td>"
+                        +       "</tr>"
+                        +     "</table>"
+                        +     "<table class='tbl-trip-start-end'>"
+                        +       "<tr>"
+                        +         "<td>Start</td>"
+                        +         "<td><span class='glyphicon glyphicon-play' aria-hidden='true'></span></td>"
+                        +         "<td id='td-start-address'></td>"
+                        +       "</tr>"
+                        +       "<tr>"
+                        +         "<td>End</td>"
+                        +         "<td><span class='glyphicon glyphicon-play' aria-hidden='true'></span></td>"
+                        +         "<td id='td-end-address'></td>"
+                        +       "</tr>"
+                        +     "</table>"
+                        +     "<table class='tbl-trip-summary'>"
+                        +       "<tr>"
+                        +         "<td id='trip-time'>N/A</td>"
+                        +         "<td id='trip-distance'>N/A</td>"
+                        +       "</tr>"
+                        +       "<tr>"
+                        +         "<td>Minutes</td>"
+                        +         "<td>Miles</td>"
+                        +       "</tr>"
+                        +       "<tr>"
+                        +         "<td id='trip-stops'>" + places.length +"</td>"
+                        +         "<td><img src='https://d30y9cdsu7xlg0.cloudfront.net/png/19727-200.png'></td>"
+                        +       "</tr>"
+                        +       "<tr>"
+                        +         "<td>Stops</td>"
+                        +         "<td>By walk</td>"
+                        +       "</tr>"
+                        +     "</table>"
+                        +   "</div>"
+                        + "</div>"
+
+    // append it to the sibe bar
+    $('#map-sidebar').append(summaryCardHtml);
+
+    // get the current location weather and update the summary table weather part
+    $.simpleWeather({
+      location: 'Philadelphia, PA',
+      woeid: '',
+      unit: 'f',
+      success: function(weather) {
+        $("#temperature").text(weather.temp+'°'+weather.units.temp)
+        var weatherIcon;
+        _.each(weatherIcons, function(icon, index){
+          if(index.toString() == weather.code){ weatherIcon = icon; }
+        })
+        $('#weather-icon').html(weatherIcon);
+      },
+      error: function(error) {
+        $("#temperature").text("N/A");
+        $('#weather-icon').text("N/A");
+      }
+    });
+
+    var reverseGeoCodeUriStart = "https://search.mapzen.com/v1/reverse?api_key=mapzen-qJmfq5U&point.lat=" + startEnd[0].lat + "&point.lon=" + startEnd[0].lon + "&size=1"
+    var reverseGeoCodeUriEnd = "https://search.mapzen.com/v1/reverse?api_key=mapzen-qJmfq5U&point.lat=" + startEnd[1].lat + "&point.lon=" + startEnd[1].lon + "&size=1"
+    $.ajax(reverseGeoCodeUriStart).done(function(data){
+      $('#td-start-address').text(data.features[0].properties.name);
+    })
+    $.ajax(reverseGeoCodeUriEnd).done(function(data){
+      $('#td-end-address').text(data.features[0].properties.name);
+    })
+
+
+    var mapExplore = L.map('map-explore', {
+      center: [39.952, -75.1652],
+      zoom: 14
+    });
+
+    var cartoToner = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png', {
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      minZoom: 0,
+      maxZoom: 20,
+      ext: 'png'
+    }).addTo(mapExplore);
 
     var shapes = [];
     _.each(tbtResult, function(tbt){
@@ -155,7 +234,9 @@ Paloma.controller('Trips', {
           point_index_order_index: parseInt(treeCount.permutation_index),
           point_index_order: matchedCostResult[0].ordered_route_index,
           point_index_order_string: matchedCostResult[0].ordered_route_index_string,
-          cost_tree_score: averageScore
+          cost_tree_score: averageScore,
+          cost_score: matchedCostResult[0].cost_score,
+          tree_score: treeCount.score
         })
       })
 

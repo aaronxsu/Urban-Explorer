@@ -1,7 +1,10 @@
 // Place all the styles related to the Trips controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+@font-face {
+	font-family: 'weather';
+  src: asset-url("weathericons-regular-webfont.ttf") format("truetype");
+}
 /*
  * Base structure
  */
@@ -307,7 +310,8 @@ button.btn.btn-outline-primary.waves-effect{
   margin-bottom: 10px;
 }
 
-button.btn.btn-outline-default.waves-effect{
+button.btn.btn-outline-default.waves-effect,
+button.btn.btn-outline-danger.waves-effect{
   margin-left: 10px;
   margin-bottom: 10px;
   background-color: white;
@@ -342,4 +346,158 @@ button#btn-search-fake{
   // position: relative;
   height: 50%;
   width: 100%;
+}
+
+//----------------------
+// The summary card
+//----------------------
+//card
+#card-summary{
+  background-color: white;
+}
+//temperature and trip summary table
+.tbl-temperature,
+.tbl-trip-start-end{
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e9e9e9;
+}
+//temperature table cell
+.tbl-temperature tr td{
+  padding: 10px 0px 20px 0px;
+  // border: 1px solid black;
+  text-align: center;
+}
+#temperature{
+  font-size: 30px;
+}
+#weather-icon{
+  font-family: "weather";
+  font-size: 40px;
+}
+//trip summary table cell
+.tbl-trip-start-end tr td{
+  // border: 1px solid black;
+  text-align: left;
+  vertical-align: middle;
+}
+//start and end cell
+.tbl-trip-start-end tr td:nth-child(1){
+  width: 7%;
+  padding: 0;
+  text-align: center;
+  color: #b6b6b6;
+}
+//start and end icon cell
+.tbl-trip-start-end tr td:nth-child(2){
+  width: 3%;
+  padding: 0;
+  text-align: center;
+  color: #7eb0db;
+  font-size: 10px;
+}
+//the start and end point address cell
+.tbl-trip-start-end tr td:nth-child(3){
+  padding: 10px 5px 10px 10px;
+}
+//the trip info summary table
+.tbl-trip-summary{
+  width: 100%;
+  // margin-top: 10px;
+  // padding-bottom: 20px;
+}
+
+.tbl-trip-summary tr td{
+  // border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px 0px 5px 0px;
+}
+
+.tbl-trip-summary tr:nth-child(1) td,
+.tbl-trip-summary tr:nth-child(3) td{
+  font-size: 18px;
+}
+
+.tbl-trip-summary tr:nth-child(2) td,
+.tbl-trip-summary tr:nth-child(4) td{
+  padding-top: 0px;
+  padding-bottom: 15px;
+}
+
+.tbl-trip-summary tr:nth-child(3) td img{
+  height: 20px;
+  width: auto;
+  // text-align: center;
+  position: relative;
+  left: 40%;
+}
+
+
+.card.card-block{
+  background-color: white;
+}
+
+.btn-up-arrow{
+  background-color: white ;
+  border-width: 0px;
+  float: right;
+  margin-top: 8px;
+}
+
+.glyphicon.glyphicon-chevron-up.up-arrow{
+  color: #a9a9a9;
+  font-size: 14px;
+}
+
+.div-route-rank{
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.tbl-route-rank{
+  width: 100%;
+}
+
+.tbl-route-rank tr td{
+  text-align: left;
+  padding: 5px 0px 5px 10px;
+  // border: 1px solid black;
+}
+
+.div-route-table{
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.tbl-routes{
+  width: 100%;
+}
+
+.tbl-routes tr td{
+  text-align: left;
+  padding: 5px 0px 5px 10px;
+  // border: 1px solid black;
+}
+
+.tbl-route-empty-row{
+  height: 20px;
+}
+
+.leg-distance,
+.leg-time{
+  border-left: 1px dashed #a9a9a9;
+  height: 20px;
+}
+
+#route-add,
+#route-delete{
+  width: 50px;
+  font-weight: bold;
+}
+
+#route-select{
+  float: right;
 }

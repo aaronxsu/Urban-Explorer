@@ -212,7 +212,7 @@ class TripsController < InheritedResources::Base
     @range_opermutations_with_index.each do |permutation|
       locations = Array.new
       permutation[:order].each do |i|
-        if(i != 0 && i != 4) then
+        if(i != 0 && i != @range_opermutations_with_index.length + 1) then
           locations.push(@place_explore.select {|place| place["index"] == i}[0]["location"])
         end # end of if
       end # end of order loop
