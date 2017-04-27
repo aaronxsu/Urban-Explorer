@@ -7,3 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create(email: 'xunzesu@outlook.com', password: 'sxz2623191')
+
+
+# Destroyed the sample dataset
+# old_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 17, 20, 22, 13, 15, 18, 19, 21, 23]
+# old_ids.each do |old_id|
+#   trip = Trip.find_by(id: old_id)
+#   trip.destroy
+# end

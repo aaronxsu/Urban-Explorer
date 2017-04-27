@@ -53,6 +53,22 @@ class TripsController < InheritedResources::Base
   end
 
   def create
+    @trip = Trip.new(trip_params)
+
+    if @trip.save
+      redirect_to action: "index"
+    else
+      render "new"
+    end
+
+    # respond_to do |format|
+    #   if @trip.save
+    #     # format.html { redirect_to trips_path }
+    #   else
+    #     format.html { render :new }
+    #   end
+    # end
+
   end
 
   def edit
@@ -104,11 +120,29 @@ class TripsController < InheritedResources::Base
             @photo_base64 = 0
           end # end of if
 
+          if each_place['geometry'] # if the geometry is not empty
+            if each_place['geometry']['location'] # if the location is not empty
+              @location_latitude = each_place['geometry']['location']['lat']
+            else
+              @location_latitude = nil
+            end
+          end
+
+          if each_place['geometry'] # if the geometry is not empty
+            if each_place['geometry']['location'] # if the location is not empty
+              @location_longitude = each_place['geometry']['location']['lng']
+            else
+              @location_longitude = nil
+            end
+          end
+
+
+
           this_type_of_places.push({
             :place_id => each_place['place_id'],
             :name => each_place['name'],
-            :loc_lat => location(each_place, 'lat'),
-            :loc_lng => location(each_place, 'lng'),
+            :loc_lat => @location_latitude,
+            :loc_lng => @location_longitude,
             :types => each_place['types'],
             :icon => each_place['icon'],
             :photo_reference => photo(each_place, 'photo_reference'),
@@ -136,6 +170,8 @@ class TripsController < InheritedResources::Base
   end #end of place_search action
 
   def explore
+
+    @trip = Trip.new
 
     # an array of two hashes: the first being the start and the second being the end -> {lat: ..., lng: ... }
     @start_end = JSON.parse(params[:start_end])
@@ -259,16 +295,6 @@ class TripsController < InheritedResources::Base
 
   private
 
-    def location(data, cor)
-      if data['geometry'] # if the geometry is not empty
-        if data['geometry']['location'] # if the location is not empty
-          return data['geometry']['location'][cor]
-        else
-          return nil
-        end
-      end
-    end
-
     def photo(data, key)
       if data['photos']
         if key == 'html_attributions'
@@ -280,6 +306,6 @@ class TripsController < InheritedResources::Base
     end
 
     def trip_params
-      params.require(:trip).permit(:user_email, :place_ids, :mode, :feedback)
+      params.require(:trip).permit(:user_email, :places, :start_end, :visit_order, :cost_time, :cost_dist, :cost_score, :green_score)
     end
 end

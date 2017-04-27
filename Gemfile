@@ -62,6 +62,7 @@ group :development do
   #gem for support the rails panel in google crome extension
   gem 'meta_request'
 
+  gem 'annotate'
   #for heroku
   gem 'heroku'
 end

@@ -279,6 +279,7 @@ Paloma.controller('Trips', {
       })
     })
 
+    var routeScore = [];
     $.ajax(treeCounts).done(function(data){
       var trees = JSON.parse(data);
       var treeCountResult = [];
@@ -305,7 +306,7 @@ Paloma.controller('Trips', {
                          })
                          .value()
 
-      var routeScore = [];
+
       _.each(treeCountResult, function(treeCount){
         var matchedRoute = _.filter(routeOrders, function(eachOrder){
           return eachOrder.index === parseInt(treeCount.permutation_index)
@@ -569,6 +570,47 @@ Paloma.controller('Trips', {
         return (eachLeg.leg_id + '-leg') === elementId;
       })[0]
       hoveredPolyline.polyline.setStyle({weight: 2, color: '#ffffff'}).bringToBack();
+    })
+    .on('click', "#route-select", function(e){
+
+      //clear all fields
+      _.each(["#trip_places", "#trip_start_end", "#trip_visit_order", "#trip_cost_time", "#trip_cost_dist", "#trip_cost_score", "#trip_green_score"], function(id){
+        $(id).val("");
+      })
+
+      //the route index in string
+      var routeIndexString = $(this).data('index').toString();
+
+      //all the places info
+      var placesToSave = [];
+      _.each(places, function(thisPlace){
+        placesToSave.push({
+          id: thisPlace.place,
+          name: thisPlace.name,
+          geo: thisPlace.location,
+          address: thisPlace.address,
+          index: thisPlace.index,
+          type: thisPlace.type_high
+        })
+      })
+      $('#trip_places').val(JSON.stringify(placesToSave));
+
+      //the start and end point locations
+      $('#trip_start_end').val(JSON.stringify(startEnd));
+
+      //visit order in string
+      var placeOrder = _.filter(routeOrders, function(trip){return trip.index.toString() === routeIndexString })[0];
+      $('#trip_visit_order').val(placeOrder.order_string);
+
+      //time and distance cost
+      var routeToSave = _.filter(tbtResult, function(tbt){return tbt.id === routeIndexString})[0];
+      $('#trip_cost_time').val(math.round(routeToSave.trip.summary.time / 60, 2));
+      $('#trip_cost_dist').val(math.round(routeToSave.trip.summary.length, 2));
+
+      //the cost and green score
+      var scoreToSave = _.filter(routeScore, function(score){ return score.point_index_order_index.toString() === routeIndexString})[0]
+      $('#trip_cost_score').val(routeScore.length - scoreToSave.cost_score + 1);
+      $('#trip_green_score').val(routeScore.length - scoreToSave.tree_score + 1);
     })
 
 

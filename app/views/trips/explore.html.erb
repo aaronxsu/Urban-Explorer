@@ -1,3 +1,23 @@
 <div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 map-explore-main">
   <div id='map-explore' class='map-explore'></div>
+
+  <%= form_tag(trips_path, method: "post", id: 'trip-form-to-submit') do %>
+    <%= label_tag("trip[user_email]", "User Email") %>
+    <%= text_field_tag("trip[user_email]", current_user.email) %>
+    <%= label_tag("trip[places]", "Places:") %>
+    <%= text_field_tag("trip[places]") %>
+    <%= label_tag("trip[start_end]", "Start End:") %>
+    <%= text_field_tag("trip[start_end]") %>
+    <%= label_tag("trip[visit_order]", "Visit Order:") %>
+    <%= text_field_tag("trip[visit_order]") %>
+    <%= label_tag("trip[cost_time]", "Time:") %>
+    <%= text_field_tag("trip[cost_time]") %>
+    <%= label_tag("trip[cost_dist]", "Distance:") %>
+    <%= text_field_tag("trip[cost_dist]") %>
+    <%= label_tag("trip[cost_score]", "Cost:") %>
+    <%= text_field_tag("trip[cost_score]") %>
+    <%= label_tag("trip[green_score]", "Green:") %>
+    <%= text_field_tag("trip[green_score]") %>
+    <%= submit_tag("Save", :id => "btn-trip-form-submit") %>
+  <% end %>
 <div>

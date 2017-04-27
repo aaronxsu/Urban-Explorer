@@ -6,18 +6,38 @@
 </p>
 
 <p>
-  <strong>Place ids:</strong>
-  <%= @trip.place_ids %>
+  <strong>Places:</strong>
+  <%= @trip.places %>
 </p>
 
 <p>
-  <strong>Mode:</strong>
-  <%= @trip.mode %>
+  <strong>Start End</strong>
+  <%= @trip.start_end %>
 </p>
 
 <p>
-  <strong>Feedback:</strong>
-  <%= @trip.feedback %>
+  <strong>Order:</strong>
+  <%= @trip.visit_order %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @trip.cost_time %>
+</p>
+
+<p>
+  <strong>Distance:</strong>
+  <%= @trip.cost_dist %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @trip.cost_score %>
+</p>
+
+<p>
+  <strong>Green:</strong>
+  <%= @trip.green_score %>
 </p>
 
 <%= link_to 'Edit', edit_trip_path(@trip) %> |

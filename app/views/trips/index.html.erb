@@ -1,44 +1,7 @@
-<!-- <p id="notice"><%= notice %></p> -->
-<!-- <div class="row">
-  <div class="col-sm-3 col-md-2 sidebar">
-    <ul class="nav nav-sidebar">
-      <li class="active"><%= link_to 'History', trips_path %></li>
-      <li><%= link_to 'Explore', new_trip_path %></li>
-    </ul>
-  </div> -->
+
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <%= render partial: 'shared/flash' unless flash.empty? %>
     <h2 class="page-header">My Journeys</h2>
     <div class="blog-masthead">
     </div>
   </div>
-<!-- </div> -->
-<!-- <h1>Trips</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User email</th>
-      <th>Place ids</th>
-      <th>Mode</th>
-      <th>Feedback</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @trips.each do |trip| %>
-      <tr>
-        <td><%= trip.user_email %></td>
-        <td><%= trip.place_ids %></td>
-        <td><%= trip.mode %></td>
-        <td><%= trip.feedback %></td>
-        <td><%= link_to 'Show', trip %></td>
-        <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
-        <td><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br> -->

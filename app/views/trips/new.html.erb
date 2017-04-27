@@ -1,11 +1,3 @@
-<!-- <div class="row">
-  <div class="col-sm-3 col-md-2 sidebar">
-    <ul class="nav nav-sidebar">
-      <li><%= link_to 'History', trips_path %></li>
-      <li class="active"><%= link_to 'Explore', new_trip_path %></li>
-    </ul>
-  </div> -->
-
   <div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 main">
     <h2 class="page-header" id='new-header'>Start a New Journey</h2>
     <div class="blog-masthead" id='blog-masthead-bar'>
@@ -87,10 +79,6 @@
       </table>
 
     </div>
-    <div>
-      <%= render 'form', trip: @trip %>
-    </div>
-
     <!-- <%= link_to 'Back', trips_path %> -->
     <%= form_tag(trips_new_place_search_path, method: "get", remote: true, id: 'form-place-search') do %>
       <%= label_tag(:latitude, "Latitude:") %>
@@ -112,12 +100,6 @@
       <%= submit_tag("Explore!", :id => "btn-place_explore_submit") %>
     <% end %>
 
-    <!-- <div id="all-points">
-      <label for="must-go-place">Must go Places:</label>
-      <input type="text" id='must-go-place'><br>
-      <label for="explore-place">Places to explore:</label>
-      <input type="text" id='explore-place'><br>
-    </div> -->
 
     <div id="target-for-change" style='display:none;'>
     </div>
