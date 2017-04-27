@@ -523,3 +523,86 @@ button#btn-search-fake{
 #route-select{
   // float: right;
 }
+
+// ------------------------------
+//
+// 			the index page css
+//
+// ------------------------------
+#all-journeys{
+	width: 100%;
+}
+
+div.journey-gp-1,
+div.journey-gp-2,
+div.journey-gp-3{
+	width: 30%;
+	display: inline-grid;
+	float: left;
+}
+
+div.journey-gp-3{
+	float: right;
+}
+
+div.journey-gp-2{
+	margin-left: 45px;
+	margin-right: 45px;
+}
+
+div.card.index-page{
+	margin-bottom: 45px;
+}
+
+.index-summary-tbl{
+	width: 100%;
+}
+
+.index-summary-tbl tr td{
+	text-align: center;
+	width: 50%;
+}
+
+td.number{
+	font-size: 22px;
+	padding: 10px 0px 10px 0px;
+}
+
+td.caption{
+	padding: 5px 0px 5px 0px;
+}
+
+td.stop.number{
+	padding-top: 80%;
+}
+
+.index-summary-places-tbl{
+	margin-top: 10px;
+	margin-left: 20px;
+	width: 100%;
+}
+
+.index-summary-places-tbl tr td{
+	// border: 1px solid black;
+	text-align: left;
+	height: 15px;
+}
+
+.index-summary-places-tb-gap{
+	border-left: 1px dashed gray;
+}
+
+td.place.name{
+	padding: 10px 0px 10px 0px;
+}
+
+.index-summary-stops-tbl{
+	width: 100%;
+	margin-top: 10px;
+}
+
+a.index-view{
+	margin: 10px;
+	width: 90%;
+	border-radius: 0px;
+}

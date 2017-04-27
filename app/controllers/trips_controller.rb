@@ -11,7 +11,134 @@ class TripsController < InheritedResources::Base
   before_action :authenticate_user!
 
   def index
-    @trips = Trip.all
+    @trips = Trip.where(user_email: current_user.email).reorder('id').reverse_order
+    @trips_array = Array.new()
+    api_key = 'AIzaSyCxenfqNTnUG8_wI3G7lH2wSmDWsLmdWqA'
+
+    @trips.each do |eachTrip|
+      @trips_array.push({
+        :cost_dist => eachTrip['cost_dist'],
+        :cost_score => eachTrip['cost_score'],
+        :cost_time => eachTrip['cost_time'],
+        :created_at => eachTrip['created_at'],
+        :green_score => eachTrip['green_score'],
+        :id => eachTrip['id'],
+        :places => JSON.parse(eachTrip['places']),
+        :start_end => JSON.parse(eachTrip['start_end']),
+        :user_email => eachTrip['user_email'],
+        :visit_order => eachTrip['visit_order']
+      })
+    end #end of turning the query result into array
+
+    @trips_index_group1 = Array.new
+    @trips_index_group2 = Array.new
+    @trips_index_group3 = Array.new
+
+    @trips_array.each_with_index do |trip, index|
+      #----------------------------------------------------
+      #
+      # Get the date of the trip
+      #
+      #----------------------------------------------------
+      trip[:date_created] = trip[:created_at].to_s.split(" ")[0]
+      #----------------------------------------------------
+      #
+      # Put the places into the vist order
+      #
+      #----------------------------------------------------
+      #turn the stirng of place orders to an array
+      trip[:visit_order_array] = trip[:visit_order].split(//)
+      #put the places into the vist order
+      trip[:places_ordered] = trip[:visit_order_array].map {|order_index| trip[:places].select { |place| place['index'].to_s === order_index }}.flatten
+      #----------------------------------------------------
+      #
+      # get all place photos -- this is not neccessary for now
+      #
+      #----------------------------------------------------
+      # trip[:places_ordered].each do |place|
+      #   #a string to store the photo's base64 code
+      #   place_photo = String.new
+      #
+      #   #call the place detail API
+      #   open("https://maps.googleapis.com/maps/api/place/details/json?key=" + api_key + "&placeid=" + place['id']) do |f|
+      #     #get the photos from the place detail API call
+      #     photos = JSON.parse(f.read)["result"]["photos"]
+      #
+      #     # if there are photos
+      #     if photos.length then
+      #       #the height of the photo
+      #       height = photos[0]["height"]
+      #       #the reference of the photo
+      #       reference = photos[0]["photo_reference"]
+      #
+      #       #call the place photo API to get the photo
+      #       open("https://maps.googleapis.com/maps/api/place/photo?key=" + api_key + "&photoreference=" + reference + "&maxheight=" + height.to_s) do |t|
+      #         place_photo = Base64.encode64(t.read)
+      #       end #end of calling photo API
+      #
+      #     else
+      #       place_photo = "0"
+      #     end #end of if there are photos
+      #     place[:photo_base64] = place_photo
+      #   end #end of calling  the place detail API
+      #
+      # end #end of trip[:places_ordered] loop
+      #----------------------------------------------------
+      #
+      # get the first place's photo and store its base64
+      #
+      #----------------------------------------------------
+      #a string to store the photo's base64 code
+      place_photo = String.new
+      first_place = trip[:places_ordered][0]
+
+      #call the place detail API
+      open("https://maps.googleapis.com/maps/api/place/details/json?key=" + api_key + "&placeid=" + first_place['id']) do |f|
+        #get the photos from the place detail API call
+        photos = JSON.parse(f.read)["result"]["photos"]
+
+        # if there are photos
+        if photos.length then
+          #the height of the photo
+          height = photos[0]["height"]
+          #the reference of the photo
+          reference = photos[0]["photo_reference"]
+          #call the place photo API to get the photo
+          open("https://maps.googleapis.com/maps/api/place/photo?key=" + api_key + "&photoreference=" + reference + "&maxheight=" + height.to_s) do |t|
+            place_photo = "data:image/jpeg;base64," + Base64.encode64(t.read)
+          end #end of calling photo API
+        else
+          place_photo = "0"
+        end #end of if there are photos
+
+        first_place[:photo_base64] = place_photo
+      end #end of calling  the place detail API
+      #----------------------------------------------------
+      #
+      # put this trip into the right bucket based on index
+      #
+      #----------------------------------------------------
+      index_plus_one = index + 1
+      if(index_plus_one == 1) then
+        @trips_index_group1.push(trip)
+      elsif (index_plus_one == 2) then
+        @trips_index_group2.push(trip)
+      elsif (index_plus_one == 3) then
+        @trips_index_group3.push(trip)
+      else
+        remainder = index_plus_one % 3
+        if(remainder == 1) then
+          @trips_index_group1.push(trip)
+        elsif (remainder == 2) then
+          @trips_index_group2.push(trip)
+        elsif (remainder == 3) then
+          @trips_index_group3.push(trip)
+        end #enf of evaluating the remainder
+      end #end of evaluating the index_plus_one
+
+    end #end of @trips_array loop
+
+    js :trips => @trips
   end
 
   def show

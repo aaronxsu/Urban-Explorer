@@ -1,7 +1,164 @@
 
-  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 main">
     <%= render partial: 'shared/flash' unless flash.empty? %>
     <h2 class="page-header">My Journeys</h2>
-    <div class="blog-masthead">
+
+    <div id='all-journeys'>
+
+      <div class='journey-gp-1'>
+
+      <% @trips_index_group1.each do |trip| %>
+
+        <div class="card index-page">
+
+        <% if trip[:places_ordered][0][:photo_base64] != "0" %>
+          <%= image_tag(trip[:places_ordered][0][:photo_base64], :alt => "Card image cap", :class => "img-fluid") %>
+        <% else %>
+          <img class="img-fluid" src="http://www.nurnberg.com/images/image_unavailable_lrg.png" alt="Card image cap">
+        <% end %>
+
+        <div class="card-block">
+          <h4 class="card-title"><%= trip[:date_created] %></h4>
+          <table class="index-summary-tbl">
+            <tr>
+              <td class='efficiency number'><%= trip[:cost_score] %></td>
+              <td class='tree number'><%= trip[:green_score] %></td>
+            </tr>
+            <tr>
+              <td class='efficieny caption'>Efficiency</td>
+              <td class='tree caption'>Green</td>
+            </tr>
+            <tr>
+              <td class='time number'><%= trip[:cost_time] %></td>
+              <td class='dist number'><%= trip[:cost_dist] %></td>
+            </tr>
+            <tr>
+              <td class='time caption'>Minutes</td>
+              <td class='dist caption'>Miles</td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <table class="index-summary-places-tbl">
+                  <tr><td class="place name"><%= trip[:places_ordered][0]["name"] %></td></tr>
+                  <% trip[:places_ordered].each_with_index do |place, index| %>
+                    <% if index > 0 %>
+                      <tr><td class='index-summary-places-tb-gap'></td></tr>
+                      <tr><td class="place name"><%= place["name"] %></td></tr>
+                    <% end %>
+                  <% end %>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <%= link_to "View", trip_path(trip[:id]), :class => 'btn btn-info waves-effect index-view'%>
+        </div>
+      </div>
+      <% end %>
+
+      </div>
+
+      <div class='journey-gp-2'>
+
+        <% @trips_index_group2.each do |trip| %>
+
+          <div class="card index-page">
+
+          <% if trip[:places_ordered][0][:photo_base64] != "0" %>
+            <%= image_tag(trip[:places_ordered][0][:photo_base64], :alt => "Card image cap", :class => "img-fluid") %>
+          <% else %>
+            <img class="img-fluid" src="http://www.nurnberg.com/images/image_unavailable_lrg.png" alt="Card image cap">
+          <% end %>
+
+          <div class="card-block">
+            <h4 class="card-title"><%= trip[:date_created] %></h4>
+            <table class="index-summary-tbl">
+              <tr>
+                <td class='efficiency number'><%= trip[:cost_score] %></td>
+                <td class='tree number'><%= trip[:green_score] %></td>
+              </tr>
+              <tr>
+                <td class='efficieny caption'>Efficiency</td>
+                <td class='tree caption'>Green</td>
+              </tr>
+              <tr>
+                <td class='time number'><%= trip[:cost_time] %></td>
+                <td class='dist number'><%= trip[:cost_dist] %></td>
+              </tr>
+              <tr>
+                <td class='time caption'>Minutes</td>
+                <td class='dist caption'>Miles</td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <table class="index-summary-places-tbl">
+                    <tr><td class="place name"><%= trip[:places_ordered][0]["name"] %></td></tr>
+                    <% trip[:places_ordered].each_with_index do |place, index| %>
+                      <% if index > 0 %>
+                        <tr><td class='index-summary-places-tb-gap'></td></tr>
+                        <tr><td class="place name"><%= place["name"] %></td></tr>
+                      <% end %>
+                    <% end %>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <%= link_to "View", trip_path(trip[:id]), :class => 'btn btn-info waves-effect index-view'%>
+          </div>
+        </div>
+        <% end %>
+
+      </div>
+
+      <div class='journey-gp-3'>
+
+        <% @trips_index_group3.each do |trip| %>
+
+          <div class="card index-page">
+
+          <% if trip[:places_ordered][0][:photo_base64] != "0" %>
+            <%= image_tag(trip[:places_ordered][0][:photo_base64], :alt => "Card image cap", :class => "img-fluid") %>
+          <% else %>
+            <img class="img-fluid" src="http://www.nurnberg.com/images/image_unavailable_lrg.png" alt="Card image cap">
+          <% end %>
+
+          <div class="card-block">
+            <h4 class="card-title"><%= trip[:date_created] %></h4>
+            <table class="index-summary-tbl">
+              <tr>
+                <td class='efficiency number'><%= trip[:cost_score] %></td>
+                <td class='tree number'><%= trip[:green_score] %></td>
+              </tr>
+              <tr>
+                <td class='efficieny caption'>Efficiency</td>
+                <td class='tree caption'>Green</td>
+              </tr>
+              <tr>
+                <td class='time number'><%= trip[:cost_time] %></td>
+                <td class='dist number'><%= trip[:cost_dist] %></td>
+              </tr>
+              <tr>
+                <td class='time caption'>Minutes</td>
+                <td class='dist caption'>Miles</td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <table class="index-summary-places-tbl">
+                    <tr><td class="place name"><%= trip[:places_ordered][0]["name"] %></td></tr>
+                    <% trip[:places_ordered].each_with_index do |place, index| %>
+                      <% if index > 0 %>
+                        <tr><td class='index-summary-places-tb-gap'></td></tr>
+                        <tr><td class="place name"><%= place["name"] %></td></tr>
+                      <% end %>
+                    <% end %>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <%= link_to "View", trip_path(trip[:id]), :class => 'btn btn-info waves-effect index-view'%>
+          </div>
+        </div>
+        <% end %>
+
+      </div>
     </div>
   </div>

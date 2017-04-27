@@ -547,6 +547,7 @@ Paloma.controller('Trips', {
 //
 //      When the mouse is over the route legs
 //      make this leg bolder and change color to blue
+//      THIS PART LOOKS LIKE A LITTLE BIT BUGGY----------------------------------------------------------------------------------------------------------------
 //
 //--------------------------------------------------------
     .on("mouseover", "tr[id*='-leg']", function(e){
