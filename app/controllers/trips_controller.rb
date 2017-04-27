@@ -98,7 +98,7 @@ class TripsController < InheritedResources::Base
           @trips_index_group1.push(trip)
         elsif (remainder == 2) then
           @trips_index_group2.push(trip)
-        elsif (remainder == 3) then
+        elsif (remainder == 0) then
           @trips_index_group3.push(trip)
         end #enf of evaluating the remainder
       end #end of evaluating the index_plus_one
@@ -241,14 +241,6 @@ class TripsController < InheritedResources::Base
     else
       render "new"
     end
-
-    # respond_to do |format|
-    #   if @trip.save
-    #     # format.html { redirect_to trips_path }
-    #   else
-    #     format.html { render :new }
-    #   end
-    # end
 
   end
 
