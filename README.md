@@ -1,12 +1,13 @@
 # Urban Explorer
 
-This App is still under development.
+The first iteration of this app is done, and now it has following features:
 
-This App will let you:
+* Register your own account
+* View your journey exploration history
+* View one of your previous journeys
+* Choose an interesting area to explore
+* Select your desirable start and end point for a trip
+* Pick places of your interests from the up-to-date places DB
+* Decide which route to follow to complete a trip of all recommended stops considering the time and distance cost + the street tree coverage
 
-* Register your own account -- DONE
-* View your trip exploration history  -- Under development. Almost done.
-* Choose an interesting area to explore  -- DONE
-* Select your desirable start and end point for a trip  -- DONE
-* Pick places of your interests from the up-to-date places DB  -- DONE
-* Decide which route to follow to complete a trip of all recommended stops considering the time and distance cost + the street tree coverage  -- DONE
+Now some bugs are being fixed. The App will be deployed soon.
