@@ -33,7 +33,7 @@ var getPlaceRating = function(originalRating){
 
 var getPlacePhoto = function(originalPhotoCode){
   if(originalPhotoCode != "0"){
-    return "data:image/jpeg;base64," + originalPhotoCode;
+    return originalPhotoCode;
   }else if(originalPhotoCode == '0'){
     return "http://www.nurnberg.com/images/image_unavailable_lrg.png"
   }

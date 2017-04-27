@@ -52,39 +52,6 @@ class TripsController < InheritedResources::Base
       trip[:places_ordered] = trip[:visit_order_array].map {|order_index| trip[:places].select { |place| place['index'].to_s === order_index }}.flatten
       #----------------------------------------------------
       #
-      # get all place photos -- this is not neccessary for now
-      #
-      #----------------------------------------------------
-      # trip[:places_ordered].each do |place|
-      #   #a string to store the photo's base64 code
-      #   place_photo = String.new
-      #
-      #   #call the place detail API
-      #   open("https://maps.googleapis.com/maps/api/place/details/json?key=" + api_key + "&placeid=" + place['id']) do |f|
-      #     #get the photos from the place detail API call
-      #     photos = JSON.parse(f.read)["result"]["photos"]
-      #
-      #     # if there are photos
-      #     if photos.length then
-      #       #the height of the photo
-      #       height = photos[0]["height"]
-      #       #the reference of the photo
-      #       reference = photos[0]["photo_reference"]
-      #
-      #       #call the place photo API to get the photo
-      #       open("https://maps.googleapis.com/maps/api/place/photo?key=" + api_key + "&photoreference=" + reference + "&maxheight=" + height.to_s) do |t|
-      #         place_photo = Base64.encode64(t.read)
-      #       end #end of calling photo API
-      #
-      #     else
-      #       place_photo = "0"
-      #     end #end of if there are photos
-      #     place[:photo_base64] = place_photo
-      #   end #end of calling  the place detail API
-      #
-      # end #end of trip[:places_ordered] loop
-      #----------------------------------------------------
-      #
       # get the first place's photo and store its base64
       #
       #----------------------------------------------------
@@ -138,10 +105,97 @@ class TripsController < InheritedResources::Base
 
     end #end of @trips_array loop
 
-    js :trips => @trips
+    # js :trips => @trips
   end
 
   def show
+    #----------------------------------------------------
+    #
+    # Find this trip based on id
+    #
+    #----------------------------------------------------
+    @trip = Trip.find(params[:id])
+    #----------------------------------------------------
+    #
+    # Turn the query result to array
+    #
+    #----------------------------------------------------
+    @trip_hash = Hash.new
+    @trip_hash = {
+      :cost_dist => @trip['cost_dist'],
+      :cost_score => @trip['cost_score'],
+      :cost_time => @trip['cost_time'],
+      :created_at => @trip['created_at'],
+      :green_score => @trip['green_score'],
+      :id => @trip['id'],
+      :places => JSON.parse(@trip['places']),
+      :start_end => JSON.parse(@trip['start_end']),
+      :user_email => @trip['user_email'],
+      :visit_order => @trip['visit_order']
+    }
+    #----------------------------------------------------
+    #
+    # Put the places into the vist order
+    #
+    #----------------------------------------------------
+    #turn the stirng of place orders to an array
+    @trip_hash[:visit_order_array] = @trip_hash[:visit_order].split(//)
+    #put the places into the vist order
+    @trip_hash[:places_ordered] = @trip_hash[:visit_order_array].map {|order_index| @trip_hash[:places].select { |place| place['index'].to_s === order_index }}.flatten
+    #----------------------------------------------------
+    #
+    # Get the turn by turn result
+    #
+    #----------------------------------------------------
+    mapzen_key = 'mapzen-qJmfq5U'
+    @trip_places = @trip_hash[:places_ordered].map {|place| place.values_at("geo")}.flatten
+    @tbt_json = {
+      :locations => [@trip_hash[:start_end][0]] + @trip_places + [@trip_hash[:start_end][1]],
+      :costing => "pedestrian",
+      :directions_options => {:units => "miles"}
+    }
+    @tbt_result = Hash.new
+    open("https://valhalla.mapzen.com/route?json=" + JSON.generate(@tbt_json) + "&api_key=" + mapzen_key) do |f|
+      @tbt_result = JSON.parse(f.read)
+    end
+    #----------------------------------------------------
+    #
+    # Get the photos of these places
+    #
+    #----------------------------------------------------
+    api_key = 'AIzaSyCxenfqNTnUG8_wI3G7lH2wSmDWsLmdWqA'
+    @trip_hash[:places_ordered].each do |place|
+      #a string to store the photo's base64 code
+      place_photo = String.new
+
+      #call the place detail API
+      open("https://maps.googleapis.com/maps/api/place/details/json?key=" + api_key + "&placeid=" + place['id']) do |f|
+        #get the photos from the place detail API call
+        photos = JSON.parse(f.read)["result"]["photos"]
+
+        # if there are photos
+        if photos.length then
+          #the height of the photo
+          height = photos[0]["height"]
+          #the reference of the photo
+          reference = photos[0]["photo_reference"]
+
+          #call the place photo API to get the photo
+          open("https://maps.googleapis.com/maps/api/place/photo?key=" + api_key + "&photoreference=" + reference + "&maxheight=" + height.to_s) do |t|
+            place_photo = "data:image/jpeg;base64," + Base64.encode64(t.read)
+          end #end of calling photo API
+
+        else
+          place_photo = "0"
+        end #end of if there are photos
+        place[:photo_base64] = place_photo
+      end #end of calling  the place detail API
+
+    end #end of @trip_hash[:places_ordered] loop
+
+
+
+    js :trip => @trip_hash, :tbt_result => @tbt_result
   end
 
   def new
@@ -241,7 +295,7 @@ class TripsController < InheritedResources::Base
             photo_search_uri = "https://maps.googleapis.com/maps/api/place/photo?"+ key + "&photoreference=" + photo(each_place, 'photo_reference') + "&maxheight=" + photo(each_place, 'height').to_s
 
             open(photo_search_uri) do |f|
-              @photo_base64 = Base64.encode64(f.read)
+              @photo_base64 = "data:image/jpeg;base64," + Base64.encode64(f.read)
             end # end of open uri
           else
             @photo_base64 = 0
@@ -405,7 +459,7 @@ class TripsController < InheritedResources::Base
         google_photo_search_uri = "https://maps.googleapis.com/maps/api/place/photo?key=" + api_key + "&photoreference=" + photo_ref + "&maxheight=" + photo_height.to_s
 
         open(google_photo_search_uri) do |f|
-          each_place["photo_base64"] = Base64.encode64(f.read)
+          each_place["photo_base64"] = "data:image/jpeg;base64," + Base64.encode64(f.read)
         end # end of photo search open uri
 
       else

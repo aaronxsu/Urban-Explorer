@@ -67,7 +67,8 @@ body {
     left: 0;
     top: 10px;
   }
-  .sidebar.explore-map{
+  .sidebar.explore-map,
+	.sidebar.show-map{
     left: 0;
     top: 10px;
     background-color: white;
@@ -113,7 +114,8 @@ body {
     position: fixed;
     overflow-y: scroll;
   }
-  .map-explore-main{
+  .map-explore-main,
+	.map-show-main{
     top: 50px;
     bottom: 0px;
     // padding-right: 40px;
@@ -346,6 +348,14 @@ button#btn-search-fake{
   // position: relative;
   height: 50%;
   width: 100%;
+	border: 1px solid black;
+}
+
+#map-show{
+  // position: relative;
+  height: 100%;
+  width: 100%;
+	border: 1px solid black;
 }
 
 //----------------------

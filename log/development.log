@@ -46374,3 +46374,1040 @@ Processing by TripsController#index as HTML
 Completed 200 OK in 2858ms (Views: 403.3ms | ActiveRecord: 4.4ms)
 
 
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Started GET "/trips/27" for ::1 at 2017-04-27 16:13:52 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (9.4ms)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 3.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_email' for nil:NilClass):
+    2: 
+    3: <p>
+    4:   <strong>User email:</strong>
+    5:   <%= @trip.user_email %>
+    6: </p>
+    7: 
+    8: <p>
+  
+app/views/trips/show.html.erb:5:in `_app_views_trips_show_html_erb__3527796179823499588_70328879208500'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (70.6ms)
+Started GET "/trips/27" for ::1 at 2017-04-27 16:15:10 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (4.2ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    2: 
+    3: <p>
+    4:   <strong>User email:</strong>
+    5:   <%= @trip[:user_email] %>
+    6: </p>
+    7: 
+    8: <p>
+  
+app/views/trips/show.html.erb:5:in `_app_views_trips_show_html_erb__3527796179823499588_70328876980940'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.2ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (66.3ms)
+Started GET "/trips/27" for ::1 at 2017-04-27 16:23:38 -0400
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.5ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.6ms)
+Completed 200 OK in 1283ms (Views: 1260.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:25:31 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.7ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.7ms)
+Completed 200 OK in 191ms (Views: 184.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:27:46 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (13.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (5.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.9ms)
+Completed 200 OK in 697ms (Views: 623.3ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:33:37 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (3.6ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.9ms)
+Completed 200 OK in 810ms (Views: 725.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:33:57 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.5ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.9ms)
+Completed 200 OK in 364ms (Views: 354.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:37:29 -0400
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (3.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (1.1ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (2.5ms)
+Completed 200 OK in 466ms (Views: 407.1ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:38:14 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.6ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.6ms)
+Completed 200 OK in 452ms (Views: 437.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:39:14 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.8ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.1ms)
+Completed 200 OK in 522ms (Views: 510.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:40:18 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (4.0ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.8ms)
+Completed 200 OK in 583ms (Views: 520.8ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:41:46 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (1.2ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.3ms)
+Completed 200 OK in 435ms (Views: 422.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:44:19 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (2.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.2ms)
+Completed 200 OK in 526ms (Views: 499.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:44:54 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.5ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (1.4ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (2.4ms)
+Completed 200 OK in 390ms (Views: 377.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:45:53 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.7ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.4ms)
+Completed 200 OK in 495ms (Views: 481.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:48:16 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.4ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.8ms)
+Completed 200 OK in 670ms (Views: 660.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:48:44 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.7ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.2ms)
+Completed 200 OK in 427ms (Views: 416.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:49:04 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.5ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.1ms)
+Completed 200 OK in 340ms (Views: 331.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:55:07 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (3.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (2.1ms)
+Completed 200 OK in 645ms (Views: 569.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 16:55:25 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.6ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.4ms)
+Completed 200 OK in 398ms (Views: 387.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:03:18 -0400
+  [1m[36mAdmin Load (1.4ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 3.2ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/trips_controller.rb:175:in `[]'
+app/controllers/trips_controller.rb:175:in `show'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.8ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (73.5ms)
+Started GET "/trips/27" for ::1 at 2017-04-27 17:03:45 -0400
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.4ms)
+Completed 200 OK in 375ms (Views: 348.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:04:17 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (1.1ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.1ms)
+Completed 200 OK in 233ms (Views: 223.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:04:54 -0400
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.8ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/trips_controller.rb:175:in `[]'
+app/controllers/trips_controller.rb:175:in `show'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.8ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (74.9ms)
+Started GET "/trips/27" for ::1 at 2017-04-27 17:05:11 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.7ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/trips_controller.rb:175:in `[]'
+app/controllers/trips_controller.rb:175:in `show'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.7ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (71.8ms)
+Started GET "/trips/27" for ::1 at 2017-04-27 17:05:25 -0400
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.7ms)
+
+
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/controllers/trips_controller.rb:175:in `[]'
+app/controllers/trips_controller.rb:175:in `show'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.2ms)
+Started GET "/trips/27" for ::1 at 2017-04-27 17:06:09 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.5ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.4ms)
+Completed 200 OK in 732ms (Views: 687.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:06:38 -0400
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.4ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.6ms)
+Completed 200 OK in 231ms (Views: 198.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:06:59 -0400
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.5ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.1ms)
+Completed 200 OK in 217ms (Views: 184.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:07:07 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (6.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (1.0ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.1ms)
+Completed 200 OK in 239ms (Views: 213.3ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:07:42 -0400
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.6ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.0ms)
+Completed 200 OK in 276ms (Views: 238.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:08:03 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.5ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.9ms)
+Completed 200 OK in 239ms (Views: 206.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:09:27 -0400
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (1.5ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.1ms)
+Completed 200 OK in 249ms (Views: 208.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:14:53 -0400
+  [1m[36mAdmin Load (1.5ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 367ms (ActiveRecord: 1.1ms)
+
+
+  
+NameError (undefined local variable or method `geo' for #<TripsController:0x007fed75b51c78>
+Did you mean?  gem):
+  
+app/controllers/trips_controller.rb:183:in `block in show'
+app/controllers/trips_controller.rb:183:in `map'
+app/controllers/trips_controller.rb:183:in `show'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.0ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (249.3ms)
+Started GET "/trips/27" for ::1 at 2017-04-27 17:15:06 -0400
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.6ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.9ms)
+Completed 200 OK in 206ms (Views: 171.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:15:49 -0400
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (0.7ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.9ms)
+Completed 200 OK in 229ms (Views: 200.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:17:24 -0400
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 87ms (ActiveRecord: 1.6ms)
+
+
+  
+NoMethodError (undefined method `+' for {"lat"=>39.950345591436765, "lon"=>-75.19188880920412}:Hash):
+  
+app/controllers/trips_controller.rb:184:in `show'
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.8ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (73.2ms)
+Started GET "/trips/27" for ::1 at 2017-04-27 17:17:39 -0400
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (1.1ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.6ms)
+Completed 200 OK in 270ms (Views: 229.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:18:02 -0400
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (1.0ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.3ms)
+Completed 200 OK in 278ms (Views: 235.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:26:27 -0400
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (4.6ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.5ms)
+Completed 200 OK in 616ms (Views: 287.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:26:32 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (3.1ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.4ms)
+Completed 200 OK in 385ms (Views: 211.4ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:34:53 -0400
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (189.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.4ms)
+Completed 200 OK in 3195ms (Views: 451.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:36:39 -0400
+  [1m[36mAdmin Load (2.2ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.4ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (82.7ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (102.1ms)
+Completed 200 OK in 3280ms (Views: 734.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:37:03 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.6ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (110.6ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (125.1ms)
+Completed 200 OK in 2686ms (Views: 561.7ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 17:40:52 -0400
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (326.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (107.2ms)
+Completed 200 OK in 3522ms (Views: 897.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:07:44 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (273.2ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (127.0ms)
+Completed 200 OK in 3697ms (Views: 762.1ms | ActiveRecord: 25.7ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:09:04 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (110.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (101.5ms)
+Completed 200 OK in 2951ms (Views: 570.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:10:40 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.7ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (137.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (109.3ms)
+Completed 200 OK in 2635ms (Views: 596.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:13:10 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.4ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (283.5ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (112.4ms)
+Completed 200 OK in 3784ms (Views: 742.5ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:13:46 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.6ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (115.1ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (122.4ms)
+Completed 200 OK in 2739ms (Views: 607.2ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:20:21 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.7ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (210.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (106.8ms)
+Completed 200 OK in 3492ms (Views: 721.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:22:02 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.7ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (186.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (141.6ms)
+Completed 200 OK in 3217ms (Views: 638.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:23:17 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (112.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (124.0ms)
+Completed 200 OK in 2904ms (Views: 577.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:23:31 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.1ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (148.5ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (103.6ms)
+Completed 200 OK in 2411ms (Views: 556.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:24:01 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (285.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (112.7ms)
+Completed 200 OK in 3089ms (Views: 734.5ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:24:20 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (107.1ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (117.3ms)
+Completed 200 OK in 2663ms (Views: 549.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:25:08 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (8.7ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (126.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (129.3ms)
+Completed 200 OK in 3129ms (Views: 572.3ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:26:13 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (171.7ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (176.9ms)
+Completed 200 OK in 3524ms (Views: 750.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:30:47 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (193.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (108.7ms)
+Completed 200 OK in 3595ms (Views: 684.9ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:31:07 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (118.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (98.6ms)
+Completed 200 OK in 2581ms (Views: 893.9ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:39:27 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (530.8ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (109.7ms)
+Completed 200 OK in 3647ms (Views: 1041.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/trips/27" for ::1 at 2017-04-27 18:40:24 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.4ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (138.7ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (115.3ms)
+Completed 200 OK in 2560ms (Views: 584.6ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-27 18:41:01 -0400
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (7.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered trips/index.html.erb within layouts/trips (67.1ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.6ms)
+Completed 200 OK in 2935ms (Views: 257.5ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/trips/25" for ::1 at 2017-04-27 18:41:07 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (146.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (91.2ms)
+Completed 200 OK in 2781ms (Views: 410.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/trips/new" for ::1 at 2017-04-27 18:42:04 -0400
+Processing by TripsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/new.html.erb within layouts/trips
+  Rendered trips/new.html.erb within layouts/trips (3.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.0ms)
+Completed 200 OK in 237ms (Views: 227.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-27 18:42:06 -0400
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (6.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered trips/index.html.erb within layouts/trips (66.4ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.6ms)
+Completed 200 OK in 3742ms (Views: 241.5ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/trips/new" for ::1 at 2017-04-27 18:42:16 -0400
+Processing by TripsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/new.html.erb within layouts/trips
+  Rendered trips/new.html.erb within layouts/trips (2.7ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.5ms)
+Completed 200 OK in 225ms (Views: 219.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/trips/new/place_search?utf8=%E2%9C%93&latitude=39.92662020798805&longitude=-75.17042979598047&distance=4318.249210252696&selected_types=Clothing_Store%2CCafe%2CNight_Club&commit=Search" for ::1 at 2017-04-27 18:42:52 -0400
+Processing by TripsController#place_search as JS
+  Parameters: {"utf8"=>"✓", "latitude"=>"39.92662020798805", "longitude"=>"-75.17042979598047", "distance"=>"4318.249210252696", "selected_types"=>"Clothing_Store,Cafe,Night_Club", "commit"=>"Search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/place_search.js.erb
+  Rendered trips/_place_search.html.erb (244.8ms)
+  Rendered trips/place_search.js.erb (477.0ms)
+Completed 200 OK in 12693ms (Views: 535.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trips/new" for ::1 at 2017-04-27 18:44:27 -0400
+Processing by TripsController#new as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/new.html.erb within layouts/trips
+  Rendered trips/new.html.erb within layouts/trips (19.1ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.3ms)
+Completed 200 OK in 531ms (Views: 445.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/trips/new/place_search?utf8=%E2%9C%93&latitude=39.94899586463378&longitude=-75.15721186995506&distance=3103.3012818196735&selected_types=Bakery%2CChurch%2CNight_Club&commit=Search" for ::1 at 2017-04-27 18:45:05 -0400
+Processing by TripsController#place_search as JS
+  Parameters: {"utf8"=>"✓", "latitude"=>"39.94899586463378", "longitude"=>"-75.15721186995506", "distance"=>"3103.3012818196735", "selected_types"=>"Bakery,Church,Night_Club", "commit"=>"Search"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/place_search.js.erb
+  Rendered trips/_place_search.html.erb (334.1ms)
+  Rendered trips/place_search.js.erb (649.7ms)
+Completed 200 OK in 16044ms (Views: 712.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.94896382136706%2C%22lon%22%3A-75.17111644148828%7D%2C%7B%22lat%22%3A39.958701415600366%2C%22lon%22%3A-75.14296397566795%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJCQH7WCnGxokRnw5F8-8oqV8%22%2C%22marker%22%3A147%2C%22location%22%3A%7B%22lat%22%3A39.9531593%2C%22lon%22%3A-75.15909839999999%7D%2C%22name%22%3A%22Metropolitan+Bakery%22%2C%22address%22%3A%2251+North+12th+Street+%2321%2C+Philadelphia%22%2C%22photo_reference%22%3A%22CoQBdwAAAO5J4oOePdbDAA93Y0A05T61SyikyNJMjEYtLMKadUlm_luSFths0EXN1gJZCg9sP-5hd0sZ8OTfS38MZ5ktFDpr9a77gBV0ZM9VkE741AKfuTqDzpgCioiT4WQNLF_YKzYbAfGTbaTa9aUEGbRzBkMLZPchxUoE_MHycgQU88NYEhABoHCfo6cY9HLMcTO4e6vNGhR7NjgV_UspyCc2JAul_s2IQQflUg%22%2C%22photo_height%22%3A4032%2C%22photo_width%22%3A3024%2C%22type_high%22%3A%22Foods%22%7D%2C%7B%22place%22%3A%22ChIJ09L9RZvIxokR6sUugLRa7ZY%22%2C%22marker%22%3A188%2C%22location%22%3A%7B%22lat%22%3A39.946582%2C%22lon%22%3A-75.1475115%7D%2C%22name%22%3A%22Old+St+Joseph%27s+Church%22%2C%22address%22%3A%22321+Willings+Alley%2C+Philadelphia%22%2C%22photo_reference%22%3A%22CoQBdwAAAO4g_ErEq4YRUKlk8DVp8HrRliCqt7eta3_Wo5M6SiB80z5fYags19OlE8NGx1w6j0Bi0ekq-xaUXsC6efKeLJP07UdIbB8K9e3vyqCkgG7TTdqk9jpWrfgBT2P5aZLbI_v8LSTycviJHQJF-XfTkX2kmS9GjAG327ormQQ6BB9OEhCODqktYsuKJRBxGpTX3n1lGhQoHjC9-OJXd3gssfeVnIM3hHd3MQ%22%2C%22photo_height%22%3A2992%2C%22photo_width%22%3A4000%2C%22type_high%22%3A%22Religions%22%7D%2C%7B%22place%22%3A%22ChIJ0z8yMNXHxokRHbbrE0-lyAQ%22%2C%22marker%22%3A190%2C%22location%22%3A%7B%22lat%22%3A39.9587987%2C%22lon%22%3A-75.1566256%7D%2C%22name%22%3A%22The+Trestle+Inn%22%2C%22address%22%3A%22339+North+11th+Street%2C+Philadelphia%22%2C%22photo_reference%22%3A%22CoQBdwAAABeMAbh4I932MpqQgSfTfHaiemk-q8w5pmUGdc59mtKnoxqKFWDbs7WhbxGq7RYpm6qlPjaBWyEjlaO6xwNjuDVBGxhKoPSuQRxyVya4L9V4QWeHaiFcwfwfZd3GfuVxckWGObu6CmKauQKvj-bG8RtfkD_IVDlyUNL0By0l9svbEhCTwYQI-j7bb8Xu7QxcnKV7GhSiL2kJLObrtVwXxqFK4K72I4ChOQ%22%2C%22photo_height%22%3A480%2C%22photo_width%22%3A720%2C%22type_high%22%3A%22Bars%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-27 18:46:19 -0400
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.94896382136706,\"lon\":-75.17111644148828},{\"lat\":39.958701415600366,\"lon\":-75.14296397566795}]", "place_explore"=>"[{\"place\":\"ChIJCQH7WCnGxokRnw5F8-8oqV8\",\"marker\":147,\"location\":{\"lat\":39.9531593,\"lon\":-75.15909839999999},\"name\":\"Metropolitan Bakery\",\"address\":\"51 North 12th Street #21, Philadelphia\",\"photo_reference\":\"CoQBdwAAAO5J4oOePdbDAA93Y0A05T61SyikyNJMjEYtLMKadUlm_luSFths0EXN1gJZCg9sP-5hd0sZ8OTfS38MZ5ktFDpr9a77gBV0ZM9VkE741AKfuTqDzpgCioiT4WQNLF_YKzYbAfGTbaTa9aUEGbRzBkMLZPchxUoE_MHycgQU88NYEhABoHCfo6cY9HLMcTO4e6vNGhR7NjgV_UspyCc2JAul_s2IQQflUg\",\"photo_height\":4032,\"photo_width\":3024,\"type_high\":\"Foods\"},{\"place\":\"ChIJ09L9RZvIxokR6sUugLRa7ZY\",\"marker\":188,\"location\":{\"lat\":39.946582,\"lon\":-75.1475115},\"name\":\"Old St Joseph's Church\",\"address\":\"321 Willings Alley, Philadelphia\",\"photo_reference\":\"CoQBdwAAAO4g_ErEq4YRUKlk8DVp8HrRliCqt7eta3_Wo5M6SiB80z5fYags19OlE8NGx1w6j0Bi0ekq-xaUXsC6efKeLJP07UdIbB8K9e3vyqCkgG7TTdqk9jpWrfgBT2P5aZLbI_v8LSTycviJHQJF-XfTkX2kmS9GjAG327ormQQ6BB9OEhCODqktYsuKJRBxGpTX3n1lGhQoHjC9-OJXd3gssfeVnIM3hHd3MQ\",\"photo_height\":2992,\"photo_width\":4000,\"type_high\":\"Religions\"},{\"place\":\"ChIJ0z8yMNXHxokRHbbrE0-lyAQ\",\"marker\":190,\"location\":{\"lat\":39.9587987,\"lon\":-75.1566256},\"name\":\"The Trestle Inn\",\"address\":\"339 North 11th Street, Philadelphia\",\"photo_reference\":\"CoQBdwAAABeMAbh4I932MpqQgSfTfHaiemk-q8w5pmUGdc59mtKnoxqKFWDbs7WhbxGq7RYpm6qlPjaBWyEjlaO6xwNjuDVBGxhKoPSuQRxyVya4L9V4QWeHaiFcwfwfZd3GfuVxckWGObu6CmKauQKvj-bG8RtfkD_IVDlyUNL0By0l9svbEhCTwYQI-j7bb8Xu7QxcnKV7GhSiL2kJLObrtVwXxqFK4K72I4ChOQ\",\"photo_height\":480,\"photo_width\":720,\"type_high\":\"Bars\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (2.1ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (105.0ms)
+Completed 200 OK in 5743ms (Views: 284.6ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/trips" for ::1 at 2017-04-27 18:46:58 -0400
+Processing by TripsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OG6JKSJr6FZxBeuspg/YKaVU+MTuSNU3XuzkaxdgzBBwWyZhZyp2m0asz6/s32M3uBIYGdTfCWXlQGmaSTSSzg==", "trip"=>{"user_email"=>"xunzesu@gmail.com", "places"=>"[{\"id\":\"ChIJCQH7WCnGxokRnw5F8-8oqV8\",\"name\":\"Metropolitan Bakery\",\"geo\":{\"lat\":39.9531593,\"lon\":-75.15909839999999},\"address\":\"51 North 12th Street #21, Philadelphia\",\"index\":1,\"type\":\"Foods\"},{\"id\":\"ChIJ09L9RZvIxokR6sUugLRa7ZY\",\"name\":\"Old St Joseph's Church\",\"geo\":{\"lat\":39.946582,\"lon\":-75.1475115},\"address\":\"321 Willings Alley, Philadelphia\",\"index\":2,\"type\":\"Religions\"},{\"id\":\"ChIJ0z8yMNXHxokRHbbrE0-lyAQ\",\"name\":\"The Trestle Inn\",\"geo\":{\"lat\":39.9587987,\"lon\":-75.1566256},\"address\":\"339 North 11th Street, Philadelphia\",\"index\":3,\"type\":\"Bars\"}]", "start_end"=>"[{\"lat\":39.94896382136706,\"lon\":-75.17111644148828},{\"lat\":39.958701415600366,\"lon\":-75.14296397566795}]", "visit_order"=>"02134", "cost_time"=>"69.37", "cost_dist"=>"3.61", "cost_score"=>"1", "green_score"=>"2"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (14.2ms)[0m  [1m[32mINSERT INTO "trips" ("user_email", "created_at", "updated_at", "places", "start_end", "visit_order", "cost_time", "cost_dist", "cost_score", "green_score") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["user_email", "xunzesu@gmail.com"], ["created_at", 2017-04-27 22:46:58 UTC], ["updated_at", 2017-04-27 22:46:58 UTC], ["places", "[{\"id\":\"ChIJCQH7WCnGxokRnw5F8-8oqV8\",\"name\":\"Metropolitan Bakery\",\"geo\":{\"lat\":39.9531593,\"lon\":-75.15909839999999},\"address\":\"51 North 12th Street #21, Philadelphia\",\"index\":1,\"type\":\"Foods\"},{\"id\":\"ChIJ09L9RZvIxokR6sUugLRa7ZY\",\"name\":\"Old St Joseph's Church\",\"geo\":{\"lat\":39.946582,\"lon\":-75.1475115},\"address\":\"321 Willings Alley, Philadelphia\",\"index\":2,\"type\":\"Religions\"},{\"id\":\"ChIJ0z8yMNXHxokRHbbrE0-lyAQ\",\"name\":\"The Trestle Inn\",\"geo\":{\"lat\":39.9587987,\"lon\":-75.1566256},\"address\":\"339 North 11th Street, Philadelphia\",\"index\":3,\"type\":\"Bars\"}]"], ["start_end", "[{\"lat\":39.94896382136706,\"lon\":-75.17111644148828},{\"lat\":39.958701415600366,\"lon\":-75.14296397566795}]"], ["visit_order", "02134"], ["cost_time", 69.37], ["cost_dist", 3.61], ["cost_score", 1], ["green_score", 2]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/trips
+Completed 302 Found in 36ms (ActiveRecord: 16.5ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-27 18:46:58 -0400
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.9ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered trips/index.html.erb within layouts/trips (32.6ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.9ms)
+Completed 200 OK in 4109ms (Views: 202.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/trips/28" for ::1 at 2017-04-27 18:50:37 -0400
+  [1m[36mAdmin Load (4.4ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"28"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.8ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (293.4ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (112.7ms)
+Completed 200 OK in 3315ms (Views: 795.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/trips/new" for ::1 at 2017-04-27 18:51:31 -0400
+Processing by TripsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/new.html.erb within layouts/trips
+  Rendered trips/new.html.erb within layouts/trips (1.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.8ms)
+Completed 200 OK in 263ms (Views: 222.1ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/trips/new/place_search?utf8=%E2%9C%93&latitude=39.948996438373314&longitude=-75.19643649458885&distance=1872.1002453060407&selected_types=Movie_Theater%2CBakery%2CClothing_Store&commit=Search" for ::1 at 2017-04-27 18:52:07 -0400
+Processing by TripsController#place_search as JS
+  Parameters: {"utf8"=>"✓", "latitude"=>"39.948996438373314", "longitude"=>"-75.19643649458885", "distance"=>"1872.1002453060407", "selected_types"=>"Movie_Theater,Bakery,Clothing_Store", "commit"=>"Search"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/place_search.js.erb
+  Rendered trips/_place_search.html.erb (185.4ms)
+  Rendered trips/place_search.js.erb (701.0ms)
+Completed 200 OK in 13784ms (Views: 750.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/trips/new/explore?utf8=%E2%9C%93&start_end=%5B%7B%22lat%22%3A39.94343646197423%2C%22lon%22%3A-75.19793920218946%7D%2C%7B%22lat%22%3A39.95439204321826%2C%22lon%22%3A-75.20549230277538%7D%5D&place_explore=%5B%7B%22place%22%3A%22ChIJY4NRhvfGxokRHOiXD0qdWsU%22%2C%22marker%22%3A161%2C%22location%22%3A%7B%22lat%22%3A39.9538571%2C%22lon%22%3A-75.2032469%7D%2C%22name%22%3A%22Cinemark%22%2C%22address%22%3A%224012+Walnut+Street%2C+Philadelphia%22%2C%22photo_reference%22%3A%22CoQBdwAAAEaALRBLrJ0EHDxA8zo-KF_0fHdiZ8r-L-Aw3Y41hDKTtdtQ0YjoYigmM1eMdGep2GPnnEz_kbwj9WgKg8WD-3ySqsO02vIISu7_-zE5OnT1RXB9OVfg1y7ydLDixHhd8880hW5Q_csITQPffH-e4qO0jlK6eZ34qxaCJ5RmnuCAEhCTXEluvLsWF-S8BnugUO9jGhQdI9qa2OgDzs_LoIRba0Nyb1XY6A%22%2C%22photo_height%22%3A1536%2C%22photo_width%22%3A2048%2C%22type_high%22%3A%22Arts%22%7D%2C%7B%22place%22%3A%22ChIJM-EBSlrGxokRVu3IG_W7IsI%22%2C%22marker%22%3A163%2C%22location%22%3A%7B%22lat%22%3A39.951053%2C%22lon%22%3A-75.19426%7D%2C%22name%22%3A%22Insomnia+Cookies%22%2C%22address%22%3A%223417+Spruce+Street%2C+Philadelphia%22%2C%22photo_reference%22%3A%22CoQBdwAAACJ_oZYHWd7SOnQ4No0v2q5bUyNsjI-Q-OJdzch7OjZUG7RlU0JMuALtbmBY-IqdE_HEjGfEzNhwocjWGCoUx76jLwgq042TSLJnFcYBw9seMtPLSDoQRCy0GlY7hybvxh00N2muu434YniRqNbrtgPU04TpX_FXUHiRr1R76TIIEhAp41zaoIDpajvq3stxNKuPGhQgFIeWCXGjX_ARAT4QP9V1k79p8A%22%2C%22photo_height%22%3A2448%2C%22photo_width%22%3A3264%2C%22type_high%22%3A%22Foods%22%7D%2C%7B%22place%22%3A%22ChIJG_teplDGxokRnI2epRiNAz0%22%2C%22marker%22%3A223%2C%22location%22%3A%7B%22lat%22%3A39.9533887%2C%22lon%22%3A-75.19460049999999%7D%2C%22name%22%3A%22LOFT%22%2C%22address%22%3A%22120+South+36th+Street%2C+Philadelphia%22%2C%22photo_reference%22%3A%22CoQBdwAAANAcyzy-IHdxJ58ThtXFfEuApsc_BTbCEcIiq9BzsQHpEkETwLxUV0I3MumT1zg-DCgICPoh7Kt3oCXmcrFrar76oU9hxqeEA9aUAoFNiXDkWlATX3g-5xmVadW8GRL7th_3BCSLBmwnNrV7kqJo_xDIzPR5fN6JTFfhynGPHQrDEhBdJUWs6wqp1U_50bkeXGbxGhQNKP7CTG8Dsk5doFflsi1ZbrlAFw%22%2C%22photo_height%22%3A500%2C%22photo_width%22%3A500%2C%22type_high%22%3A%22Stores%22%7D%5D&commit=Explore%21" for ::1 at 2017-04-27 18:53:13 -0400
+Processing by TripsController#explore as HTML
+  Parameters: {"utf8"=>"✓", "start_end"=>"[{\"lat\":39.94343646197423,\"lon\":-75.19793920218946},{\"lat\":39.95439204321826,\"lon\":-75.20549230277538}]", "place_explore"=>"[{\"place\":\"ChIJY4NRhvfGxokRHOiXD0qdWsU\",\"marker\":161,\"location\":{\"lat\":39.9538571,\"lon\":-75.2032469},\"name\":\"Cinemark\",\"address\":\"4012 Walnut Street, Philadelphia\",\"photo_reference\":\"CoQBdwAAAEaALRBLrJ0EHDxA8zo-KF_0fHdiZ8r-L-Aw3Y41hDKTtdtQ0YjoYigmM1eMdGep2GPnnEz_kbwj9WgKg8WD-3ySqsO02vIISu7_-zE5OnT1RXB9OVfg1y7ydLDixHhd8880hW5Q_csITQPffH-e4qO0jlK6eZ34qxaCJ5RmnuCAEhCTXEluvLsWF-S8BnugUO9jGhQdI9qa2OgDzs_LoIRba0Nyb1XY6A\",\"photo_height\":1536,\"photo_width\":2048,\"type_high\":\"Arts\"},{\"place\":\"ChIJM-EBSlrGxokRVu3IG_W7IsI\",\"marker\":163,\"location\":{\"lat\":39.951053,\"lon\":-75.19426},\"name\":\"Insomnia Cookies\",\"address\":\"3417 Spruce Street, Philadelphia\",\"photo_reference\":\"CoQBdwAAACJ_oZYHWd7SOnQ4No0v2q5bUyNsjI-Q-OJdzch7OjZUG7RlU0JMuALtbmBY-IqdE_HEjGfEzNhwocjWGCoUx76jLwgq042TSLJnFcYBw9seMtPLSDoQRCy0GlY7hybvxh00N2muu434YniRqNbrtgPU04TpX_FXUHiRr1R76TIIEhAp41zaoIDpajvq3stxNKuPGhQgFIeWCXGjX_ARAT4QP9V1k79p8A\",\"photo_height\":2448,\"photo_width\":3264,\"type_high\":\"Foods\"},{\"place\":\"ChIJG_teplDGxokRnI2epRiNAz0\",\"marker\":223,\"location\":{\"lat\":39.9533887,\"lon\":-75.19460049999999},\"name\":\"LOFT\",\"address\":\"120 South 36th Street, Philadelphia\",\"photo_reference\":\"CoQBdwAAANAcyzy-IHdxJ58ThtXFfEuApsc_BTbCEcIiq9BzsQHpEkETwLxUV0I3MumT1zg-DCgICPoh7Kt3oCXmcrFrar76oU9hxqeEA9aUAoFNiXDkWlATX3g-5xmVadW8GRL7th_3BCSLBmwnNrV7kqJo_xDIzPR5fN6JTFfhynGPHQrDEhBdJUWs6wqp1U_50bkeXGbxGhQNKP7CTG8Dsk5doFflsi1ZbrlAFw\",\"photo_height\":500,\"photo_width\":500,\"type_high\":\"Stores\"}]", "commit"=>"Explore!"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/explore.html.erb within layouts/trips
+  Rendered trips/explore.html.erb within layouts/trips (1.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (48.7ms)
+Completed 200 OK in 5830ms (Views: 223.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/trips" for ::1 at 2017-04-27 18:53:33 -0400
+Processing by TripsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QW8zpTgFHzEKz6BrzTVTFKYrPh9OSwMgySU7RM4eWHgJWpztfUSB/D1mhGiH5egKu23ewnTc33Jyiba1kEoGpg==", "trip"=>{"user_email"=>"xunzesu@gmail.com", "places"=>"[{\"id\":\"ChIJY4NRhvfGxokRHOiXD0qdWsU\",\"name\":\"Cinemark\",\"geo\":{\"lat\":39.9538571,\"lon\":-75.2032469},\"address\":\"4012 Walnut Street, Philadelphia\",\"index\":1,\"type\":\"Arts\"},{\"id\":\"ChIJM-EBSlrGxokRVu3IG_W7IsI\",\"name\":\"Insomnia Cookies\",\"geo\":{\"lat\":39.951053,\"lon\":-75.19426},\"address\":\"3417 Spruce Street, Philadelphia\",\"index\":2,\"type\":\"Foods\"},{\"id\":\"ChIJG_teplDGxokRnI2epRiNAz0\",\"name\":\"LOFT\",\"geo\":{\"lat\":39.9533887,\"lon\":-75.19460049999999},\"address\":\"120 South 36th Street, Philadelphia\",\"index\":3,\"type\":\"Stores\"}]", "start_end"=>"[{\"lat\":39.94343646197423,\"lon\":-75.19793920218946},{\"lat\":39.95439204321826,\"lon\":-75.20549230277538}]", "visit_order"=>"03214", "cost_time"=>"36.78", "cost_dist"=>"1.92", "cost_score"=>"2", "green_score"=>"1"}, "commit"=>"Save"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.2ms)[0m  [1m[32mINSERT INTO "trips" ("user_email", "created_at", "updated_at", "places", "start_end", "visit_order", "cost_time", "cost_dist", "cost_score", "green_score") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["user_email", "xunzesu@gmail.com"], ["created_at", 2017-04-27 22:53:33 UTC], ["updated_at", 2017-04-27 22:53:33 UTC], ["places", "[{\"id\":\"ChIJY4NRhvfGxokRHOiXD0qdWsU\",\"name\":\"Cinemark\",\"geo\":{\"lat\":39.9538571,\"lon\":-75.2032469},\"address\":\"4012 Walnut Street, Philadelphia\",\"index\":1,\"type\":\"Arts\"},{\"id\":\"ChIJM-EBSlrGxokRVu3IG_W7IsI\",\"name\":\"Insomnia Cookies\",\"geo\":{\"lat\":39.951053,\"lon\":-75.19426},\"address\":\"3417 Spruce Street, Philadelphia\",\"index\":2,\"type\":\"Foods\"},{\"id\":\"ChIJG_teplDGxokRnI2epRiNAz0\",\"name\":\"LOFT\",\"geo\":{\"lat\":39.9533887,\"lon\":-75.19460049999999},\"address\":\"120 South 36th Street, Philadelphia\",\"index\":3,\"type\":\"Stores\"}]"], ["start_end", "[{\"lat\":39.94343646197423,\"lon\":-75.19793920218946},{\"lat\":39.95439204321826,\"lon\":-75.20549230277538}]"], ["visit_order", "03214"], ["cost_time", 36.78], ["cost_dist", 1.92], ["cost_score", 2], ["green_score", 1]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/trips
+Completed 302 Found in 21ms (ActiveRecord: 5.9ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-27 18:53:33 -0400
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered trips/index.html.erb within layouts/trips (58.4ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.7ms)
+Completed 200 OK in 3660ms (Views: 247.1ms | ActiveRecord: 3.3ms)
+
+
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips"[0m
+Started GET "/trips" for ::1 at 2017-04-27 18:55:41 -0400
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (5.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered trips/index.html.erb within layouts/trips (38.0ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.8ms)
+Completed 200 OK in 4637ms (Views: 315.2ms | ActiveRecord: 10.0ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2017-04-27 18:57:04 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Zfs/gTiKN5fd+W50TyGXLEiXOLfbZ/CnBAE/sD9VboItzpDJfcupWupQSncF8SwyVdHYauHwLPW/rbJBYQEwXA=="}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 82ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/" for ::1 at 2017-04-27 18:57:04 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/home
+  Rendered home/index.html.erb within layouts/home (3.8ms)
+Completed 200 OK in 534ms (Views: 531.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Started GET "/trips" for ::1 at 2017-04-27 18:57:32 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TripsController#index as HTML
+Completed 401 Unauthorized in 18ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-04-27 18:57:32 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (23.0ms)
+  Rendered shared/_flash.html.erb (0.6ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.5ms)
+Completed 200 OK in 1271ms (Views: 1246.2ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-04-27 18:57:42 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vl6yuokC2IT07mJ2vbRqyyzlXSxiLQw1wZVajdHfnJ0wIGQd3Y7qH3GwrV0qp5YOcuXPNPtyIywa09fASxweEA==", "user"=>{"email"=>"xunzesu@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."email" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["email", "xunzesu@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[33mUPDATE "patrons" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "patrons"."id" = $5[0m  [["current_sign_in_at", 2017-04-27 22:57:42 UTC], ["last_sign_in_at", 2017-04-27 01:34:55 UTC], ["sign_in_count", 57], ["updated_at", 2017-04-27 22:57:42 UTC], ["id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/trips
+Completed 302 Found in 195ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-27 18:57:42 -0400
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered shared/_flash.html.erb (0.6ms)
+  Rendered trips/index.html.erb within layouts/trips (38.7ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.6ms)
+Completed 200 OK in 3895ms (Views: 225.3ms | ActiveRecord: 7.1ms)
+
+
