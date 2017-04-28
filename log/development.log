@@ -47842,3 +47842,91 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 250ms (Views: 248.1ms | ActiveRecord: 0.0ms)
 
 
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Started GET "/" for ::1 at 2017-04-27 21:32:23 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/home
+  Rendered home/index.html.erb within layouts/home (1.8ms)
+Completed 200 OK in 1360ms (Views: 1357.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-27 21:32:27 -0400
+Processing by TripsController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-04-27 21:32:27 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.3ms)
+  Rendered shared/_flash.html.erb (0.6ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.1ms)
+Completed 200 OK in 198ms (Views: 173.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2017-04-27 21:32:30 -0400
+Processing by DeviseInvitable::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.6ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.7ms)
+Completed 200 OK in 229ms (Views: 226.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2017-04-27 21:32:45 -0400
+Processing by DeviseInvitable::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PcR2w1BBxfUcXcyJJx06XL/wfE9/rTtFGmTYR8yEHUvdW9V/aLf7kPpLJ5UgrHUaN3BDbTC+uFrEsIG5gPvsXA==", "user"=>{"email"=>"example@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."email" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["email", "example@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatron Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "patrons" WHERE "patrons"."email" = $1 LIMIT $2[0m  [["email", "example@email.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "patrons" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "type") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "example@email.com"], ["encrypted_password", "$2a$11$zZsMost.l/xTPH9iXJcK7uhFnqE3Pv2Mu0.CdTXoUUwDxJXCIIE/G"], ["confirmation_token", "gJmfrkPMeWoGZeYsmLz-"], ["confirmation_sent_at", 2017-04-28 01:32:46 UTC], ["created_at", 2017-04-28 01:32:46 UTC], ["updated_at", 2017-04-28 01:32:46 UTC], ["type", "User"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.0ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 189.7ms
+Sent mail to example@email.com (15.2ms)
+Date: Thu, 27 Apr 2017 21:32:46 -0400
+From: xunzesu@outlook.com
+Reply-To: xunzesu@outlook.com
+To: example@email.com
+Message-ID: <59029bbe4349e_6513fed99c94f2014743@Xunzes-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome example@email.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=gJmfrkPMeWoGZeYsmLz-">Confirm my account</a></p>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 457ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/" for ::1 at 2017-04-27 21:32:46 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/home
+  Rendered home/index.html.erb within layouts/home (0.8ms)
+Completed 200 OK in 306ms (Views: 304.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-27 21:33:01 -0400
+Processing by TripsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-04-27 21:33:01 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.7ms)
+  Rendered shared/_flash.html.erb (0.8ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.7ms)
+Completed 200 OK in 220ms (Views: 218.1ms | ActiveRecord: 0.0ms)
+
+
