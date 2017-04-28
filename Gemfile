@@ -69,10 +69,6 @@ group :development do
   gem 'heroku'
 end
 
-group :heroku do
-  gem 'pg'
-end
-
 group :production do
   gem 'pg'
   gem 'rails_12factor'
