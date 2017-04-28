@@ -11,8 +11,6 @@
  * It is generally better to create a new file per style scope.
  *
  *= require mdb_min.css
- *= require leaflet
- *= require leaflet_draw
  *= require vex
  *= require vex-theme-plain
  *= require_tree .
