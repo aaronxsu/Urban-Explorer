@@ -13,9 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require paloma
 //= require mdb_min
-//= require ./paloma/trips/new
+//= require paloma
+//= require ./paloma/trips/index.js
+//= require ./paloma/trips/show.js
+//= require ./paloma/trips/new.js
+//= require ./paloma/trips/explore.js
 //= require_tree .
 
 // tether.js must be included before bootstrap.js

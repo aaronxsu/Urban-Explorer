@@ -48719,3 +48719,250 @@ app/views/layouts/home.html.erb:14:in `_app_views_layouts_home_html_erb___456828
   Rendering /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (12.4ms)
   Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (85.3ms)
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Started GET "/" for ::1 at 2017-04-27 23:52:53 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/home
+  Rendered home/index.html.erb within layouts/home (2.7ms)
+Completed 200 OK in 7482ms (Views: 7479.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-27 23:53:03 -0400
+Processing by TripsController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-04-27 23:53:03 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (47.7ms)
+  Rendered shared/_flash.html.erb (0.8ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.0ms)
+Completed 200 OK in 454ms (Views: 372.6ms | ActiveRecord: 11.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-04-27 23:53:16 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u1rdy0mczUCnpe/pHV2mY6y6j0ZeduH+wj1deUJHuuHgqNdsRvbdN3m7QqIFkL7WuRh6r4AtzbePgTsDxVnNhQ==", "user"=>{"email"=>"xunzesu@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."email" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["email", "xunzesu@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.9ms)[0m  [1m[33mUPDATE "patrons" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "patrons"."id" = $5[0m  [["current_sign_in_at", 2017-04-28 03:53:16 UTC], ["last_sign_in_at", 2017-04-28 01:59:10 UTC], ["sign_in_count", 60], ["updated_at", 2017-04-28 03:53:16 UTC], ["id", 2]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/trips
+Completed 302 Found in 194ms (ActiveRecord: 5.9ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-27 23:53:16 -0400
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (1.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered shared/_flash.html.erb (0.5ms)
+  Rendered trips/index.html.erb within layouts/trips (27.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.6ms)
+Completed 200 OK in 5906ms (Views: 233.3ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-04-27 23:53:26 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 9ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-27 23:53:29 -0400
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered shared/_flash.html.erb (0.5ms)
+  Rendered trips/index.html.erb within layouts/trips (122.1ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.7ms)
+Completed 200 OK in 4539ms (Views: 319.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/trips/30" for ::1 at 2017-04-27 23:53:42 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (52.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (66.9ms)
+Completed 200 OK in 2064ms (Views: 582.4ms | ActiveRecord: 1.2ms)
+
+
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Started GET "/" for ::1 at 2017-04-28 00:08:17 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/home
+  Rendered home/index.html.erb within layouts/home (2.6ms)
+Completed 200 OK in 1142ms (Views: 1138.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-28 00:08:22 -0400
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered trips/index.html.erb within layouts/trips (240.5ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.7ms)
+Completed 200 OK in 5894ms (Views: 454.8ms | ActiveRecord: 9.2ms)
+
+
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Started GET "/" for ::1 at 2017-04-28 00:12:00 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/home
+  Rendered home/index.html.erb within layouts/home (2.1ms)
+Completed 200 OK in 728ms (Views: 724.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-28 00:12:09 -0400
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered trips/index.html.erb within layouts/trips (23.9ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.7ms)
+Completed 200 OK in 5454ms (Views: 276.3ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/trips/new" for ::1 at 2017-04-28 00:12:23 -0400
+Processing by TripsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/new.html.erb within layouts/trips
+  Rendered trips/new.html.erb within layouts/trips (1.8ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.1ms)
+Completed 200 OK in 391ms (Views: 385.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-28 00:19:59 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/home
+  Rendered home/index.html.erb within layouts/home (0.8ms)
+Completed 200 OK in 378ms (Views: 376.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-28 00:20:03 -0400
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered trips/index.html.erb within layouts/trips (62.0ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.7ms)
+Completed 200 OK in 4909ms (Views: 217.1ms | ActiveRecord: 0.9ms)
+
+
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Started GET "/trips" for ::1 at 2017-04-28 00:25:46 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered trips/index.html.erb within layouts/trips (40.6ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.9ms)
+Completed 200 OK in 9340ms (Views: 4378.7ms | ActiveRecord: 8.9ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2017-04-28 00:26:02 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Jb0iDkKvR5bqKZYyu65fpczyjrP0yt4QtpJuTsYVuLMIwa18+NHWWqlc6+WezekzGQNztSQQdYzzFgOQMjDVsg=="}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2017-04-28 00:26:02 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/home
+  Rendered home/index.html.erb within layouts/home (6.7ms)
+Completed 200 OK in 349ms (Views: 346.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-28 00:26:04 -0400
+Processing by TripsController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-04-28 00:26:04 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (6.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (38.9ms)
+  Rendered shared/_flash.html.erb (0.7ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.6ms)
+Completed 200 OK in 333ms (Views: 331.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-04-28 00:26:11 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZhG4oGfo8e37EhhAayjok2/4qQqI+ojIn/8P8K7Hdw8eSlPxRwty5vHtvDBFY3TfJhwoM/aVHQo3pNViLwYQdg==", "user"=>{"email"=>"xunzesu@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."email" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["email", "xunzesu@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "patrons" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "patrons"."id" = $5[0m  [["current_sign_in_at", 2017-04-28 04:26:11 UTC], ["last_sign_in_at", 2017-04-28 03:53:16 UTC], ["sign_in_count", 61], ["updated_at", 2017-04-28 04:26:11 UTC], ["id", 2]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/trips
+Completed 302 Found in 217ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-28 00:26:11 -0400
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered shared/_flash.html.erb (1.0ms)
+  Rendered trips/index.html.erb within layouts/trips (137.7ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.0ms)
+Completed 200 OK in 4989ms (Views: 382.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/trips/31" for ::1 at 2017-04-28 00:26:18 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (43.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (37.3ms)
+Completed 200 OK in 1957ms (Views: 352.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/trips/new" for ::1 at 2017-04-28 00:26:29 -0400
+Processing by TripsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/new.html.erb within layouts/trips
+  Rendered trips/new.html.erb within layouts/trips (1.7ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.3ms)
+Completed 200 OK in 242ms (Views: 236.9ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2017-04-28 00:26:32 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ALmeNiac5IlIgqAF236HqbrLO1sn4Rcfvf9bWhZQOFXI/jMAtJ//jNYuL2fM0Rl2E+wurnhzG4Gj95h02+sXQw=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2017-04-28 00:26:32 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/home
+  Rendered home/index.html.erb within layouts/home (0.6ms)
+Completed 200 OK in 264ms (Views: 262.1ms | ActiveRecord: 0.0ms)
+
+
