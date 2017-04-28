@@ -49023,3 +49023,66 @@ Processing by TripsController#new as HTML
 Completed 200 OK in 285ms (Views: 279.3ms | ActiveRecord: 0.4ms)
 
 
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Started GET "/" for ::1 at 2017-04-28 02:08:15 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/home
+  Rendered home/index.html.erb within layouts/home (1.8ms)
+Completed 200 OK in 5582ms (Views: 5579.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-28 02:08:39 -0400
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered trips/index.html.erb within layouts/trips (28.8ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.7ms)
+Completed 200 OK in 6439ms (Views: 514.4ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/trips/30" for ::1 at 2017-04-28 02:08:49 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (71.8ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (59.6ms)
+Completed 200 OK in 1796ms (Views: 351.2ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-28 02:09:09 -0400
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered trips/index.html.erb within layouts/trips (23.6ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.6ms)
+Completed 200 OK in 4656ms (Views: 232.9ms | ActiveRecord: 2.4ms)
+
+
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Started GET "/trips" for ::1 at 2017-04-28 02:13:28 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered trips/index.html.erb within layouts/trips (31.4ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (0.5ms)
+Completed 200 OK in 6394ms (Views: 1039.8ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/trips/31" for ::1 at 2017-04-28 02:13:39 -0400
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  Rendering trips/show.html.erb within layouts/trips
+  Rendered trips/show.html.erb within layouts/trips (28.3ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (51.2ms)
+Completed 200 OK in 1534ms (Views: 224.7ms | ActiveRecord: 0.8ms)
+
+
