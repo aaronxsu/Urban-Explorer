@@ -1,5 +1,7 @@
 # Urban Explorer
 
+Enjoy the app [here](https://urban-explorer.herokuapp.com/).
+
 The first iteration of this app is done, and now it has following features:
 
 * Register your own account
@@ -9,5 +11,3 @@ The first iteration of this app is done, and now it has following features:
 * Select your desirable start and end point for a trip
 * Pick places of your interests from the up-to-date places DB
 * Decide which route to follow to complete a trip of all recommended stops considering the time and distance cost + the street tree coverage
-
-The App will be deployed soon.
