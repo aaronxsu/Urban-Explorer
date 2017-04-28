@@ -184,7 +184,6 @@ GEM
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
     netrc (0.10.3)
-    newrelic_rpm (4.1.0.333)
     nio4r (2.0.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
@@ -311,7 +310,6 @@ DEPENDENCIES
   letter_opener
   listen (~> 3.0.5)
   meta_request
-  newrelic_rpm
   paloma (~> 5.0.0)
   pg
   puma (~> 3.0)

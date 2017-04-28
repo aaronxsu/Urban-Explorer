@@ -19,6 +19,7 @@ gem 'therubyracer', platforms: :ruby
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "sprockets", '3.6.3'
 gem "twitter-bootstrap-rails"
+# gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -75,7 +76,6 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
-  gem 'newrelic_rpm'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
