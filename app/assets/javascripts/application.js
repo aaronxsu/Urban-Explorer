@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery_simpleWeather_min
 
 // tether.js must be included before bootstrap.js
 // for more refenrence http://v4-alpha.getbootstrap.com/components/tooltips/
@@ -19,6 +20,12 @@
 //= require tether.min.js
 //= require twitter/bootstrap
 //= require mdb_min
+//= require math_min
+//= require underscore-min
+//= require leaflet
+//= require leaflet_draw
+//= require turf_min
+//= require vex_combined_min
 //= require paloma
 //= require ./paloma/trips/index.js
 //= require ./paloma/trips/show.js
