@@ -48968,3 +48968,58 @@ Completed 200 OK in 264ms (Views: 262.1ms | ActiveRecord: 0.0ms)
 
   [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
   [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+Started GET "/" for ::1 at 2017-04-28 01:12:24 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/home
+  Rendered home/index.html.erb within layouts/home (2.3ms)
+Completed 200 OK in 1488ms (Views: 1486.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-28 01:12:28 -0400
+Processing by TripsController#index as HTML
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-04-28 01:12:28 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (20.2ms)
+  Rendered shared/_flash.html.erb (1.2ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.1ms)
+Completed 200 OK in 287ms (Views: 243.4ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-04-28 01:12:34 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lOMiuW28jthuAsvTn5kWuXTbssY4oAVqCGgHGTH+AoKk0eId85OyyAgl0XHK4ZgpYMqvrgjoYyWJanTDEHI7DQ==", "user"=>{"email"=>"xunzesu@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."email" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["email", "xunzesu@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.1ms)[0m  [1m[33mUPDATE "patrons" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "patrons"."id" = $5[0m  [["current_sign_in_at", 2017-04-28 05:12:34 UTC], ["last_sign_in_at", 2017-04-28 04:26:11 UTC], ["sign_in_count", 62], ["updated_at", 2017-04-28 05:12:34 UTC], ["id", 2]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/trips
+Completed 302 Found in 235ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/trips" for ::1 at 2017-04-28 01:12:34 -0400
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.9ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_email" = $1 ORDER BY id DESC[0m  [["user_email", "xunzesu@gmail.com"]]
+  Rendering trips/index.html.erb within layouts/trips
+  Rendered shared/_flash.html.erb (1.0ms)
+  Rendered trips/index.html.erb within layouts/trips (102.1ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.0ms)
+Completed 200 OK in 5702ms (Views: 303.5ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/trips/new" for ::1 at 2017-04-28 01:12:43 -0400
+Processing by TripsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('User') AND "patrons"."id" = $1 ORDER BY "patrons"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering trips/new.html.erb within layouts/trips
+  Rendered trips/new.html.erb within layouts/trips (1.7ms)
+  Rendered /Users/xunzesu/.rvm/gems/ruby-2.3.0/gems/paloma-5.0.0/app/views/paloma/_hook.html.erb (1.0ms)
+Completed 200 OK in 285ms (Views: 279.3ms | ActiveRecord: 0.4ms)
+
+
