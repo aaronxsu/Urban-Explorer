@@ -13,7 +13,7 @@ class TripsController < InheritedResources::Base
   def index
     @trips = Trip.where(user_email: current_user.email).reorder('id').reverse_order
     @trips_array = Array.new()
-    api_key = 'AIzaSyCxenfqNTnUG8_wI3G7lH2wSmDWsLmdWqA'
+    api_key = ENV['GOOGLE_MAPS_WEB_SERVICES_KEY_UE']
 
     @trips.each do |eachTrip|
       @trips_array.push({
@@ -147,7 +147,7 @@ class TripsController < InheritedResources::Base
     # Get the turn by turn result
     #
     #----------------------------------------------------
-    mapzen_key = 'mapzen-qJmfq5U'
+    mapzen_key = ENV['MAPZEN_KEY_UE']
     @trip_places = @trip_hash[:places_ordered].map {|place| place.values_at("geo")}.flatten
     @tbt_json = {
       :locations => [@trip_hash[:start_end][0]] + @trip_places + [@trip_hash[:start_end][1]],
@@ -163,7 +163,7 @@ class TripsController < InheritedResources::Base
     # Get the photos of these places
     #
     #----------------------------------------------------
-    api_key = 'AIzaSyCxenfqNTnUG8_wI3G7lH2wSmDWsLmdWqA'
+    api_key = ENV['GOOGLE_MAPS_WEB_SERVICES_KEY_UE']
     @trip_hash[:places_ordered].each do |place|
       #a string to store the photo's base64 code
       place_photo = String.new
@@ -263,7 +263,7 @@ class TripsController < InheritedResources::Base
     @radar_result = Array.new
     @detail_result = Array.new
 
-    api_key = 'AIzaSyCxenfqNTnUG8_wI3G7lH2wSmDWsLmdWqA'
+    api_key = ENV['GOOGLE_MAPS_WEB_SERVICES_KEY_UE']
     nearby_base_uri = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
     radar_base_uri = "https://maps.googleapis.com/maps/api/place/radarsearch/json?"
     detail_base_uri = "https://maps.googleapis.com/maps/api/place/details/json?"
@@ -362,7 +362,7 @@ class TripsController < InheritedResources::Base
     json = JSON.generate({ locations: start_place_end_locations, costing: "pedestrian" })
     id = "ManyToMany_StartPlacesEnd"
     units = "miles"
-    mapzen_key = 'mapzen-qJmfq5U'
+    mapzen_key = ENV['MAPZEN_KEY_UE']
     tdm_uri = tdm_base_uri + "json=" + json + "&id=" + id + "&units" + units + "&api_key" + mapzen_key
     open(tdm_uri) do |f|
       @tdm_result_json = JSON.parse(f.read)
@@ -443,7 +443,7 @@ class TripsController < InheritedResources::Base
 
     end
 
-    api_key = 'AIzaSyCxenfqNTnUG8_wI3G7lH2wSmDWsLmdWqA'
+    api_key = ENV['GOOGLE_MAPS_WEB_SERVICES_KEY_UE']
     @place_explore.each do |each_place|
 
       if each_place["photo_reference"] then
