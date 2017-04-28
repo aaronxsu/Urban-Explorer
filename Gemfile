@@ -17,7 +17,7 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-
+gem "sprockets", '3.6.3'
 gem "twitter-bootstrap-rails"
 
 # Use jquery as the JavaScript library
