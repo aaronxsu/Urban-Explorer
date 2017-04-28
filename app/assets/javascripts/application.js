@@ -12,6 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+// tether.js must be included before bootstrap.js
+// for more refenrence http://v4-alpha.getbootstrap.com/components/tooltips/
+
+//= require tether.min.js
 //= require twitter/bootstrap
 //= require mdb_min
 //= require paloma
@@ -20,17 +25,3 @@
 //= require ./paloma/trips/new.js
 //= require ./paloma/trips/explore.js
 //= require_tree .
-
-// tether.js must be included before bootstrap.js
-// for more refenrence http://v4-alpha.getbootstrap.com/components/tooltips/
-//= require tether.min.js
-
-$(document).ready(function(){
-  // $("[name='my-checkbox']").bootstrapSwitch();
-
-  Paloma.start();
-});
-
-$(document).on('page:restore', function(){
-  Paloma.start();
-});

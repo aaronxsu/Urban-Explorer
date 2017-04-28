@@ -1,3 +1,11 @@
+$(document).ready(function(){
+  Paloma.start();
+});
+
+$(document).on('page:restore', function(){
+  Paloma.start();
+});
+
 // This is adapted from the implementation in Project-OSRM
 // https://github.com/DennisOSRM/Project-OSRM-Web/blob/master/WebContent/routing/OSRM.RoutingGeometry.js
 var decode = function(str, precision) {

@@ -1,3 +1,11 @@
+$(document).ready(function(){
+  Paloma.start();
+});
+
+$(document).on('page:restore', function(){
+  Paloma.start();
+});
+
 var getPlacePrice = function(originalPrice){
   var placePrice = parseInt(originalPrice);
   var placePriceDollars;
