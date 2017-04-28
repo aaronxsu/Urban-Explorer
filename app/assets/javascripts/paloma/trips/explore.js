@@ -93,6 +93,8 @@ var getMarkerFillColor = function(category){
 Paloma.controller('Trips', {
   explore: function(){
 
+    vex.defaultOptions.className = 'vex-theme-plain'
+
     $('#sidebar-tab-explore').parent().prop('class', 'active');
 
     $('.sidebar').toggleClass('explore-map');
@@ -245,6 +247,11 @@ Paloma.controller('Trips', {
         });
       }
     })
+
+    // var tempPoints =
+    mapExplore.fitBounds(L.polyline(_.map(startEnd, function(point){return _.values(point)})).getBounds())
+
+    // console.log("temp points", tempPoints)
 
     var layerPlaceMarkers = [];
     _.each(places, function(eachPlace){
@@ -612,6 +619,19 @@ Paloma.controller('Trips', {
       var scoreToSave = _.filter(routeScore, function(score){ return score.point_index_order_index.toString() === routeIndexString})[0]
       $('#trip_cost_score').val(routeScore.length - scoreToSave.cost_score + 1);
       $('#trip_green_score').val(routeScore.length - scoreToSave.tree_score + 1);
+
+
+      vex.dialog.confirm({
+        message: 'Would you like to save this journey plan?',
+        callback: function (value) {
+          if (value) {
+            $("#btn-trip-form-submit").click();
+          } else {
+
+          }
+        }
+      })
+
     })
 
 

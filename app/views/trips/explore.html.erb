@@ -2,7 +2,7 @@
   <div id='map-explore' class='map-explore'></div>
   <%= @range_opermutations_with_index %>
 
-  <%= form_tag(trips_path, method: "post", id: 'trip-form-to-submit') do %>
+  <%= form_tag(trips_path, method: "post", id: 'trip-form-to-submit', style: "display:none;") do %>
     <%= label_tag("trip[user_email]", "User Email") %>
     <%= text_field_tag("trip[user_email]", current_user.email) %>
     <%= label_tag("trip[places]", "Places:") %>
