@@ -178,6 +178,7 @@ Paloma.controller('Trips', {
       woeid: '',
       unit: 'f',
       success: function(weather) {
+        console.log(weather)
         $("#temperature").text(weather.temp+'°'+weather.units.temp)
         var weatherIcon;
         _.each(weatherIcons, function(icon, index){
