@@ -22,6 +22,8 @@
 //= require mdb_min
 //= require math_min
 //= require underscore-min
+//= require leaflet
+//= require leaflet_draw
 //= require turf_min
 //= require vex_combined_min
 //= require paloma

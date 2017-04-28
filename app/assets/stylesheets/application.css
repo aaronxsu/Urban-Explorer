@@ -13,6 +13,8 @@
  *= require mdb_min.css
  *= require vex
  *= require vex-theme-plain
+ *= require leaflet
+ *= require leaflet_draw
  *= require_tree .
  *= require_self
 
