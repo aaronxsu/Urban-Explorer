@@ -85,7 +85,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #default url options
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'https://urban-explorer.herokuapp.com/' }
 
   #exception notifier settings
   Rails.application.config.middleware.use ExceptionNotification::Rack,

@@ -48966,3 +48966,5 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 264ms (Views: 262.1ms | ActiveRecord: 0.0ms)
 
 
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
