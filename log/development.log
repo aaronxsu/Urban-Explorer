@@ -49086,3 +49086,4 @@ Processing by TripsController#show as HTML
 Completed 200 OK in 1534ms (Views: 224.7ms | ActiveRecord: 0.8ms)
 
 
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "patrons".* FROM "patrons" WHERE "patrons"."type" IN ('Admin')[0m
