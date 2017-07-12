@@ -12,3 +12,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore all ds_store
+.DS_Store
