@@ -127,11 +127,11 @@ Paloma.controller('Trips', {
 
     var treeCounts = "https://raw.githubusercontent.com/aaronxsu/MyData/master/tree_count_points.geojson";
 
-    console.log("All places: ", places)
-    console.log("Start and end: ", startEnd)
-    console.log("Route orders: ", routeOrders)
-    console.log("Cost result: ", costResult)
-    console.log("Turn by Turn Result: ", tbtResult)
+    // console.log("All places: ", places)
+    // console.log("Start and end: ", startEnd)
+    // console.log("Route orders: ", routeOrders)
+    // console.log("Cost result: ", costResult)
+    // console.log("Turn by Turn Result: ", tbtResult)
 
     // the HTML for the sidebar top summary card
     var summaryCardHtml = "<div class='card' id='card-summary'>"
@@ -206,7 +206,7 @@ Paloma.controller('Trips', {
     var startName = '';
     var endName = '';
     $.ajax(reverseGeoCodeUriStart).done(function(data){
-      console.log(data)
+    //   console.log(data)
       startName = data.features[0].properties.name + ", " + data.features[0].properties.localadmin + ", " + data.features[0].properties.region_a + " " + data.features[0].properties.postalcode;
       $('#td-start-address').text(startName);
     })
@@ -345,7 +345,7 @@ Paloma.controller('Trips', {
 
       routeScore = _.sortBy(routeScore, function(thisScore){ return -thisScore.cost_tree_score; });
 
-      console.log(routeScore)
+    //   console.log(routeScore)
 
       _.each(routeScore, function(route, routeIndex){
         //first generate the html for the route collapse, the time and tree rank, and the first place name

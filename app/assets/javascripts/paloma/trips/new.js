@@ -276,7 +276,7 @@ Paloma.controller('Trips', {
             });
 
             selectedTypes.push(currentId)
-            console.log(selectedTypes);
+            // console.log(selectedTypes);
 
             $('#selected_types').val(_.uniq(selectedTypes));
 
@@ -291,7 +291,7 @@ Paloma.controller('Trips', {
             });
 
             selectedTypes = _.reject(selectedTypes, function(type){return type == currentId})
-            console.log(selectedTypes);
+            // console.log(selectedTypes);
 
             $('#selected_types').val(_.uniq(selectedTypes));
 
@@ -324,7 +324,7 @@ Paloma.controller('Trips', {
 
         selectedTypes = _.difference(selectedTypes, idToDelete)
 
-        console.log(selectedTypes)
+        // console.log(selectedTypes)
         $('#selected_types').val(_.uniq(selectedTypes));
         $('#'+id+'-second').empty();
         $('#'+id+'-second .cat_second').prop('checked', false);
@@ -343,7 +343,7 @@ Paloma.controller('Trips', {
             clearInterval(checkExist);
 
             searchPlaces =  _.map(JSON.parse($('#place-search-result').text()), function(obj){return JSON.parse(obj)});
-            console.log(searchPlaces);
+            // console.log(searchPlaces);
 
             $('#spinner').empty();
 
@@ -412,7 +412,7 @@ Paloma.controller('Trips', {
     $("#map-sidebar").on("click", ".btn-place-next", function(e){
       // the place id of the currently cliked card
       var thisPlaceId = this.id.split("-place-next")[0];
-      console.log(thisPlaceId)
+    //   console.log(thisPlaceId)
       // the category id in an array
       var parentCardId = $(this).parent().parent().prop('id').split('-');
       // the category name
@@ -426,13 +426,13 @@ Paloma.controller('Trips', {
          .first()
          .value()
          .places;
-      console.log(catPlacesAll);
+    //   console.log(catPlacesAll);
 
       var catPlaceAllIds = _.pluck(catPlacesAll, "place_id");
-      console.log(catPlaceAllIds)
+    //   console.log(catPlaceAllIds)
 
       var thisPlaceIndex = _.indexOf(catPlaceAllIds, thisPlaceId);
-      console.log(thisPlaceIndex)
+    //   console.log(thisPlaceIndex)
 
       var nextPlace;
       if(thisPlaceIndex == 9){
@@ -442,7 +442,7 @@ Paloma.controller('Trips', {
       }
 
       // catPlacesAll[thisPlaceIndex+1]
-      console.log(nextPlace)
+    //   console.log(nextPlace)
 
       // Update card information
       $("#"+thisPlaceId+"-place-img").prop('src', getPlacePhoto(nextPlace.photo_64)).prop('id', nextPlace.place_id+"-place-img")
@@ -465,8 +465,8 @@ Paloma.controller('Trips', {
       var placeId = this.id.split("-place-add")[0];
       // The currenly clicked place catgory
       var highCat = $(this).parent().parent().attr('id').split('-')[0];
-      console.log(placeId);
-      console.log(highCat);
+    //   console.log(placeId);
+    //   console.log(highCat);
 
       var higerCat;
       _.each(types, function(thisType){
@@ -474,15 +474,15 @@ Paloma.controller('Trips', {
         _.each(thisType.cat_second, function(thisLilType){
 
           if(thisLilType.split(' ')[0].toUpperCase() == highCat.split('_')[0].toUpperCase()){
-            console.log(thisLilType.split(' ')[0])
-            console.log(highCat.split('_')[0])
+            // console.log(thisLilType.split(' ')[0])
+            // console.log(highCat.split('_')[0])
             found = true;
           }
         })
         if(found){ higerCat = thisType.cat_first;}
       })
 
-      console.log(higerCat)
+    //   console.log(higerCat)
 
       // This clicked place's detailed information
       var selectedPlace = _.chain(searchPlaces)
@@ -495,7 +495,7 @@ Paloma.controller('Trips', {
        .filter(function(thisPlace){
          return thisPlace.place_id == placeId;
        });
-       console.log(selectedPlace)
+    //    console.log(selectedPlace)
 
       // The marker of this clicked place on the map
       var marker = L.circleMarker([selectedPlace[0].loc_lat, selectedPlace[0].loc_lng],{

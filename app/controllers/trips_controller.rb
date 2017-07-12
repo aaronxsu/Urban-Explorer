@@ -363,7 +363,8 @@ class TripsController < InheritedResources::Base
     id = "ManyToMany_StartPlacesEnd"
     units = "miles"
     mapzen_key = ENV['MAPZEN_KEY_UE']
-    tdm_uri = tdm_base_uri + "json=" + json + "&id=" + id + "&units" + units + "&api_key" + mapzen_key
+    tdm_uri = tdm_base_uri + "json=" + json + "&id=" + id + "&units=" + units + "&api_key=" + mapzen_key
+
     open(tdm_uri) do |f|
       @tdm_result_json = JSON.parse(f.read)
     end
