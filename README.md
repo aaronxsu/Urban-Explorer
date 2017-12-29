@@ -2,7 +2,7 @@
 
 Enjoy the app [here](https://urban-explorer.herokuapp.com/).
 
-The first iteration of this app is done, and now it has following features:
+It has following features:
 
 * Register your own account
 * View your journey exploration history
