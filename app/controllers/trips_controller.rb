@@ -331,167 +331,40 @@ class TripsController < InheritedResources::Base
   end #end of place_search action
 
   def explore
-
+    # a new trip storing user selected info
     @trip = Trip.new
 
-    # an array of two hashes: the first being the start and the second being the end -> {lat: ..., lng: ... }
-    #[{"lat"=>39.950871972692845, "lon"=>-75.17678126692773}, {"lat"=>39.95225370421749, "lon"=>-75.15532359480859}]
+    # an array of two hashes: the first being the start and the second being the end -> [{lat: , lng: }, {lat: , lng: }]
     @start_end = JSON.parse(params[:start_end])
+
     # an array of hashes: all the places to go through
     # each place has: place ID from Google, marker ID from leaflet, location in the form of [lat, lng], place name, place address
-    @place_explore = JSON.parse(params[:place_explore])
+    @place_explore = JSON.parse(params[:place_explore]).each.with_index {|ele, idx| ele[:index] = idx + 1}
 
-    place_locations = @place_explore.map {|this_place| this_place['location']}
+    place_locations = @place_explore.map {|place| place['location']}
 
     @range_permutations = [*1..place_locations.length].permutation.to_a.map {|thisIndex| [0] + thisIndex + [place_locations.length + 1]}
 
-    # in the form of: 41.43206,-81.38992|-33.86748,151.20699....
-    start_place_end_locations = (
-      [@start_end.first] + place_locations + [@start_end.last]
-    ).map {|place|
-      place['lat'].to_s + ',' + place['lon'].to_s
-    }.join('|')
+    @cost_result = get_tdm(@start_end, place_locations, @range_permutations)
 
-    # the http request uri for td matrix using google maps service
-    tdm_base_uri = 'https://maps.googleapis.com/maps/api/distancematrix/json?'
-    tdm_uri = tdm_base_uri +
-      'origins=' + start_place_end_locations +
-      '&destinations=' + start_place_end_locations +
-      '&mode=walking' +
-      '&units=imperial' +
-      '&key=' + ENV['GOOGLE_MAPS_WEB_SERVICES_KEY_UE']
+    @range_permutations_with_index = @range_permutations.map.with_index {|ele, idx| {:index => idx + 1, :order => ele}}
 
-    # # calculate the time-distance matrix with Mapzen API
-    # tdm_base_uri = 'https://matrix.mapzen.com/many_to_many?'
-    # json = JSON.generate({ locations: start_place_end_locations, costing: "pedestrian" })
-    # id = "ManyToMany_StartPlacesEnd"
-    # units = "miles"
-    # mapzen_key = ENV['MAPZEN_KEY_UE']
-    # tdm_uri = tdm_base_uri + "json=" + json + "&id=" + id + "&units=" + units + "&api_key=" + mapzen_key
-    #
-    open(tdm_uri) do |f|
-      @tdm_result_json = JSON.parse(f.read)
-    end
+    @tbt_result = get_tbt(@start_end, @range_permutations, place_locations)
 
-    @cost_result = Array.new
+    @place_explore.each do |each_place|
+      if each_place["photo_reference"] then
+        open(
+          "https://maps.googleapis.com/maps/api/place/photo?key=" + ENV['GOOGLE_MAPS_WEB_SERVICES_KEY_UE'] +
+          "&photoreference=" + each_place["photo_reference"] + "&maxheight=" + each_place["photo_height"].to_s
+        ) do |f|
+          each_place["photo_base64"] = "data:image/jpeg;base64," + Base64.encode64(f.read)
+        end # end of photo search open uri
+      else
+        each_place["photo_base64"] = '0'
+      end # end of if there is photo reference
+    end # end of places loop
 
-    @range_permutations.each do |route_order|
-      time_acc = 0.0
-      distance_acc = 0.0
-
-      place_idx = route_order.slice(1..route_order.length-2).map {|i| [i] * 2}.flatten
-      row_col = ([route_order[0]] + place_idx + [route_order[route_order.length - 1]]).each_slice(2).to_a
-
-      row_col.each do |pair|
-        td = @tdm_result_json['rows'][pair[0]]['elements'][pair[1]]
-        time_acc += td['duration']['value']
-        distance_acc += td['distance']['value']
-      end # end of this ordered route
-
-      @cost_result.push({
-        :ordered_route_index => route_order,
-        :cost_time => time_acc, # in seconds
-        :cost_dist => distance_acc # in meters
-      }).sort_by! {|result| result[:cost_time]}
-      .reverse!
-      .map.with_index{|ele, idx| ele[:cost_score] = idx + 1}
-      @cost_result.reverse!
-
-      @place_explore.map.with_index {|ele, idx| ele[:index] = idx + 1}
-    end # end of range permutation loop
-
-
-
-    # @tdm_result_json_flat = @tdm_result_json["many_to_many"].flatten(1)
-    # @cost_result = Array.new
-    # @range_permutations.each do |route_order|
-    #   #for each order of routes
-    #   time_acc = 0
-    #   distance_acc = 0.0
-    #
-    #   [*0..route_order.length-2].each do |index|
-    #     index_from = route_order[index] #from this point
-    #     index_to = route_order[index + 1] #to the next point
-    #     # @cost_result.push([index_from, index_to])
-    #
-    #     # pick out such from-to route
-    #     route_tdm_result = @tdm_result_json_flat.select do |tdm|
-    #       tdm["from_index"] == index_from && tdm["to_index"] == index_to
-    #     end #end of select
-    #
-    #     # @cost_result.push(route_tdm_result)
-    #
-    #     time_acc += route_tdm_result[0]['time']
-    #     distance_acc += route_tdm_result[0]["distance"]
-    #   end # end of this ordered route
-    #
-    #   @cost_result.push({
-    #     :ordered_route_index => route_order,
-    #     :cost_time => time_acc,
-    #     :cost_dist => distance_acc
-    #   })
-    #
-    #   @cost_result.sort_by! {|result| result[:cost_time]}
-    #
-    #   @cost_result.each_index {|i| @cost_result[i]["cost_score"] = @cost_result.length - i}
-    #
-    #   @place_explore.each_index {|i| @place_explore[i]['index'] = i + 1}
-    #
-    # end # end of range permutation loop
-
-    # @range_permutations_with_index = Array.new
-    # @range_permutations.each_index {|i| @range_permutations_with_index.push({:index => i+1, :order => @range_permutations[i]})}
-    #
-    # tbt_base_uri = "https://valhalla.mapzen.com/route?"
-    # @stop_locations = Array.new
-    # @tbt_result = Array.new
-    #
-    # @range_permutations_with_index.each do |permutation|
-    #   locations = Array.new
-    #   number_of_all_places = permutation[:order].length
-    #   permutation[:order].each do |i|
-    #     if(i != 0 && i != (number_of_all_places - 1)) then
-    #       locations.push(@place_explore.select {|place| place["index"] == i}[0]["location"]) # THIS LINE SEEMS A LITTLE BIT PROBLEMATIC
-    #     end # end of if
-    #   end # end of order loop
-    #   locations = [@start_end[0]] + locations + [@start_end[1]]
-    #   @stop_locations.push({
-    #     :order => permutation[:order],
-    #     :permutation_index => permutation[:index],
-    #     :locations => locations
-    #   })
-    #
-    #
-    #   tbt_uri = tbt_base_uri + 'json={"locations":' + JSON.generate(locations) + ',"costing":"pedestrian", "directions_options":{"units": "miles"}, "id": ' + permutation[:index].to_s + '}&api_key=' + mapzen_key
-    #   open(tbt_uri) do |f|
-    #     @tbt_result.push(JSON.parse(f.read))
-    #   end
-    #
-    #   sleep(0.5)
-    #
-    # end
-    #
-    # api_key = ENV['GOOGLE_MAPS_WEB_SERVICES_KEY_UE']
-    # @place_explore.each do |each_place|
-    #
-    #   if each_place["photo_reference"] then
-    #     photo_ref = each_place["photo_reference"]
-    #     photo_height = each_place["photo_height"]
-    #     google_photo_search_uri = "https://maps.googleapis.com/maps/api/place/photo?key=" + api_key + "&photoreference=" + photo_ref + "&maxheight=" + photo_height.to_s
-    #
-    #     open(google_photo_search_uri) do |f|
-    #       each_place["photo_base64"] = "data:image/jpeg;base64," + Base64.encode64(f.read)
-    #     end # end of photo search open uri
-    #
-    #   else
-    #
-    #     each_place["photo_base64"] = '0'
-    #
-    #   end # end of if there is photo reference
-    #
-    # end # end of places loop
-    #
-    # js :costResult => @cost_result, :places => @place_explore, :startEnd => @start_end, :routeOrders => @range_permutations_with_index, :tbtResult => @tbt_result
+    js :costResult => @cost_result, :places => @place_explore, :startEnd => @start_end, :routeOrders => @range_permutations_with_index, :tbtResult => @tbt_result
   end # end of explore action
 
 
@@ -510,4 +383,67 @@ class TripsController < InheritedResources::Base
     def trip_params
       params.require(:trip).permit(:user_email, :places, :start_end, :visit_order, :cost_time, :cost_dist, :cost_score, :green_score)
     end
+
+    def get_tdm(start_end, place_locations, range_permutations)
+      cost_result = Array.new
+      # in the form of: 41.43206,-81.38992|-33.86748,151.20699....
+      start_place_end_locations = (
+        [start_end.first] + place_locations + [start_end.last]
+      ).map {|place|
+        place['lat'].to_s + ',' + place['lon'].to_s
+      }.join('|')
+
+      # the http request uri for td matrix using google maps service
+      tdm_base_uri = 'https://maps.googleapis.com/maps/api/distancematrix/json?'
+      tdm_uri = tdm_base_uri +
+        'origins=' + start_place_end_locations +
+        '&destinations=' + start_place_end_locations +
+        '&mode=walking' +
+        '&units=imperial' +
+        '&key=' + ENV['GOOGLE_MAPS_WEB_SERVICES_KEY_UE']
+
+      open(tdm_uri) do |f|
+        tdm_result_json = JSON.parse(f.read)
+        range_permutations.each do |route_order|
+          time_acc = 0.0
+          distance_acc = 0.0
+
+          place_idx = route_order.slice(1..route_order.length-2).map {|i| [i] * 2}.flatten
+          row_col = ([route_order[0]] + place_idx + [route_order[route_order.length - 1]]).each_slice(2).to_a
+
+          row_col.each do |pair|
+            td = tdm_result_json['rows'][pair[0]]['elements'][pair[1]]
+            time_acc += td['duration']['value']
+            distance_acc += td['distance']['value']
+          end # end of this ordered route
+
+          cost_result.push({
+            :ordered_route_index => route_order,
+            :cost_time => time_acc, # in seconds
+            :cost_dist => distance_acc # in meters
+          }).sort_by! {|result| result[:cost_time]}
+          .reverse!
+          .map.with_index {|ele, idx| ele[:cost_score] = idx + 1}
+        end # end of range permutation loop
+      end
+
+      cost_result.reverse!
+    end
+
+    def get_tbt(start_end, range_permutations, place_locations)
+      range_permutations.map do |order|
+        open(
+          'https://maps.googleapis.com/maps/api/directions/json?' +
+          'origin=' + start_end[0]['lat'].to_s + ',' + start_end[0]['lon'].to_s +
+          '&destination=' + start_end[1]['lat'].to_s + ',' + start_end[1]['lon'].to_s +
+          '&waypoints=' + order.slice(1...-1).map {|idx| place_locations[idx - 1]['lat'].to_s + ','+place_locations[idx - 1]['lon'].to_s}.join('|') +
+          '&mode=walking' +
+          '&units=imperial' +
+          '&key=' + ENV['GOOGLE_MAPS_WEB_SERVICES_KEY_UE']
+        ) do |f|
+          JSON.parse(f.read)
+        end
+      end
+    end
+
 end
