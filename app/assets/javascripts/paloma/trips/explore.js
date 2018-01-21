@@ -250,10 +250,8 @@ Paloma.controller('Trips', {
       }
     })
 
-    // var tempPoints =
     mapExplore.fitBounds(L.polyline(_.map(startEnd, function(point){return _.values(point)})).getBounds())
 
-    // console.log("temp points", tempPoints)
 
     var layerPlaceMarkers = [];
     _.each(places, function(eachPlace){
@@ -339,8 +337,6 @@ Paloma.controller('Trips', {
 
       routeScore = _.sortBy(routeScore, function(thisScore){ return -thisScore.cost_tree_score; });
 
-    //   console.log(routeScore)
-
       _.each(routeScore, function(route, routeIndex){
         //first generate the html for the route collapse, the time and tree rank, and the first place name
         var routeHtml = "<div>"
@@ -368,7 +364,7 @@ Paloma.controller('Trips', {
                       +           "<td colspan='2'id='start-name'>" + startName + "</td>"
                       +         "</tr>"
 
-        // match the turb by turn result by the route id, find that turn by turn result
+        // match the turn by turn result by the route id, find that turn by turn result
         // this result contains time and distance which are info needed for the trip leg display
         var routeTbt = _.chain(tbtResult)
                         .filter(function(tbt){
