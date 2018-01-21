@@ -127,12 +127,6 @@ Paloma.controller('Trips', {
 
     var treeCounts = "https://raw.githubusercontent.com/aaronxsu/MyData/master/tree_count_points.geojson";
 
-    // console.log("All places: ", places)
-    // console.log("Start and end: ", startEnd)
-    // console.log("Route orders: ", routeOrders)
-    // console.log("Cost result: ", costResult)
-    // console.log("Turn by Turn Result: ", tbtResult)
-
     // the HTML for the sidebar top summary card
     var summaryCardHtml = "<div class='card' id='card-summary'>"
                         +   "<div class='view overlay hm-white-slight'>"
