@@ -296,9 +296,7 @@ class TripsController < InheritedResources::Base
               @location_longitude = nil
             end
           end
-
-
-
+          
           this_type_of_places.push({
             :place_id => each_place['place_id'],
             :name => each_place['name'],
@@ -337,19 +335,21 @@ class TripsController < InheritedResources::Base
     # an array of two hashes: the first being the start and the second being the end -> [{lat: , lng: }, {lat: , lng: }]
     @start_end = JSON.parse(params[:start_end])
 
+    @start_end_ad = getStartEndAddress(@start_end)
+
     # an array of hashes: all the places to go through
     # each place has: place ID from Google, marker ID from leaflet, location in the form of [lat, lng], place name, place address
     @place_explore = JSON.parse(params[:place_explore]).each.with_index {|ele, idx| ele[:index] = idx + 1}
 
     place_locations = @place_explore.map {|place| place['location']}
 
-    @range_permutations = [*1..place_locations.length].permutation.to_a.map {|thisIndex| [0] + thisIndex + [place_locations.length + 1]}
+    range_permutations = [*1..place_locations.length].permutation.to_a.map {|thisIndex| [0] + thisIndex + [place_locations.length + 1]}
 
-    @cost_result = get_tdm(@start_end, place_locations, @range_permutations)
+    @cost_result = get_tdm(@start_end, place_locations, range_permutations)
 
-    @range_permutations_with_index = @range_permutations.map.with_index {|ele, idx| {:index => idx + 1, :order => ele}}
+    @range_permutations_with_index = range_permutations.map.with_index {|ele, idx| {:index => idx + 1, :order => ele}}
 
-    @tbt_result = get_tbt(@start_end, @range_permutations, place_locations)
+    @tbt_result = get_tbt(@start_end, @range_permutations_with_index, place_locations)
 
     @place_explore.each do |each_place|
       if each_place["photo_reference"] then
@@ -364,7 +364,8 @@ class TripsController < InheritedResources::Base
       end # end of if there is photo reference
     end # end of places loop
 
-    js :costResult => @cost_result, :places => @place_explore, :startEnd => @start_end, :routeOrders => @range_permutations_with_index, :tbtResult => @tbt_result
+    js :costResult => @cost_result, :places => @place_explore, :startEnd => @start_end, :startEndAd => @start_end_ad,
+       :routeOrders => @range_permutations_with_index, :tbtResult => @tbt_result
   end # end of explore action
 
 
@@ -436,14 +437,25 @@ class TripsController < InheritedResources::Base
           'https://maps.googleapis.com/maps/api/directions/json?' +
           'origin=' + start_end[0]['lat'].to_s + ',' + start_end[0]['lon'].to_s +
           '&destination=' + start_end[1]['lat'].to_s + ',' + start_end[1]['lon'].to_s +
-          '&waypoints=' + order.slice(1...-1).map {|idx| place_locations[idx - 1]['lat'].to_s + ','+place_locations[idx - 1]['lon'].to_s}.join('|') +
+          '&waypoints=' + order[:order].slice(1...-1).map {|idx| place_locations[idx - 1]['lat'].to_s + ','+place_locations[idx - 1]['lon'].to_s}.join('|') +
           '&mode=walking' +
           '&units=imperial' +
           '&key=' + ENV['GOOGLE_MAPS_WEB_SERVICES_KEY_UE']
         ) do |f|
-          JSON.parse(f.read)
+          res = JSON.parse(f.read)
+          res[:id] = order[:index]
+          res
         end
       end
+    end
+
+    def getStartEndAddress(start_end)
+      start_end.map do |point|
+        open('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + point['lat'].to_s + ',' + point['lon'].to_s + '&key=' + ENV['GOOGLE_MAPS_WEB_SERVICES_KEY_UE']) do |f|
+          JSON.parse(f.read)['results'][0]['formatted_address']
+        end
+      end
+
     end
 
 end
