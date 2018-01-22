@@ -6,56 +6,34 @@ $(document).on('page:restore', function(){
   Paloma.start();
 });
 
-// This is adapted from the implementation in Project-OSRM
-// https://github.com/DennisOSRM/Project-OSRM-Web/blob/master/WebContent/routing/OSRM.RoutingGeometry.js
-var decode = function(str, precision) {
-    var index = 0,
-        lat = 0,
-        lng = 0,
-        coordinates = [],
-        shift = 0,
-        result = 0,
-        byte = null,
-        latitude_change,
-        longitude_change,
-        factor = Math.pow(10, precision || 6);
+// source: http://doublespringlabs.blogspot.com.br/2012/11/decoding-polylines-from-google-maps.html
+function decode(encoded){
+  var points=[ ]
+  var index = 0, len = encoded.length;
+  var lat = 0, lng = 0;
+  while (index < len) {
+    var b, shift = 0, result = 0;
+    do {
+      b = encoded.charAt(index++).charCodeAt(0) - 63;
+      result |= (b & 0x1f) << shift;
+      shift += 5;
+    } while (b >= 0x20);
 
-    // Coordinates have variable length when encoded, so just keep
-    // track of whether we've hit the end of the string. In each
-    // loop iteration, a single coordinate is decoded.
-    while (index < str.length) {
-
-        // Reset shift, result, and byte
-        byte = null;
-        shift = 0;
-        result = 0;
-
-        do {
-            byte = str.charCodeAt(index++) - 63;
-            result |= (byte & 0x1f) << shift;
-            shift += 5;
-        } while (byte >= 0x20);
-
-        latitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
-
-        shift = result = 0;
-
-        do {
-            byte = str.charCodeAt(index++) - 63;
-            result |= (byte & 0x1f) << shift;
-            shift += 5;
-        } while (byte >= 0x20);
-
-        longitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
-
-        lat += latitude_change;
-        lng += longitude_change;
-
-        coordinates.push([lat / factor, lng / factor]);
-    }
-
-    return coordinates;
-};
+    var dlat = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
+    lat += dlat;
+    shift = 0;
+    result = 0;
+    do {
+      b = encoded.charAt(index++).charCodeAt(0) - 63;
+      result |= (b & 0x1f) << shift;
+      shift += 5;
+    } while (b >= 0x20);
+    var dlng = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
+    lng += dlng;
+    points.push([lat / 1E5, lng / 1E5]);
+  }
+  return points
+}
 
 // these are the weather icon fonts, the index of each element is the code mapped to yahoo weather code
 var weatherIcons = ['&#xf056;', '&#xf01d;', '&#xf073;', '&#xf01e;', '&#xf01e;', '&#xf017;', '&#xf0b5;', '&#xf0b5;', '&#xf04e;', '&#xf04e;', '&#xf019;', '&#xf01a', '&#xf01a;', '&#xf01b;', '&#xf01b;', '&#xf064;', '&#xf01b;', '&#xf015;', '&#xf0b5;', '&#xf063;', '&#xf014;', '&#xf0b6', '&#xf062;', '&#xf050;', '&#xf021;', '&#xf076;', '&#xf013;', '&#xf086;', '&#xf002;', '&#xf083;', '&#xf00c;', '&#xf02e;', '&#xf00d;', '&#xf02e;', '&#xf00d;', '&#xf015;', '&#xf072;', '&#xf01e;', '&#xf01e;', '&#xf01e;', '&#xf01a;', '&#xf01b;', '&#xf01b;', '&#xf01b;', '&#xf013;', '&#xf01e;', '&#xf01b;', '&#xf01d;', '&#xf075'];
@@ -106,8 +84,6 @@ Paloma.controller('Trips', {
 
     var trip = this.params.trip;
     var tbtResult = this.params.tbt_result;
-    // console.log(trip);
-    // console.log(tbtResult)
 
     var mapShow = L.map('map-show', {
       center: [39.952, -75.1652],
@@ -178,7 +154,6 @@ Paloma.controller('Trips', {
       woeid: '',
       unit: 'f',
       success: function(weather) {
-        // console.log(weather)
         $("#temperature").text(weather.temp+'°'+weather.units.temp)
         var weatherIcon;
         _.each(weatherIcons, function(icon, index){
@@ -252,7 +227,6 @@ Paloma.controller('Trips', {
       })
     });
 
-
     var routeHtml =     "<div class='card card-block route'>"
                   +       "<div class='div-route-rank'>"
                   +         "<table class='tbl-route-rank'>"
@@ -272,18 +246,14 @@ Paloma.controller('Trips', {
                   +           "<td colspan='2'id='start-name'>" + startName + "</td>"
                   +         "</tr>"
 
-    var legPoints = [];
-    _.each(tbtResult.trip.legs, function(eachLeg, i){
-
-      legPoints.push(decode(eachLeg.shape));
-
-      var time = math.round(eachLeg.summary.time / 60 , 2);
-      var dist = math.round(eachLeg.summary.length    , 2);
+    var legPoints = _.map(tbtResult[0].routes[0].legs, function(eachLeg, i){
+      var time = math.round(eachLeg.duration.value / 60 , 2);
+      var dist = math.round(eachLeg.distance.value * 0.000621371, 2);
       var placeId = '';
       var placePhotoHtml = '';
       var placeName = ''
 
-      if(i != tbtResult.trip.legs.length - 1){
+      if(i != tbtResult[0].routes[0].legs.length - 1){
         placeId = trip.places_ordered[i].id;
         placeName = trip.places_ordered[i].name;
         placePhotoHtml +=   "<tr>"
@@ -308,14 +278,15 @@ Paloma.controller('Trips', {
                  +        "<tr>"
                  +          "<td colspan='2' id='" + placeId + "-name'>" + placeName + "</td>"
                  +        "</tr>"
+      return _.chain(eachLeg.steps).map(function(step) {
+        return decode(step.polyline.points);
+      }).flatten(true).value();
     });
 
     routeHtml +=          "</table>"
                +        "</div>"
                +    "</div>";
     $('#map-sidebar').append(routeHtml);
-    // console.log(legPoints)
-
     var layerLegs = [];
     _.each(legPoints, function(eachPointSet, i){
       var legPolyline = L.polyline(eachPointSet, {
@@ -328,11 +299,7 @@ Paloma.controller('Trips', {
       });
     });
 
-    // console.log(layerLegs)
-
     mapShow.fitBounds(L.polyline(_.flatten(legPoints, true)).getBounds());
-
-
 
     $("#map-sidebar")
 //--------------------------------------------------------
@@ -434,8 +401,5 @@ Paloma.controller('Trips', {
       })[0]
       hoveredPolyline.polyline.setStyle({weight: 2, color: '#ffffff'}).bringToBack();
     })
-
-
-
   }
 })

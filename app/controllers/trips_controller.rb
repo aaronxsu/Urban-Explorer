@@ -135,7 +135,7 @@ class TripsController < InheritedResources::Base
     # Put the places into the vist order
     #
     #----------------------------------------------------
-    #turn the stirng of place orders to an array
+    #turn the string of place orders to an array
     @trip_hash[:visit_order_array] = @trip_hash[:visit_order].split(//)
     #put the places into the vist order
     @trip_hash[:places_ordered] = @trip_hash[:visit_order_array].map {|order_index| @trip_hash[:places].select { |place| place['index'].to_s === order_index }}.flatten
@@ -144,17 +144,8 @@ class TripsController < InheritedResources::Base
     # Get the turn by turn result
     #
     #----------------------------------------------------
-    mapzen_key = ENV['MAPZEN_KEY_UE']
-    @trip_places = @trip_hash[:places_ordered].map {|place| place.values_at("geo")}.flatten
-    @tbt_json = {
-      :locations => [@trip_hash[:start_end][0]] + @trip_places + [@trip_hash[:start_end][1]],
-      :costing => "pedestrian",
-      :directions_options => {:units => "miles"}
-    }
-    @tbt_result = Hash.new
-    open("https://valhalla.mapzen.com/route?json=" + JSON.generate(@tbt_json) + "&api_key=" + mapzen_key) do |f|
-      @tbt_result = JSON.parse(f.read)
-    end
+    trip_places = @trip_hash[:places_ordered].map {|place| place.values_at("geo")}.flatten.map{|place| place['lat'].to_s + ',' + place['lon'].to_s}.join('|')
+    @tbt_result = get_tbt(@trip_hash[:start_end], Array.new, trip_places)
     #----------------------------------------------------
     #
     # Get the photos of these places
@@ -189,8 +180,6 @@ class TripsController < InheritedResources::Base
       end #end of calling  the place detail API
 
     end #end of @trip_hash[:places_ordered] loop
-
-
 
     js :trip => @trip_hash, :tbt_result => @tbt_result
   end
@@ -296,7 +285,7 @@ class TripsController < InheritedResources::Base
               @location_longitude = nil
             end
           end
-          
+
           this_type_of_places.push({
             :place_id => each_place['place_id'],
             :name => each_place['name'],
@@ -432,22 +421,33 @@ class TripsController < InheritedResources::Base
     end
 
     def get_tbt(start_end, range_permutations, place_locations)
-      range_permutations.map do |order|
-        open(
-          'https://maps.googleapis.com/maps/api/directions/json?' +
-          'origin=' + start_end[0]['lat'].to_s + ',' + start_end[0]['lon'].to_s +
-          '&destination=' + start_end[1]['lat'].to_s + ',' + start_end[1]['lon'].to_s +
-          '&waypoints=' + order[:order].slice(1...-1).map {|idx| place_locations[idx - 1]['lat'].to_s + ','+place_locations[idx - 1]['lon'].to_s}.join('|') +
-          '&mode=walking' +
-          '&units=imperial' +
-          '&key=' + ENV['GOOGLE_MAPS_WEB_SERVICES_KEY_UE']
-        ) do |f|
-          res = JSON.parse(f.read)
-          res[:id] = order[:index]
-          res
+      result = Array.new
+      uri = 'https://maps.googleapis.com/maps/api/directions/json?' +
+            'origin=' + start_end[0]['lat'].to_s + ',' + start_end[0]['lon'].to_s +
+            '&destination=' + start_end[1]['lat'].to_s + ',' + start_end[1]['lon'].to_s +
+            '&mode=walking' +
+            '&units=imperial' +
+            '&key=' + ENV['GOOGLE_MAPS_WEB_SERVICES_KEY_UE']
+      if range_permutations.length
+        range_permutations.map do |order|
+          open(
+            uri +
+            '&waypoints=' + order[:order].slice(1...-1).map {|idx| place_locations[idx - 1]['lat'].to_s + ','+place_locations[idx - 1]['lon'].to_s}.join('|')
+          ) do |f|
+            res = JSON.parse(f.read)
+            res[:id] = order[:index]
+            result.push(res)
+          end # end of open uri
+        end # end of loop
+      end #end of if
+
+      if range_permutations.length == 0
+        open(uri + '&waypoints=' + place_locations) do |f|
+          result.push(JSON.parse(f.read))
         end
-      end
-    end
+      end # end of if else
+      result
+    end # end of function
 
     def getStartEndAddress(start_end)
       start_end.map do |point|
