@@ -106,8 +106,6 @@ Paloma.controller('Trips', {
 
     var trip = this.params.trip;
     var tbtResult = this.params.tbt_result;
-    // console.log(trip);
-    // console.log(tbtResult)
 
     var mapShow = L.map('map-show', {
       center: [39.952, -75.1652],
@@ -178,7 +176,6 @@ Paloma.controller('Trips', {
       woeid: '',
       unit: 'f',
       success: function(weather) {
-        // console.log(weather)
         $("#temperature").text(weather.temp+'°'+weather.units.temp)
         var weatherIcon;
         _.each(weatherIcons, function(icon, index){
@@ -252,7 +249,6 @@ Paloma.controller('Trips', {
       })
     });
 
-
     var routeHtml =     "<div class='card card-block route'>"
                   +       "<div class='div-route-rank'>"
                   +         "<table class='tbl-route-rank'>"
@@ -314,7 +310,6 @@ Paloma.controller('Trips', {
                +        "</div>"
                +    "</div>";
     $('#map-sidebar').append(routeHtml);
-    // console.log(legPoints)
 
     var layerLegs = [];
     _.each(legPoints, function(eachPointSet, i){
@@ -328,11 +323,7 @@ Paloma.controller('Trips', {
       });
     });
 
-    // console.log(layerLegs)
-
     mapShow.fitBounds(L.polyline(_.flatten(legPoints, true)).getBounds());
-
-
 
     $("#map-sidebar")
 //--------------------------------------------------------
@@ -434,8 +425,5 @@ Paloma.controller('Trips', {
       })[0]
       hoveredPolyline.polyline.setStyle({weight: 2, color: '#ffffff'}).bringToBack();
     })
-
-
-
   }
 })
