@@ -558,7 +558,6 @@ Paloma.controller('Trips', {
 
       //time and distance cost
       var routeToSave = _.filter(tbtResult, function(tbt){return tbt.id.toString() === routeIndexString.toString()})[0];
-      console.log(routeToSave);
       $('#trip_cost_time').val(math.round(routeToSave.routes[0].legs.reduce(function(acc, ele){
         return acc + ele.duration.value
       }, 0) / 60, 2));
